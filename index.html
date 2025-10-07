@@ -1,11 +1,264 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>class_03</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Programming Lab - Class Documentation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .header h2 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.8;
+        }
+        .class-info {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 25px 30px;
+            margin: 0;
+            border-left: none;
+        }
+        .class-info h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        .class-info p {
+            font-size: 1.1em;
+            margin: 8px 0;
+        }
+        .topic-section {
+            background-color: white;
+            padding: 30px;
+            margin: 0;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        .topic-section:last-child {
+            border-bottom: none;
+        }
+        .completed {
+            background: linear-gradient(135deg, #d5f4e6 0%, #e8f5e8 100%);
+            border-left: 8px solid #27ae60;
+        }
+        .topic-header {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            font-size: 2.2em;
+            font-weight: bold;
+        }
+        h3 {
+            color: #34495e;
+            font-size: 1.5em;
+            margin: 25px 0 15px 0;
+            border-left: 4px solid #e74c3c;
+            padding-left: 15px;
+        }
+        h4 {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+        }
+        ul, ol {
+            font-size: 1.1em;
+            line-height: 1.8;
+            padding-left: 25px;
+        }
+        li {
+            margin: 8px 0;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+            font-size: 1.1em;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            border: 1px solid #bdc3c7;
+            padding: 15px 12px;
+            text-align: center;
+            vertical-align: middle;
+        }
+        th {
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+            color: white;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        td {
+            background-color: #f8f9fa;
+        }
+        tr:hover td {
+            background-color: #e8f4fd;
+            transition: background-color 0.3s ease;
+        }
+        .status-completed {
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        pre {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: #ecf0f1;
+            padding: 25px;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border-left: 5px solid #3498db;
+        }
+        code {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .light-code {
+            background: #f8f9fa;
+            color: #2c3e50;
+            border: 2px solid #e9ecef;
+        }
+        .light-code code {
+            color: #2c3e50;
+        }
+        p {
+            font-size: 1.1em;
+            line-height: 1.7;
+            color: #34495e;
+        }
+        strong {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <div class="header">
+            <h1>Web Programming Lab</h1>
+            <h2>Class Documentation - October 7, 2025</h2>
+            <p>Student: Majharul Islam | ID: 232002256 | Department: CSE</p>
+        </div>
 
-<h2>Unordered HTML List</h2>
+    <div class="class-info">
+        <h3>📚 Today's Class Summary</h3>
+        <p><strong>Date:</strong> October 7, 2025</p>
+        <p><strong>Topics Covered:</strong> HTML Lists, Tables, and Class Routine Creation</p>
+        <p><strong>Status:</strong> <span class="status-completed">✅ All Topics Completed Successfully</span></p>
+    </div>
+
+    <div class="topic-section completed">
+        <h2 class="topic-header">✅ Completed Topics</h2>
+        
+        <h3>1. HTML Lists Implementation</h3>
+        <ul>
+            <li>✅ Unordered Lists with different bullet types</li>
+            <li>✅ Ordered Lists with custom numbering</li>
+            <li>✅ Description Lists</li>
+            <li>✅ Nested Lists</li>
+        </ul>
+
+        <h3>2. HTML Tables Implementation</h3>
+        <ul>
+            <li>✅ Basic table structure with borders and styling</li>
+            <li>✅ Table captions and headers</li>
+            <li>✅ Colspan and rowspan attributes</li>
+            <li>✅ Cell padding and spacing</li>
+        </ul>
+
+        <h3>3. Class Routine Project</h3>
+        <ul>
+            <li>✅ Created complete class routine table</li>
+            <li>✅ Added proper HTML5 structure</li>
+            <li>✅ Implemented responsive design</li>
+            <li>✅ Added professional styling and layout</li>
+        </ul>
+
+        <h3>4. Class Test 02 - Table Creation</h3>
+        <ul>
+            <li>✅ Designed Teacher's class routine table</li>
+            <li>✅ Implemented complex table structure with rowspan/colspan</li>
+            <li>✅ Added proper time slots (08:30-10:00 to 04:30-06:00)</li>
+            <li>✅ Included course codes (CSE 300, CSE 201, CSE 301, CSE 312, CSE 311)</li>
+            <li>✅ Added room assignments (B-1005, B-411, D-702, B-802)</li>
+            <li>✅ Integrated counseling hours and committee meetings</li>
+            <li>✅ Applied professional CSS styling matching academic standards</li>
+        </ul>
+    </div>
+
+    <div class="topic-section">
+        <h2 class="topic-header">🎯 Learning Outcomes</h2>
+        <table>
+            <tr>
+                <th>Topic</th>
+                <th>Skills Learned</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>HTML Lists</td>
+                <td>Creating structured content with ul, ol, dl tags</td>
+                <td class="status-completed">Completed</td>
+            </tr>
+            <tr>
+                <td>HTML Tables</td>
+                <td>Table creation, styling, and advanced attributes</td>
+                <td class="status-completed">Completed</td>
+            </tr>
+            <tr>
+                <td>CSS Styling</td>
+                <td>Responsive design and professional layouts</td>
+                <td class="status-completed">Completed</td>
+            </tr>
+            <tr>
+                <td>Git Version Control</td>
+                <td>Adding, committing, and pushing code to repository</td>
+                <td class="status-completed">Completed</td>
+            </tr>
+            <tr>
+                <td>Class Test 02</td>
+                <td>Advanced table creation with complex layouts</td>
+                <td class="status-completed">Completed</td>
+            </tr>
+        </table>
+    </div>
+
+<div class="topic-section">
+    <h2 class="topic-header">📝 Code Examples from Today's Class</h2>
+
+<h3>Unordered HTML List</h3>
 <ul type="square">
   <li>Square</li>
   <li>Circle</li>
@@ -44,15 +297,15 @@
   <li>Tea</li>
   <li>Milk</li>
 </ol>
-<h2><Table border="1px" height="100px" width="500px"
-    cellspacing="10px" cellpadding="10px">
-    <caption style="color:blue">Student Information</caption>
+<h3>HTML Tables with Advanced Features</h3>
+<table border="1" style="margin: 20px 0;">
+    <caption style="color:blue; font-weight: bold;">Student Information</caption>
     <tr>
-        <th> ID </th>
-        <th>Name </th> 
-        <th> Dept.</th>
+        <th>ID</th>
+        <th>Name</th> 
+        <th>Dept.</th>
     </tr>
-    <tr width="100px">
+    <tr>
         <td>232002256</td>
         <td>Majharul Islam</td> 
         <td>CSE</td>
@@ -61,48 +314,287 @@
         <td>232002257</td> 
         <td>Mr. X</td>
         <td>CSE</td> 
-    
     </tr>
-</Table></h2>
-<caption>Student Information</caption>
+</table>
+
+<h3>Advanced Table with Colspan and Rowspan</h3>
+<table border="1" style="margin: 20px 0;">
     <tr>
-        <th> ID </th>
-        <th>Name </th> 
-        <th> Dept.</th>
-    </tr>
-    <tr width="100px">
-        <td>232002256</td>
-        <td>Majharul Islam</td> 
-        <td>CSE</td>
+        <th colspan="4">CSE Department</th>
     </tr>
     <tr>
-        <td>232002257</td> 
-        <td>Mr. X</td>
-        <td>CSE</td> 
-    
-    </tr>
-    <h2><Table border="1px" height="100px" width="500px" cellspacing="5">
-    <tr>
-        <th colspan="4"> CSE Department </th>
+        <th rowspan="2">Student ID</th>
+        <th rowspan="2">Name</th> 
+        <th colspan="2">Program</th>
     </tr>
     <tr>
-        <th rowspan="2"> Student </th>
-        <th rowspan="2"> Name</th> 
-        <th colspan="2"> Program </th>
-        
+        <th>Day</th>
+        <th>Evening</th>
     </tr>
     <tr>
-        <td> Day </td>
-        <td> EVE </td>
-    </tr>
-    <tr width="100px">
         <td>232002256</td>
         <td>Majharul Islam</td> 
         <td>Yes</td>
         <td>No</td>
     </tr>
-    <tr width="100p
-    
+</table>
 
+</div>
+
+<div class="topic-section">
+    <h2 class="topic-header">🚀 Next Steps</h2>
+    <ul>
+        <li>Practice more complex table layouts</li>
+        <li>Learn CSS Grid and Flexbox</li>
+        <li>Implement responsive web design</li>
+        <li>Work on JavaScript integration</li>
+    </ul>
+</div>
+
+<div class="topic-section">
+    <h2 class="topic-header">📁 Files Created Today</h2>
+    <ul>
+        <li><strong>index.html</strong> - Main documentation and examples</li>
+        <li><strong>class_Test_02.html</strong> - ⭐ Class Test: Teacher's routine table with advanced HTML table features</li>
+        <li><strong>lab_task.html</strong> - Lab task implementations</li>
+        <li><strong>list.html</strong> - List examples and practice</li>
+    </ul>
+</div>
+
+<div class="topic-section completed">
+    <h2 class="topic-header">🎯 Class Test 02 Details</h2>
+    
+    <h3>Project Overview</h3>
+    <p><strong>Task:</strong> Create a professional class routine table for Teacher Tanpia Tasnim</p>
+    <p><strong>Department:</strong> Computer Science & Engineering, Green University of Bangladesh</p>
+    
+    <h3>Technical Implementation</h3>
+    <table>
+        <tr>
+            <th>Feature</th>
+            <th>Implementation</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>Table Structure</td>
+            <td>7-column layout with time slots and days</td>
+            <td class="status-completed">✅ Completed</td>
+        </tr>
+        <tr>
+            <td>Responsive Design</td>
+            <td>CSS styling with proper spacing and colors</td>
+            <td class="status-completed">✅ Completed</td>
+        </tr>
+        <tr>
+            <td>Course Integration</td>
+            <td>Multiple CSE courses with room assignments</td>
+            <td class="status-completed">✅ Completed</td>
+        </tr>
+        <tr>
+            <td>Advanced Features</td>
+            <td>Colspan/rowspan for merged cells</td>
+            <td class="status-completed">✅ Completed</td>
+        </tr>
+        <tr>
+            <td>Academic Standards</td>
+            <td>Professional formatting matching university requirements</td>
+            <td class="status-completed">✅ Completed</td>
+        </tr>
+    </table>
+
+    <h3>Class Schedule Implemented</h3>
+    <ul>
+        <li><strong>Monday:</strong> CSE 300 (B-1005), Counseling Hour, Various committee meetings</li>
+        <li><strong>Tuesday:</strong> Counseling Hour, Meeting with Thesis Project Students</li>
+        <li><strong>Wednesday:</strong> CSE 201 (B-411), CSE 301 (D-702), Various committee meetings</li>
+        <li><strong>Thursday:</strong> Meeting with Thesis Project Students, Weekly AC Meeting</li>
+        <li><strong>Friday:</strong> CSE 312 (B-802), CSE 311 (B-411), Counseling Time</li>
+    </ul>
+</div>
+
+<div class="topic-section">
+    <h2 class="topic-header">💻 Core Code Examples</h2>
+    
+    <h3>1. HTML Lists - Core Implementation</h3>
+    <h4>Unordered List with Different Types:</h4>
+    <pre class="light-code">
+<code>&lt;h2&gt;Unordered HTML List&lt;/h2&gt;
+&lt;ul type="square"&gt;
+  &lt;li&gt;Square&lt;/li&gt;
+  &lt;li&gt;Circle&lt;/li&gt;
+  &lt;li&gt;Disc&lt;/li&gt;
+  &lt;li&gt;None&lt;/li&gt;
+&lt;/ul&gt;</code>
+    </pre>
+
+    <h4>Ordered List with Custom Numbering:</h4>
+    <pre class="light-code">
+<code>&lt;h2&gt;Ordered HTML List&lt;/h2&gt;
+&lt;ol type="i" start="20"&gt;
+  &lt;li&gt;Coffee&lt;/li&gt;  
+    &lt;ul&gt;
+      &lt;li&gt;Black&lt;/li&gt;
+      &lt;li&gt;With Milk&lt;/li&gt;
+      &lt;li&gt;With Sugar&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;li value="3"&gt;None&lt;/li&gt;
+  &lt;li&gt;Tea&lt;/li&gt;
+  &lt;li&gt;Milk&lt;/li&gt;
+&lt;/ol&gt;</code>
+    </pre>
+
+    <h4>Description List:</h4>
+    <pre class="light-code">
+<code>&lt;h2&gt;Description List&lt;/h2&gt;
+&lt;dl&gt;
+  &lt;dt&gt;Coffee&lt;/dt&gt;
+  &lt;dd&gt;Black hot drink&lt;/dd&gt;
+  &lt;dd&gt;With milk&lt;/dd&gt;
+  &lt;dd&gt;With sugar&lt;/dd&gt;
+  &lt;dt&gt;Tea&lt;/dt&gt;
+  &lt;dd&gt;Hot beverage with leaves&lt;/dd&gt;
+&lt;/dl&gt;</code>
+    </pre>
+
+    <h3>2. HTML Tables - Core Implementation</h3>
+    <h4>Basic Table with Styling:</h4>
+    <pre class="light-code">
+<code>&lt;table border="1" style="border-collapse: collapse; width: 100%;"&gt;
+    &lt;caption style="color:blue; font-weight: bold;"&gt;Student Information&lt;/caption&gt;
+    &lt;tr&gt;
+        &lt;th style="background-color: #f0f0f0; padding: 10px;"&gt;ID&lt;/th&gt;
+        &lt;th style="background-color: #f0f0f0; padding: 10px;"&gt;Name&lt;/th&gt; 
+        &lt;th style="background-color: #f0f0f0; padding: 10px;"&gt;Dept.&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td style="padding: 10px;"&gt;232002256&lt;/td&gt;
+        &lt;td style="padding: 10px;"&gt;Majharul Islam&lt;/td&gt; 
+        &lt;td style="padding: 10px;"&gt;CSE&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code>
+    </pre>
+
+    <h4>Advanced Table with Colspan and Rowspan:</h4>
+    <pre class="light-code">
+<code>&lt;table border="1" style="border-collapse: collapse;"&gt;
+    &lt;tr&gt;
+        &lt;th colspan="4"&gt;CSE Department&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;th rowspan="2"&gt;Student ID&lt;/th&gt;
+        &lt;th rowspan="2"&gt;Name&lt;/th&gt; 
+        &lt;th colspan="2"&gt;Program&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Day&lt;/th&gt;
+        &lt;th&gt;Evening&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;232002256&lt;/td&gt;
+        &lt;td&gt;Majharul Islam&lt;/td&gt; 
+        &lt;td&gt;Yes&lt;/td&gt;
+        &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code>
+    </pre>
+
+    <h3>3. Class Test 02 - Core Class Routine Table Code</h3>
+    <pre class="light-code">
+<code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Class Routine&lt;/title&gt;
+    &lt;style&gt;
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+            border: 2px solid #333;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding: 8px;
+            text-align: center;
+        }
+        .day-cell {
+            background-color: #f5f5f5;
+            font-weight: bold;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Class Routine&lt;/h1&gt;
+    &lt;p&gt;&lt;strong&gt;Teacher Name: Tanpia Tasnim&lt;/strong&gt;&lt;/p&gt;
+    
+    &lt;table&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Time&lt;/th&gt;
+            &lt;th&gt;08:30-10:00&lt;/th&gt;
+            &lt;th&gt;10:00-11:30&lt;/th&gt;
+            &lt;th&gt;11:30-01:00&lt;/th&gt;
+            &lt;th&gt;01:30-03:00&lt;/th&gt;
+            &lt;th&gt;03:00-04:30&lt;/th&gt;
+            &lt;th&gt;04:30-06:00&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td class="day-cell"&gt;Monday&lt;/td&gt;
+            &lt;td&gt;CSE 300&lt;br&gt;B-1005&lt;/td&gt;
+            &lt;td&gt;&lt;/td&gt;
+            &lt;td&gt;Counseling Hour&lt;/td&gt;
+            &lt;td&gt;&lt;/td&gt;
+            &lt;td colspan="2"&gt;Various committee meetings&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code>
+    </pre>
+
+    <h3>4. CSS Styling - Core Implementation</h3>
+    <pre class="light-code">
+<code>&lt;style&gt;
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 20px auto;
+    }
+    th, td {
+        border: 1px solid #333;
+        padding: 10px;
+        text-align: center;
+        vertical-align: middle;
+    }
+    th {
+        background-color: #f0f0f0;
+        font-weight: bold;
+    }
+    .day-cell {
+        background-color: #f5f5f5;
+        font-weight: bold;
+    }
+    .completed {
+        background-color: #d5f4e6;
+        border-left: 5px solid #27ae60;
+    }
+&lt;/style&gt;</code>
+    </pre>
+
+    <h3>5. Git Commands Used Today</h3>
+    <pre style="background-color: #2c3e50; color: #ecf0f1; padding: 15px; border-radius: 5px; overflow-x: auto;">
+<code># Add all files to git tracking
+git add .
+
+# Commit changes with message
+git commit -m "Add initial web programming lab files"
+
+# Push to remote repository
+git push origin main
+
+# Check repository status
+git status</code>
+    </pre>
+</div>
+
+    </div>
 </body>
 </html>
