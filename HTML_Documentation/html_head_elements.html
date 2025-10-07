@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Head Elements - Complete Reference</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .section {
+            padding: 30px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        .section-title {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            font-size: 2.2em;
+            font-weight: bold;
+        }
+        
+        .example {
+            background: #f8f9fa;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+        }
+        
+        .code-block {
+            background: #2d3436;
+            color: #ecf0f1;
+            padding: 25px;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border-left: 5px solid #3498db;
+        }
+        
+        .light-code {
+            background: #f8f9fa;
+            color: #2d3436;
+            border: 2px solid #e9ecef;
+        }
+        
+        code {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .warning {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .navigation {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        
+        .nav-button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-button:hover {
+            transform: translateY(-3px);
+        }
+        
+        h3 {
+            color: #34495e;
+            font-size: 1.5em;
+            margin: 25px 0 15px 0;
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
+        }
+        
+        h4 {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+        }
+        
+        ul, ol {
+            font-size: 1.1em;
+            line-height: 1.8;
+            padding-left: 25px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #636e72 0%, #2d3436 100%);
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .demo-html {
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            background: #ecf0f1;
+        }
+        
+        .head-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .head-card {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .head-card:hover {
+            transform: translateY(-5px);
+            border-color: #3498db;
+        }
+        
+        .head-name {
+            font-weight: bold;
+            color: #3498db;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🧠 HTML Head Elements</h1>
+            <h2>Complete Guide to HTML Document Head Section</h2>
+            <p>Student: Majharul Islam | ID: 232002256 | Date: October 2025</p>
+        </div>
+
+        <!-- Head Overview -->
+        <div class="section">
+            <h2 class="section-title">🧠 HTML Head Section Overview</h2>
+            
+            <div class="highlight">
+                <h3>What is the HTML Head Section?</h3>
+                <p>The HTML head section contains metadata about the document, including title, character encoding, viewport settings, stylesheets, scripts, and other information that is not displayed directly on the page.</p>
+            </div>
+            
+            <div class="example">
+                <h3>Head Section Elements</h3>
+                <table>
+                    <tr>
+                        <th>Element</th>
+                        <th>Purpose</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>&lt;title&gt;</td>
+                        <td>Page Title</td>
+                        <td>Sets the browser tab title</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;meta&gt;</td>
+                        <td>Metadata</td>
+                        <td>Provides document metadata</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;link&gt;</td>
+                        <td>External Resources</td>
+                        <td>Links to external files</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;style&gt;</td>
+                        <td>CSS Styles</td>
+                        <td>Embedded CSS styles</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;script&gt;</td>
+                        <td>JavaScript</td>
+                        <td>Embedded or linked JavaScript</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;base&gt;</td>
+                        <td>Base URL</td>
+                        <td>Sets base URL for relative links</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;noscript&gt;</td>
+                        <td>No Script Fallback</td>
+                        <td>Content for non-JavaScript browsers</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Title Element -->
+        <div class="section">
+            <h2 class="section-title">📝 Title Element</h2>
+            
+            <div class="example">
+                <h3>Basic Title Element</h3>
+                <div class="code-block light-code">
+<code>&lt;title&gt;Web Programming Lab - HTML Documentation&lt;/title&gt;</code>
+                </div>
+                <p>The title element is displayed in the browser tab and is important for SEO and bookmarking.</p>
+            </div>
+            
+            <div class="highlight">
+                <h3>✅ Title Best Practices:</h3>
+                <ul>
+                    <li><strong>Descriptive:</strong> Clearly describe the page content</li>
+                    <li><strong>Unique:</strong> Each page should have a unique title</li>
+                    <li><strong>Length:</strong> Keep between 50-60 characters</li>
+                    <li><strong>Keywords:</strong> Include relevant keywords</li>
+                    <li><strong>Branding:</strong> Include site name if appropriate</li>
+                </ul>
+            </div>
+            
+            <div class="example">
+                <h3>Good Title Examples</h3>
+                <div class="code-block light-code">
+<code>&lt;!-- Homepage --&gt;
+&lt;title&gt;Green University of Bangladesh - CSE Department&lt;/title&gt;
+
+&lt;!-- Course Page --&gt;
+&lt;title&gt;Web Programming Lab - HTML Basics | GUB CSE&lt;/title&gt;
+
+&lt;!-- Article --&gt;
+&lt;title&gt;Complete HTML Reference Guide - Web Development Tutorial&lt;/title&gt;
+
+&lt;!-- Contact Page --&gt;
+&lt;title&gt;Contact Us - Green University CSE Department&lt;/title&gt;</code>
+                </div>
+            </div>
+        </div>
+
+        <!-- Meta Elements -->
+        <div class="section">
+            <h2 class="section-title">🏷️ Meta Elements</h2>
+            
+            <div class="head-grid">
+                <div class="head-card">
+                    <div class="head-name">Character Encoding</div>
+                    <div class="code-block light-code">
+<code>&lt;meta charset="UTF-8"&gt;</code>
+                    </div>
+                    <p><strong>Purpose:</strong> Specifies character encoding</p>
+                    <p><strong>Required:</strong> Should be first meta tag</p>
+                </div>
+                
+                <div class="head-card">
+                    <div class="head-name">Viewport</div>
+                    <div class="code-block light-code">
+<code>&lt;meta name="viewport" 
+      content="width=device-width, initial-scale=1.0"&gt;</code>
+                    </div>
+                    <p><strong>Purpose:</strong> Controls mobile viewport</p>
+                    <p><strong>Required:</strong> For responsive design</p>
+                </div>
+                
+                <div class="head-card">
+                    <div class="head-name">Description</div>
+                    <div class="code-block light-code">
+<code>&lt;meta name="description" 
+      content="Complete HTML documentation for web programming lab"&gt;</code>
+                    </div>
+                    <p><strong>Purpose:</strong> Page description for search engines</p>
+                    <p><strong>SEO:</strong> Important for search rankings</p>
+                </div>
+                
+                <div class="head-card">
+                    <div class="head-name">Keywords</div>
+                    <div class="code-block light-code">
+<code>&lt;meta name="keywords" 
+      content="HTML, CSS, JavaScript, web development, tutorial"&gt;</code>
+                    </div>
+                    <p><strong>Purpose:</strong> Keywords for search engines</p>
+                    <p><strong>Note:</strong> Less important for modern SEO</p>
+                </div>
+                
+                <div class="head-card">
+                    <div class="head-name">Author</div>
+                    <div class="code-block light-code">
+<code>&lt;meta name="author" 
+      content="Majharul Islam"&gt;</code>
+                    </div>
+                    <p><strong>Purpose:</strong> Identifies page author</p>
+                    <p><strong>Use:</strong> For documentation and blogs</p>
+                </div>
+                
+                <div class="head-card">
+                    <div class="head-name">Robots</div>
+                    <div class="code-block light-code">
+<code>&lt;meta name="robots" 
+      content="index, follow"&gt;</code>
+                    </div>
+                    <p><strong>Purpose:</strong> Controls search engine crawling</p>
+                    <p><strong>Options:</strong> index/noindex, follow/nofollow</p>
+                </div>
+            </div>
+            
+            <div class="example">
+                <h3>Additional Meta Tags</h3>
+                <div class="code-block light-code">
+<code>&lt;!-- Open Graph for Social Media --&gt;
+&lt;meta property="og:title" content="HTML Documentation"&gt;
+&lt;meta property="og:description" content="Complete HTML reference guide"&gt;
+&lt;meta property="og:image" content="https://example.com/image.jpg"&gt;
+&lt;meta property="og:url" content="https://example.com/html-docs"&gt;
+&lt;meta property="og:type" content="website"&gt;
+
+&lt;!-- Twitter Cards --&gt;
+&lt;meta name="twitter:card" content="summary_large_image"&gt;
+&lt;meta name="twitter:title" content="HTML Documentation"&gt;
+&lt;meta name="twitter:description" content="Complete HTML reference guide"&gt;
+&lt;meta name="twitter:image" content="https://example.com/image.jpg"&gt;
+
+&lt;!-- Theme Color --&gt;
+&lt;meta name="theme-color" content="#3498db"&gt;
+
+&lt;!-- Refresh --&gt;
+&lt;meta http-equiv="refresh" content="30"&gt;
+
+&lt;!-- Cache Control --&gt;
+&lt;meta http-equiv="cache-control" content="no-cache"&gt;</code>
+                </div>
+            </div>
+        </div>
+
+        <!-- Link Element -->
+        <div class="section">
+            <h2 class="section-title">🔗 Link Element</h2>
+            
+            <div class="head-grid">
+                <div class="head-card">
+                    <div class="head-name">CSS Stylesheet</div>
+                    <div class="code-block light-code">
+<code>&lt;link rel="stylesheet" 
+      href="styles.css"&gt;</code>
+                    </div>
+                    <p><strong>Purpose:</strong> Links external CSS file</p>
+                    <p><strong>Common:</strong> Most used link type</p>
+                </div>
+                
+                <div class="head-card">
+                    <div class="head-name">Favicon</div>
+                    <div class="code-block light-code">
+<code>&lt;link rel="icon" 
+      type="image/x-icon" 
+      href="/favicon.ico"&gt;</code>
+                    </div>
+                    <p><strong>Purpose:</strong> Sets browser tab icon</p>
+                    <p><strong>Formats:</strong> .ico, .png, .svg</p>
+                </div>
+                
+                <div class="head-card">
+                    <div class="head-name">Preconnect</div>
+                    <div class="code-block light-code">
+<code>&lt;link rel="preconnect" 
+      href="https://fonts.googleapis.com"&gt;</code>
+                    </div>
+                    <p><strong>Purpose:</strong> Establishes connection early</p>
+                    <p><strong>Performance:</strong> Improves loading speed</p>
+                </div>
+                
+                <div class="head-card">
+                    <div class="head-name">DNS Prefetch</div>
+                    <div class="code-block light-code">
+<code>&lt;link rel="dns-prefetch" 
+      href="//fonts.googleapis.com"&gt;</code>
+                    </div>
+                    <p><strong>Purpose:</strong> Resolves DNS early</p>
+                    <p><strong>Performance:</strong> Faster external resource loading</p>
+                </div>
+                
+                <div class="head-card">
+                    <div class="head-name">Canonical URL</div>
+                    <div class="code-block light-code">
+<code>&lt;link rel="canonical" 
+      href="https://example.com/page"&gt;</code>
+                    </div>
+                    <p><strong>Purpose:</strong> Prevents duplicate content issues</p>
+                    <p><strong>SEO:</strong> Important for search engines</p>
+                </div>
+                
+                <div class="head-card">
+                    <div class="head-name">Alternate Language</div>
+                    <div class="code-block light-code">
+<code>&lt;link rel="alternate" 
+      hreflang="bn" 
+      href="https://example.com/bn/"&gt;</code>
+                    </div>
+                    <p><strong>Purpose:</strong> Indicates alternative language versions</p>
+                    <p><strong>SEO:</strong> Helps with international SEO</p>
+                </div>
+            </div>
+            
+            <div class="example">
+                <h3>Complete Link Examples</h3>
+                <div class="code-block light-code">
+<code>&lt;!-- CSS Stylesheets --&gt;
+&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;link rel="stylesheet" href="responsive.css" media="(max-width: 768px)"&gt;
+&lt;link rel="stylesheet" href="print.css" media="print"&gt;
+
+&lt;!-- Google Fonts --&gt;
+&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet"&gt;
+
+&lt;!-- Favicons --&gt;
+&lt;link rel="icon" type="image/x-icon" href="/favicon.ico"&gt;
+&lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
+&lt;link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"&gt;
+&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;
+
+&lt;!-- Manifest --&gt;
+&lt;link rel="manifest" href="/site.webmanifest"&gt;</code>
+                </div>
+            </div>
+        </div>
+
+        <!-- Style Element -->
+        <div class="section">
+            <h2 class="section-title">🎨 Style Element</h2>
+            
+            <div class="example">
+                <h3>Embedded CSS Styles</h3>
+                <div class="code-block light-code">
+<code>&lt;style&gt;
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f4;
+    }
+    
+    h1 {
+        color: #333;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+&lt;/style&gt;</code>
+                </div>
+            </div>
+            
+            <div class="example">
+                <h3>Media-Specific Styles</h3>
+                <div class="code-block light-code">
+<code>&lt;style&gt;
+    /* Default styles */
+    .sidebar {
+        width: 300px;
+        float: left;
+    }
+    
+    /* Print styles */
+    @media print {
+        .sidebar {
+            display: none;
+        }
+        
+        body {
+            font-size: 12pt;
+            line-height: 1.4;
+        }
+    }
+    
+    /* Mobile styles */
+    @media (max-width: 768px) {
+        .sidebar {
+            width: 100%;
+            float: none;
+            margin-bottom: 20px;
+        }
+    }
+&lt;/style&gt;</code>
+                </div>
+            </div>
+        </div>
+
+        <!-- Script Element -->
+        <div class="section">
+            <h2 class="section-title">⚡ Script Element</h2>
+            
+            <div class="head-grid">
+                <div class="head-card">
+                    <div class="head-name">External JavaScript</div>
+                    <div class="code-block light-code">
+<code>&lt;script src="script.js"&gt;&lt;/script&gt;</code>
+                    </div>
+                    <p><strong>Purpose:</strong> Links external JavaScript file</p>
+                    <p><strong>Loading:</strong> Blocks HTML parsing by default</p>
+                </div>
+                
+                <div class="head-card">
+                    <div class="head-name">Inline JavaScript</div>
+                    <div class="code-block light-code">
+<code>&lt;script&gt;
+    console.log('Hello World!');
+    document.addEventListener('DOMContentLoaded', function() {
+        // Code here
+    });
+&lt;/script&gt;</code>
+                    </div>
+                    <p><strong>Purpose:</strong> Embeds JavaScript code</p>
+                    <p><strong>Use:</strong> Small scripts or configuration</p>
+                </div>
+                
+                <div class="head-card">
+                    <div class="head-name">Async Loading</div>
+                    <div class="code-block light-code">
+<code>&lt;script src="script.js" 
+        async&gt;&lt;/script&gt;</code>
+                    </div>
+                    <p><strong>Purpose:</strong> Loads script asynchronously</p>
+                    <p><strong>Performance:</strong> Doesn't block HTML parsing</p>
+                </div>
+                
+                <div class="head-card">
+                    <div class="head-name">Defer Loading</div>
+                    <div class="code-block light-code">
+<code>&lt;script src="script.js" 
+        defer&gt;&lt;/script&gt;</code>
+                    </div>
+                    <p><strong>Purpose:</strong> Defers script execution</p>
+                    <p><strong>Execution:</strong> Runs after HTML parsing</p>
+                </div>
+            </div>
+            
+            <div class="example">
+                <h3>Script Loading Strategies</h3>
+                <div class="code-block light-code">
+<code>&lt;!-- Critical JavaScript (inline) --&gt;
+&lt;script&gt;
+    // Critical functionality that must run immediately
+    window.APP_CONFIG = {
+        apiUrl: 'https://api.example.com',
+        version: '1.0.0'
+    };
+&lt;/script&gt;
+
+&lt;!-- Non-critical JavaScript (async) --&gt;
+&lt;script src="analytics.js" async&gt;&lt;/script&gt;
+&lt;script src="chat-widget.js" async&gt;&lt;/script&gt;
+
+&lt;!-- Main application script (defer) --&gt;
+&lt;script src="app.js" defer&gt;&lt;/script&gt;
+
+&lt;!-- Module script --&gt;
+&lt;script type="module" src="main.js"&gt;&lt;/script&gt;</code>
+                </div>
+            </div>
+        </div>
+
+        <!-- Base Element -->
+        <div class="section">
+            <h2 class="section-title">📍 Base Element</h2>
+            
+            <div class="example">
+                <h3>Base URL Configuration</h3>
+                <div class="code-block light-code">
+<code>&lt;base href="https://example.com/docs/"&gt;
+&lt;base target="_blank"&gt;</code>
+                </div>
+                <p>The base element sets the base URL for all relative URLs in the document.</p>
+            </div>
+            
+            <div class="warning">
+                <h3>⚠️ Base Element Considerations:</h3>
+                <ul>
+                    <li><strong>Single Base:</strong> Only one base element per document</li>
+                    <li><strong>Early Placement:</strong> Should be in the head section</li>
+                    <li><strong>Affects All Links:</strong> Applies to all relative URLs</li>
+                    <li><strong>Target Attribute:</strong> Can set default target for all links</li>
+                    <li><strong>Use Carefully:</strong> Can break existing relative links</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Noscript Element -->
+        <div class="section">
+            <h2 class="section-title">🚫 Noscript Element</h2>
+            
+            <div class="example">
+                <h3>Fallback Content</h3>
+                <div class="code-block light-code">
+<code>&lt;noscript&gt;
+    &lt;p&gt;This website requires JavaScript to function properly. 
+       Please enable JavaScript in your browser settings.&lt;/p&gt;
+    &lt;p&gt;Alternatively, you can &lt;a href="/static-version/"&gt;view the static version&lt;/a&gt;.&lt;/p&gt;
+&lt;/noscript&gt;</code>
+                </div>
+            </div>
+            
+            <div class="example">
+                <h3>Alternative CSS</h3>
+                <div class="code-block light-code">
+<code>&lt;style&gt;
+    .dynamic-content {
+        display: block;
+    }
+&lt;/style&gt;
+
+&lt;noscript&gt;
+    &lt;style&gt;
+        .dynamic-content {
+            display: none;
+        }
+        
+        .static-fallback {
+            display: block;
+        }
+    &lt;/style&gt;
+&lt;/noscript&gt;</code>
+                </div>
+            </div>
+        </div>
+
+        <!-- Complete Head Example -->
+        <div class="section">
+            <h2 class="section-title">📋 Complete Head Section Example</h2>
+            
+            <div class="example">
+                <h3>Professional Head Section</h3>
+                <div class="code-block light-code">
+<code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;!-- Character Encoding --&gt;
+    &lt;meta charset="UTF-8"&gt;
+    
+    &lt;!-- Viewport for Responsive Design --&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    
+    &lt;!-- Page Title --&gt;
+    &lt;title&gt;HTML Documentation - Web Programming Lab | Green University&lt;/title&gt;
+    
+    &lt;!-- Meta Description --&gt;
+    &lt;meta name="description" content="Complete HTML documentation for web programming lab students. Learn HTML basics, elements, attributes, and advanced techniques."&gt;
+    
+    &lt;!-- Meta Keywords --&gt;
+    &lt;meta name="keywords" content="HTML, CSS, JavaScript, web development, tutorial, documentation, programming"&gt;
+    
+    &lt;!-- Author Information --&gt;
+    &lt;meta name="author" content="Majharul Islam"&gt;
+    
+    &lt;!-- Robots Directive --&gt;
+    &lt;meta name="robots" content="index, follow"&gt;
+    
+    &lt;!-- Theme Color --&gt;
+    &lt;meta name="theme-color" content="#3498db"&gt;
+    
+    &lt;!-- Open Graph Meta Tags --&gt;
+    &lt;meta property="og:title" content="HTML Documentation - Web Programming Lab"&gt;
+    &lt;meta property="og:description" content="Complete HTML reference guide for students"&gt;
+    &lt;meta property="og:type" content="website"&gt;
+    &lt;meta property="og:url" content="https://example.com/html-docs"&gt;
+    &lt;meta property="og:image" content="https://example.com/og-image.jpg"&gt;
+    
+    &lt;!-- Twitter Card Meta Tags --&gt;
+    &lt;meta name="twitter:card" content="summary_large_image"&gt;
+    &lt;meta name="twitter:title" content="HTML Documentation"&gt;
+    &lt;meta name="twitter:description" content="Complete HTML reference guide"&gt;
+    &lt;meta name="twitter:image" content="https://example.com/twitter-image.jpg"&gt;
+    
+    &lt;!-- Favicons --&gt;
+    &lt;link rel="icon" type="image/x-icon" href="/favicon.ico"&gt;
+    &lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
+    &lt;link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"&gt;
+    &lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;
+    
+    &lt;!-- CSS Stylesheets --&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+    &lt;link rel="stylesheet" href="responsive.css" media="(max-width: 768px)"&gt;
+    
+    &lt;!-- Google Fonts --&gt;
+    &lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+    &lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
+    &lt;link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet"&gt;
+    
+    &lt;!-- Canonical URL --&gt;
+    &lt;link rel="canonical" href="https://example.com/html-docs"&gt;
+    
+    &lt;!-- Critical CSS (inline) --&gt;
+    &lt;style&gt;
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    &lt;/style&gt;
+    
+    &lt;!-- Critical JavaScript (inline) --&gt;
+    &lt;script&gt;
+        // Critical functionality
+        window.APP_CONFIG = {
+            version: '1.0.0',
+            apiUrl: 'https://api.example.com'
+        };
+    &lt;/script&gt;
+    
+    &lt;!-- Non-critical JavaScript (async) --&gt;
+    &lt;script src="analytics.js" async&gt;&lt;/script&gt;
+    
+    &lt;!-- Main application script (defer) --&gt;
+    &lt;script src="app.js" defer&gt;&lt;/script&gt;
+&lt;/head&gt;</code>
+                </div>
+            </div>
+        </div>
+
+        <!-- Best Practices -->
+        <div class="section">
+            <h2 class="section-title">✅ Head Section Best Practices</h2>
+            
+            <div class="highlight">
+                <h3>✅ Good Practices:</h3>
+                <ul>
+                    <li><strong>Character Encoding First:</strong> Place charset meta tag first</li>
+                    <li><strong>Viewport for Mobile:</strong> Always include viewport meta tag</li>
+                    <li><strong>Descriptive Titles:</strong> Write clear, descriptive page titles</li>
+                    <li><strong>Meta Descriptions:</strong> Include compelling meta descriptions</li>
+                    <li><strong>Optimize Loading:</strong> Use preconnect and dns-prefetch for performance</li>
+                    <li><strong>Favicons:</strong> Provide multiple favicon sizes</li>
+                    <li><strong>Social Media:</strong> Include Open Graph and Twitter Card meta tags</li>
+                </ul>
+            </div>
+            
+            <div class="warning">
+                <h3>❌ Common Mistakes:</h3>
+                <ul>
+                    <li><strong>Missing Charset:</strong> Always include UTF-8 charset</li>
+                    <li><strong>No Viewport:</strong> Include viewport meta for mobile</li>
+                    <li><strong>Generic Titles:</strong> Don't use generic titles like "Home"</li>
+                    <li><strong>Missing Descriptions:</strong> Always provide meta descriptions</li>
+                    <li><strong>Too Many Stylesheets:</strong> Minimize number of CSS files</li>
+                    <li><strong>Blocking Scripts:</strong> Use async/defer for non-critical scripts</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <h3>🧭 Navigation</h3>
+            <a href="index.html" class="nav-button">📚 Back to HTML Index</a>
+            <a href="html_basics.html" class="nav-button">🌐 HTML Basics</a>
+            <a href="html_elements.html" class="nav-button">📝 HTML Elements</a>
+            <a href="html_attributes.html" class="nav-button">⚙️ HTML Attributes</a>
+            <a href="../main.html" class="nav-button">🏠 Main Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>

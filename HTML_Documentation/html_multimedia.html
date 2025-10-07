@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Multimedia Elements - Complete Reference</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f1c40f 0%, #f39c12 100%);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .section {
+            padding: 30px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        .section-title {
+            color: #2c3e50;
+            border-bottom: 3px solid #f1c40f;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            font-size: 2.2em;
+            font-weight: bold;
+        }
+        
+        .example {
+            background: #f8f9fa;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+        }
+        
+        .code-block {
+            background: #2d3436;
+            color: #ecf0f1;
+            padding: 25px;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border-left: 5px solid #f1c40f;
+        }
+        
+        .light-code {
+            background: #f8f9fa;
+            color: #2d3436;
+            border: 2px solid #e9ecef;
+        }
+        
+        code {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .warning {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .navigation {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        
+        .nav-button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            background: linear-gradient(135deg, #f1c40f 0%, #f39c12 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-button:hover {
+            transform: translateY(-3px);
+        }
+        
+        h3 {
+            color: #34495e;
+            font-size: 1.5em;
+            margin: 25px 0 15px 0;
+            border-left: 4px solid #f1c40f;
+            padding-left: 15px;
+        }
+        
+        h4 {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+        }
+        
+        ul, ol {
+            font-size: 1.1em;
+            line-height: 1.8;
+            padding-left: 25px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #636e72 0%, #2d3436 100%);
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .demo-html {
+            border: 2px solid #f1c40f;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            background: #ecf0f1;
+        }
+        
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .media-card {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .media-card:hover {
+            transform: translateY(-5px);
+            border-color: #f1c40f;
+        }
+        
+        .media-name {
+            font-weight: bold;
+            color: #f1c40f;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        
+        /* Demo multimedia styling */
+        .demo-audio {
+            width: 100%;
+            margin: 10px 0;
+        }
+        
+        .demo-video {
+            width: 100%;
+            max-width: 400px;
+            margin: 10px 0;
+        }
+        
+        .demo-canvas {
+            border: 2px solid #f1c40f;
+            margin: 10px 0;
+        }
+        
+        .demo-svg {
+            border: 1px solid #f1c40f;
+            margin: 10px 0;
+        }
+        
+        .demo-iframe {
+            width: 100%;
+            height: 200px;
+            border: 1px solid #f1c40f;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎵 HTML Multimedia Elements</h1>
+            <h2>Complete Guide to HTML Audio, Video, Canvas, and SVG</h2>
+            <p>Student: Majharul Islam | ID: 232002256 | Date: October 2025</p>
+        </div>
+
+        <!-- Multimedia Overview -->
+        <div class="section">
+            <h2 class="section-title">🎵 HTML Multimedia Overview</h2>
+            
+            <div class="highlight">
+                <h3>What are HTML Multimedia Elements?</h3>
+                <p>HTML multimedia elements allow you to embed audio, video, graphics, and other interactive content directly into web pages without requiring external plugins.</p>
+            </div>
+            
+            <div class="example">
+                <h3>Multimedia Element Types</h3>
+                <table>
+                    <tr>
+                        <th>Element</th>
+                        <th>Purpose</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>&lt;audio&gt;</td>
+                        <td>Audio Content</td>
+                        <td>Embeds audio files and streams</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;video&gt;</td>
+                        <td>Video Content</td>
+                        <td>Embeds video files and streams</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;canvas&gt;</td>
+                        <td>Graphics Drawing</td>
+                        <td>Dynamic graphics using JavaScript</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;svg&gt;</td>
+                        <td>Vector Graphics</td>
+                        <td>Scalable vector graphics</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;iframe&gt;</td>
+                        <td>Embedded Content</td>
+                        <td>Embeds external web pages</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;embed&gt;</td>
+                        <td>Plugin Content</td>
+                        <td>Embeds external applications</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;object&gt;</td>
+                        <td>Object Embedding</td>
+                        <td>Generic object embedding</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Audio Element -->
+        <div class="section">
+            <h2 class="section-title">🎵 Audio Element</h2>
+            
+            <div class="media-grid">
+                <div class="media-card">
+                    <div class="media-name">Basic Audio</div>
+                    <div class="demo-html">
+                        <audio class="demo-audio" controls>
+                            <source src="audio.mp3" type="audio/mpeg">
+                            <source src="audio.ogg" type="audio/ogg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="code-block light-code">
+<code>&lt;audio controls&gt;
+    &lt;source src="audio.mp3" type="audio/mpeg"&gt;
+    &lt;source src="audio.ogg" type="audio/ogg"&gt;
+    Your browser does not support the audio element.
+&lt;/audio&gt;</code>
+                    </div>
+                </div>
+                
+                <div class="media-card">
+                    <div class="media-name">Audio with Attributes</div>
+                    <div class="code-block light-code">
+<code>&lt;audio controls 
+       autoplay 
+       loop 
+       muted 
+       preload="metadata"&gt;
+    &lt;source src="music.mp3" type="audio/mpeg"&gt;
+&lt;/audio&gt;</code>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="example">
+                <h3>Audio Attributes</h3>
+                <table>
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Description</th>
+                        <th>Values</th>
+                    </tr>
+                    <tr>
+                        <td>controls</td>
+                        <td>Shows audio controls</td>
+                        <td>Boolean</td>
+                    </tr>
+                    <tr>
+                        <td>autoplay</td>
+                        <td>Starts playing automatically</td>
+                        <td>Boolean</td>
+                    </tr>
+                    <tr>
+                        <td>loop</td>
+                        <td>Repeats audio continuously</td>
+                        <td>Boolean</td>
+                    </tr>
+                    <tr>
+                        <td>muted</td>
+                        <td>Mutes audio by default</td>
+                        <td>Boolean</td>
+                    </tr>
+                    <tr>
+                        <td>preload</td>
+                        <td>How to load audio</td>
+                        <td>auto, metadata, none</td>
+                    </tr>
+                    <tr>
+                        <td>src</td>
+                        <td>Audio file URL</td>
+                        <td>URL</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Video Element -->
+        <div class="section">
+            <h2 class="section-title">🎬 Video Element</h2>
+            
+            <div class="media-grid">
+                <div class="media-card">
+                    <div class="media-name">Basic Video</div>
+                    <div class="demo-html">
+                        <video class="demo-video" controls>
+                            <source src="video.mp4" type="video/mp4">
+                            <source src="video.webm" type="video/webm">
+                            Your browser does not support the video element.
+                        </video>
+                    </div>
+                    <div class="code-block light-code">
+<code>&lt;video controls&gt;
+    &lt;source src="video.mp4" type="video/mp4"&gt;
+    &lt;source src="video.webm" type="video/webm"&gt;
+    Your browser does not support the video element.
+&lt;/video&gt;</code>
+                    </div>
+                </div>
+                
+                <div class="media-card">
+                    <div class="media-name">Video with Attributes</div>
+                    <div class="code-block light-code">
+<code>&lt;video controls 
+       width="640" 
+       height="360" 
+       poster="thumbnail.jpg"
+       preload="metadata"&gt;
+    &lt;source src="movie.mp4" type="video/mp4"&gt;
+&lt;/video&gt;</code>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="example">
+                <h3>Video Attributes</h3>
+                <table>
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Description</th>
+                        <th>Values</th>
+                    </tr>
+                    <tr>
+                        <td>controls</td>
+                        <td>Shows video controls</td>
+                        <td>Boolean</td>
+                    </tr>
+                    <tr>
+                        <td>autoplay</td>
+                        <td>Starts playing automatically</td>
+                        <td>Boolean</td>
+                    </tr>
+                    <tr>
+                        <td>loop</td>
+                        <td>Repeats video continuously</td>
+                        <td>Boolean</td>
+                    </tr>
+                    <tr>
+                        <td>muted</td>
+                        <td>Mutes video by default</td>
+                        <td>Boolean</td>
+                    </tr>
+                    <tr>
+                        <td>poster</td>
+                        <td>Image shown before video plays</td>
+                        <td>URL</td>
+                    </tr>
+                    <tr>
+                        <td>width</td>
+                        <td>Video width in pixels</td>
+                        <td>Number</td>
+                    </tr>
+                    <tr>
+                        <td>height</td>
+                        <td>Video height in pixels</td>
+                        <td>Number</td>
+                    </tr>
+                    <tr>
+                        <td>preload</td>
+                        <td>How to load video</td>
+                        <td>auto, metadata, none</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Canvas Element -->
+        <div class="section">
+            <h2 class="section-title">🎨 Canvas Element</h2>
+            
+            <div class="example">
+                <h3>Basic Canvas</h3>
+                <div class="demo-html">
+                    <canvas class="demo-canvas" id="demoCanvas" width="300" height="150">
+                        Your browser does not support the canvas element.
+                    </canvas>
+                </div>
+                <div class="code-block light-code">
+<code>&lt;canvas id="myCanvas" width="300" height="150"&gt;
+    Your browser does not support the canvas element.
+&lt;/canvas&gt;
+
+&lt;script&gt;
+    const canvas = document.getElementById('myCanvas');
+    const ctx = canvas.getContext('2d');
+    
+    // Draw a rectangle
+    ctx.fillStyle = '#f1c40f';
+    ctx.fillRect(10, 10, 100, 50);
+    
+    // Draw text
+    ctx.fillStyle = '#2c3e50';
+    ctx.font = '16px Arial';
+    ctx.fillText('Hello Canvas!', 130, 35);
+    
+    // Draw a circle
+    ctx.beginPath();
+    ctx.arc(150, 100, 30, 0, 2 * Math.PI);
+    ctx.fillStyle = '#e74c3c';
+    ctx.fill();
+&lt;/script&gt;</code>
+                </div>
+            </div>
+            
+            <div class="example">
+                <h3>Canvas Drawing Methods</h3>
+                <table>
+                    <tr>
+                        <th>Method</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                    <tr>
+                        <td>fillRect()</td>
+                        <td>Draws filled rectangle</td>
+                        <td>ctx.fillRect(x, y, width, height)</td>
+                    </tr>
+                    <tr>
+                        <td>strokeRect()</td>
+                        <td>Draws rectangle outline</td>
+                        <td>ctx.strokeRect(x, y, width, height)</td>
+                    </tr>
+                    <tr>
+                        <td>fillText()</td>
+                        <td>Draws filled text</td>
+                        <td>ctx.fillText(text, x, y)</td>
+                    </tr>
+                    <tr>
+                        <td>strokeText()</td>
+                        <td>Draws text outline</td>
+                        <td>ctx.strokeText(text, x, y)</td>
+                    </tr>
+                    <tr>
+                        <td>arc()</td>
+                        <td>Draws arc/circle</td>
+                        <td>ctx.arc(x, y, radius, start, end)</td>
+                    </tr>
+                    <tr>
+                        <td>lineTo()</td>
+                        <td>Draws line to point</td>
+                        <td>ctx.lineTo(x, y)</td>
+                    </tr>
+                    <tr>
+                        <td>moveTo()</td>
+                        <td>Moves to point</td>
+                        <td>ctx.moveTo(x, y)</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- SVG Element -->
+        <div class="section">
+            <h2 class="section-title">🖼️ SVG Element</h2>
+            
+            <div class="example">
+                <h3>Basic SVG</h3>
+                <div class="demo-html">
+                    <svg class="demo-svg" width="300" height="150" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Rectangle -->
+                        <rect x="10" y="10" width="80" height="50" fill="#f1c40f" stroke="#2c3e50" stroke-width="2"/>
+                        
+                        <!-- Circle -->
+                        <circle cx="150" cy="35" r="25" fill="#e74c3c" stroke="#2c3e50" stroke-width="2"/>
+                        
+                        <!-- Line -->
+                        <line x1="200" y1="10" x2="280" y2="60" stroke="#27ae60" stroke-width="3"/>
+                        
+                        <!-- Text -->
+                        <text x="10" y="100" font-family="Arial" font-size="16" fill="#2c3e50">Hello SVG!</text>
+                        
+                        <!-- Path -->
+                        <path d="M 10 120 Q 150 100 290 120" stroke="#9b59b6" stroke-width="2" fill="none"/>
+                    </svg>
+                </div>
+                <div class="code-block light-code">
+<code>&lt;svg width="300" height="150" xmlns="http://www.w3.org/2000/svg"&gt;
+    &lt;!-- Rectangle --&gt;
+    &lt;rect x="10" y="10" width="80" height="50" 
+          fill="#f1c40f" 
+          stroke="#2c3e50" 
+          stroke-width="2"/&gt;
+    
+    &lt;!-- Circle --&gt;
+    &lt;circle cx="150" cy="35" r="25" 
+            fill="#e74c3c" 
+            stroke="#2c3e50" 
+            stroke-width="2"/&gt;
+    
+    &lt;!-- Line --&gt;
+    &lt;line x1="200" y1="10" x2="280" y2="60" 
+          stroke="#27ae60" 
+          stroke-width="3"/&gt;
+    
+    &lt;!-- Text --&gt;
+    &lt;text x="10" y="100" 
+          font-family="Arial" 
+          font-size="16" 
+          fill="#2c3e50"&gt;Hello SVG!&lt;/text&gt;
+    
+    &lt;!-- Path --&gt;
+    &lt;path d="M 10 120 Q 150 100 290 120" 
+          stroke="#9b59b6" 
+          stroke-width="2" 
+          fill="none"/&gt;
+&lt;/svg&gt;</code>
+                </div>
+            </div>
+            
+            <div class="example">
+                <h3>SVG Elements</h3>
+                <table>
+                    <tr>
+                        <th>Element</th>
+                        <th>Description</th>
+                        <th>Attributes</th>
+                    </tr>
+                    <tr>
+                        <td>&lt;rect&gt;</td>
+                        <td>Rectangle shape</td>
+                        <td>x, y, width, height</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;circle&gt;</td>
+                        <td>Circle shape</td>
+                        <td>cx, cy, r</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;ellipse&gt;</td>
+                        <td>Ellipse shape</td>
+                        <td>cx, cy, rx, ry</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;line&gt;</td>
+                        <td>Line shape</td>
+                        <td>x1, y1, x2, y2</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;polyline&gt;</td>
+                        <td>Connected line segments</td>
+                        <td>points</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;polygon&gt;</td>
+                        <td>Closed shape</td>
+                        <td>points</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;path&gt;</td>
+                        <td>Complex shapes</td>
+                        <td>d (path data)</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;text&gt;</td>
+                        <td>Text element</td>
+                        <td>x, y, font-family, font-size</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Iframe Element -->
+        <div class="section">
+            <h2 class="section-title">🖼️ Iframe Element</h2>
+            
+            <div class="example">
+                <h3>Basic Iframe</h3>
+                <div class="demo-html">
+                    <iframe class="demo-iframe" src="about:blank" title="Demo Iframe">
+                        Your browser does not support iframes.
+                    </iframe>
+                </div>
+                <div class="code-block light-code">
+<code>&lt;iframe src="https://example.com" 
+        width="100%" 
+        height="300" 
+        title="Example Website"
+        frameborder="0"&gt;
+    Your browser does not support iframes.
+&lt;/iframe&gt;</code>
+                </div>
+            </div>
+            
+            <div class="example">
+                <h3>Iframe Attributes</h3>
+                <table>
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Description</th>
+                        <th>Values</th>
+                    </tr>
+                    <tr>
+                        <td>src</td>
+                        <td>URL of embedded content</td>
+                        <td>URL</td>
+                    </tr>
+                    <tr>
+                        <td>width</td>
+                        <td>Width of iframe</td>
+                        <td>Number or percentage</td>
+                    </tr>
+                    <tr>
+                        <td>height</td>
+                        <td>Height of iframe</td>
+                        <td>Number or percentage</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>Title for accessibility</td>
+                        <td>Text</td>
+                    </tr>
+                    <tr>
+                        <td>frameborder</td>
+                        <td>Border around iframe</td>
+                        <td>0 or 1</td>
+                    </tr>
+                    <tr>
+                        <td>sandbox</td>
+                        <td>Security restrictions</td>
+                        <td>allow-same-origin, allow-scripts, etc.</td>
+                    </tr>
+                    <tr>
+                        <td>loading</td>
+                        <td>Loading behavior</td>
+                        <td>lazy, eager</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Media Formats -->
+        <div class="section">
+            <h2 class="section-title">📁 Media Formats</h2>
+            
+            <div class="example">
+                <h3>Supported Audio Formats</h3>
+                <table>
+                    <tr>
+                        <th>Format</th>
+                        <th>MIME Type</th>
+                        <th>Browser Support</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>MP3</td>
+                        <td>audio/mpeg</td>
+                        <td>Excellent</td>
+                        <td>Most widely supported</td>
+                    </tr>
+                    <tr>
+                        <td>OGG</td>
+                        <td>audio/ogg</td>
+                        <td>Good</td>
+                        <td>Open source format</td>
+                    </tr>
+                    <tr>
+                        <td>WAV</td>
+                        <td>audio/wav</td>
+                        <td>Good</td>
+                        <td>Uncompressed audio</td>
+                    </tr>
+                    <tr>
+                        <td>WebM</td>
+                        <td>audio/webm</td>
+                        <td>Good</td>
+                        <td>Modern web format</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="example">
+                <h3>Supported Video Formats</h3>
+                <table>
+                    <tr>
+                        <th>Format</th>
+                        <th>MIME Type</th>
+                        <th>Browser Support</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>MP4</td>
+                        <td>video/mp4</td>
+                        <td>Excellent</td>
+                        <td>Most widely supported</td>
+                    </tr>
+                    <tr>
+                        <td>WebM</td>
+                        <td>video/webm</td>
+                        <td>Good</td>
+                        <td>Modern web format</td>
+                    </tr>
+                    <tr>
+                        <td>OGV</td>
+                        <td>video/ogg</td>
+                        <td>Limited</td>
+                        <td>Open source format</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Responsive Media -->
+        <div class="section">
+            <h2 class="section-title">📱 Responsive Media</h2>
+            
+            <div class="example">
+                <h3>Responsive Video</h3>
+                <div class="code-block light-code">
+<code>&lt;!-- Responsive Video Container --&gt;
+&lt;div class="video-container"&gt;
+    &lt;video controls&gt;
+        &lt;source src="video.mp4" type="video/mp4"&gt;
+        Your browser does not support the video element.
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+    .video-container {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    }
+    
+    .video-container video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+&lt;/style&gt;</code>
+                </div>
+            </div>
+            
+            <div class="example">
+                <h3>Responsive Iframe</h3>
+                <div class="code-block light-code">
+<code>&lt;!-- Responsive YouTube Embed --&gt;
+&lt;div class="iframe-container"&gt;
+    &lt;iframe src="https://www.youtube.com/embed/VIDEO_ID" 
+            title="YouTube video" 
+            frameborder="0" 
+            allowfullscreen&gt;
+    &lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+    .iframe-container {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    }
+    
+    .iframe-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+&lt;/style&gt;</code>
+                </div>
+            </div>
+        </div>
+
+        <!-- Accessibility -->
+        <div class="section">
+            <h2 class="section-title">♿ Multimedia Accessibility</h2>
+            
+            <div class="highlight">
+                <h3>✅ Accessibility Best Practices:</h3>
+                <ul>
+                    <li><strong>Alt Text:</strong> Provide alternative text for images and graphics</li>
+                    <li><strong>Captions:</strong> Include captions for video content</li>
+                    <li><strong>Transcripts:</strong> Provide transcripts for audio content</li>
+                    <li><strong>Controls:</strong> Ensure media controls are keyboard accessible</li>
+                    <li><strong>Descriptions:</strong> Provide descriptions for visual content</li>
+                    <li><strong>Fallbacks:</strong> Include fallback content for unsupported media</li>
+                </ul>
+            </div>
+            
+            <div class="example">
+                <h3>Accessible Video Example</h3>
+                <div class="code-block light-code">
+<code>&lt;video controls poster="video-poster.jpg"&gt;
+    &lt;source src="video.mp4" type="video/mp4"&gt;
+    &lt;source src="video.webm" type="video/webm"&gt;
+    
+    &lt;track kind="captions" 
+           src="captions.vtt" 
+           srclang="en" 
+           label="English captions" 
+           default&gt;
+    
+    &lt;track kind="descriptions" 
+           src="descriptions.vtt" 
+           srclang="en" 
+           label="English descriptions"&gt;
+    
+    &lt;p&gt;Your browser does not support the video element. 
+       &lt;a href="video.mp4"&gt;Download the video&lt;/a&gt; instead.&lt;/p&gt;
+&lt;/video&gt;</code>
+                </div>
+            </div>
+        </div>
+
+        <!-- Best Practices -->
+        <div class="section">
+            <h2 class="section-title">✅ Multimedia Best Practices</h2>
+            
+            <div class="highlight">
+                <h3>✅ Good Practices:</h3>
+                <ul>
+                    <li><strong>Optimize File Sizes:</strong> Compress media files for web delivery</li>
+                    <li><strong>Multiple Formats:</strong> Provide multiple format options</li>
+                    <li><strong>Fallback Content:</strong> Include fallback for unsupported browsers</li>
+                    <li><strong>Responsive Design:</strong> Make media responsive to screen size</li>
+                    <li><strong>Loading Optimization:</strong> Use appropriate preload settings</li>
+                    <li><strong>Accessibility:</strong> Ensure media is accessible to all users</li>
+                </ul>
+            </div>
+            
+            <div class="warning">
+                <h3>❌ Common Mistakes:</h3>
+                <ul>
+                    <li><strong>Large Files:</strong> Don't use uncompressed media files</li>
+                    <li><strong>Missing Fallbacks:</strong> Always provide fallback content</li>
+                    <li><strong>Poor Accessibility:</strong> Don't ignore accessibility requirements</li>
+                    <li><strong>No Controls:</strong> Provide user controls for media playback</li>
+                    <li><strong>Fixed Sizes:</strong> Don't use fixed pixel sizes for responsive design</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Real-World Examples -->
+        <div class="section">
+            <h2 class="section-title">🌍 Real-World Multimedia Examples</h2>
+            
+            <div class="example">
+                <h3>Music Player</h3>
+                <div class="code-block light-code">
+<code>&lt;div class="music-player"&gt;
+    &lt;h3&gt;Background Music&lt;/h3&gt;
+    &lt;audio controls loop&gt;
+        &lt;source src="background-music.mp3" type="audio/mpeg"&gt;
+        &lt;source src="background-music.ogg" type="audio/ogg"&gt;
+        Your browser does not support the audio element.
+    &lt;/audio&gt;
+    &lt;p&gt;Relaxing background music for your website&lt;/p&gt;
+&lt;/div&gt;</code>
+                </div>
+            </div>
+            
+            <div class="example">
+                <h3>Video Tutorial</h3>
+                <div class="code-block light-code">
+<code>&lt;div class="video-tutorial"&gt;
+    &lt;h3&gt;HTML Tutorial Video&lt;/h3&gt;
+    &lt;video controls poster="tutorial-thumbnail.jpg"&gt;
+        &lt;source src="html-tutorial.mp4" type="video/mp4"&gt;
+        &lt;source src="html-tutorial.webm" type="video/webm"&gt;
+        
+        &lt;track kind="captions" 
+               src="tutorial-captions.vtt" 
+               srclang="en" 
+               label="English"&gt;
+        
+        &lt;p&gt;This video demonstrates HTML basics. 
+           &lt;a href="tutorial-transcript.txt"&gt;Read the transcript&lt;/a&gt;.&lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;</code>
+                </div>
+            </div>
+            
+            <div class="example">
+                <h3>Interactive Chart</h3>
+                <div class="code-block light-code">
+<code>&lt;div class="chart-container"&gt;
+    &lt;h3&gt;Sales Data Visualization&lt;/h3&gt;
+    &lt;canvas id="salesChart" width="400" height="200"&gt;
+        &lt;p&gt;Your browser does not support canvas. 
+           &lt;a href="sales-data.csv"&gt;View data as CSV&lt;/a&gt;.&lt;/p&gt;
+    &lt;/canvas&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+    const canvas = document.getElementById('salesChart');
+    const ctx = canvas.getContext('2d');
+    
+    // Draw a simple bar chart
+    const data = [120, 150, 180, 200, 160];
+    const colors = ['#f1c40f', '#e74c3c', '#27ae60', '#3498db', '#9b59b6'];
+    
+    data.forEach((value, index) =&gt; {
+        ctx.fillStyle = colors[index];
+        ctx.fillRect(50 + index * 60, 150 - value, 40, value);
+    });
+&lt;/script&gt;</code>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <h3>🧭 Navigation</h3>
+            <a href="index.html" class="nav-button">📚 Back to HTML Index</a>
+            <a href="html_basics.html" class="nav-button">🌐 HTML Basics</a>
+            <a href="html_elements.html" class="nav-button">📝 HTML Elements</a>
+            <a href="html_attributes.html" class="nav-button">⚙️ HTML Attributes</a>
+            <a href="../main.html" class="nav-button">🏠 Main Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>
