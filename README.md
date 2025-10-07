@@ -7,20 +7,72 @@
 - **Institution:** Green University of Bangladesh
 - **Course:** Web Programming Lab
 
-## 🎯 Project Overview
-This repository contains comprehensive documentation of HTML learning journey, including practical examples, class tests, and organized project files for web programming lab sessions.
+## 📚 Lab Manual Structure
 
-## 📁 Project Structure
+This repository contains comprehensive documentation and practical implementations for the Web Programming Lab course, organized according to the lab manual structure.
 
-```
-web_programming_lab/
-├── main.html              # 🏠 Main navigation hub (START HERE)
-├── index.html             # 📖 Class documentation & code examples
-├── list.html              # 📋 Complete HTML lists guide
-├── class_Test_02.html     # 📊 Class test - Teacher routine table
-├── lab_task.html          # 🧪 Lab exercises and additional tasks
-└── README.md              # 📄 This documentation file
-```
+### 📖 Lab Manuals
+1. **Lab Manual 1:** Creating & Displaying HTML Pages using Basic HTML Tags
+2. **Lab Manual 2:** Creating Lists, Tables & Forms using HTML Tags  
+3. **Lab Manual 3:** CSS (Cascading Style Sheets)
+4. **Lab Manual 4:** CSS Layout
+5. **Lab Manual 5:** JavaScript (Basic)
+
+## 📁 File Organization
+
+### 🏠 Main Navigation
+- **[main.html](main.html)** - Main dashboard connecting all lab documents
+
+### 📝 Class Documentation  
+- **[class_01.html](class_01.html)** - Lab Manual 1: Basic HTML Tags
+- **[class_02.html](class_02.html)** - Lab Manual 2: Lists, Tables & Forms
+- **[class_test_02.html](class_test_02.html)** - Class Test: Teacher's Routine Table
+- **[index.html](index.html)** - Comprehensive class documentation with examples
+- **[list.html](list.html)** - Detailed HTML Lists documentation
+- **[lab_task.html](lab_task.html)** - Lab task implementations
+
+### 📋 Lab Manual PDFs
+Located in `Lab Manual/` directory:
+- `1_Creating__Displaying_HTML_Pages_using__Basic_HTML_tags.pdf`
+- `2_Creating_Lists__Table__Forms_using_HTML_Tags.pdf`
+- `3_CSS.pdf`
+- `4_CSS_Layout.pdf`
+- `5_JavaScript (Basic).pdf`
+
+## 🎯 Learning Outcomes
+
+### ✅ Completed Topics (October 7, 2025)
+
+#### Class 1 - Basic HTML Pages  
+- HTML5 document structure
+- Basic HTML tags implementation
+- Semantic HTML elements
+- Text formatting and structure
+
+#### Class 2 - Lists, Tables & Forms
+- **HTML Lists:**
+  - Unordered lists (UL) with different bullet types
+  - Ordered lists (OL) with custom numbering  
+  - Description lists (DL) for term definitions
+  - Nested list structures
+- **HTML Tables:**
+  - Basic table creation with borders and styling
+  - Advanced table features (colspan, rowspan)
+  - Table captions and headers
+  - Professional table formatting
+- **Class Test:** Teacher routine table implementation
+
+## 🛠️ Technologies Used
+- **HTML5** - Document structure and semantic markup
+- **CSS3** - Styling, layout, and responsive design
+- **Git** - Version control and collaboration
+- **VS Code** - Development environment
+
+## � Project Statistics
+- **Total Files:** 8+ HTML documents
+- **Lab Manuals Covered:** 2/5 (40% complete)
+- **Class Tests Completed:** 1
+- **Code Examples:** 50+ practical implementations
 
 ## 🚀 Getting Started
 

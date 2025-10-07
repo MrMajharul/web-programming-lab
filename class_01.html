@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 01 - HTML Basics Documentation</title>
+    <style>
+        * {
+            text-align: center;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1, h2, h3 {
+            color: #333;
+        }
+        
+        .code-box {
+            background: #f4f4f4;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 15px auto;
+            text-align: left;
+            font-family: monospace;
+            border-radius: 5px;
+            max-width: 800px;
+        }
+        
+        .info-table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 80%;
+        }
+        
+        .info-table th, .info-table td {
+            border: 1px solid #333;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .info-table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        .section {
+            margin: 30px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        ul {
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Class 01 - HTML Basics Documentation</h1>
+        <h2>Student Name: Majharul Islam</h2>
+        <h3>Student ID: 232002256</h3>
+        <h3>Department of Computer Science & Engineering</h3>
+        <h2>Green University of Bangladesh</h2>
+        
+        <table class="info-table">
+            <tr>
+                <th>Class Information</th>
+                <th>Details</th>
+            </tr>
+            <tr>
+                <td>Class Number</td>
+                <td>01</td>
+            </tr>
+            <tr>
+                <td>Topic</td>
+                <td>HTML Basics</td>
+            </tr>
+            <tr>
+                <td>Date</td>
+                <td>October 8, 2025</td>
+            </tr>
+            <tr>
+                <td>Status</td>
+                <td>✅ Completed</td>
+            </tr>
+        </table>
+        
+        <div class="section">
+            <h2>🌐 What is HTML?</h2>
+            <p>HTML (HyperText Markup Language) is the standard markup language for creating web pages.</p>
+            
+            <ul>
+                <li>HTML stands for HyperText Markup Language</li>
+                <li>HTML describes the structure of a Web page</li>
+                <li>HTML consists of a series of elements</li>
+                <li>HTML elements tell the browser how to display content</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>📝 Basic HTML Document Structure</h2>
+            <div class="code-box">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Page Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;My First Heading&lt;/h1&gt;
+    &lt;p&gt;My first paragraph.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🏗️ HTML Elements</h2>
+            <p>HTML elements are defined by tags:</p>
+            
+            <div class="code-box">
+&lt;h1&gt;This is heading 1&lt;/h1&gt;
+&lt;h2&gt;This is heading 2&lt;/h2&gt;
+&lt;h3&gt;This is heading 3&lt;/h3&gt;
+&lt;p&gt;This is a paragraph&lt;/p&gt;
+&lt;strong&gt;This text is bold&lt;/strong&gt;
+&lt;em&gt;This text is italic&lt;/em&gt;
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>📋 HTML Lists</h2>
+            
+            <h3>Unordered Lists:</h3>
+            <div class="code-box">
+&lt;ul&gt;
+    &lt;li&gt;First item&lt;/li&gt;
+    &lt;li&gt;Second item&lt;/li&gt;
+    &lt;li&gt;Third item&lt;/li&gt;
+&lt;/ul&gt;
+            </div>
+            
+            <h3>Ordered Lists:</h3>
+            <div class="code-box">
+&lt;ol&gt;
+    &lt;li&gt;First item&lt;/li&gt;
+    &lt;li&gt;Second item&lt;/li&gt;
+    &lt;li&gt;Third item&lt;/li&gt;
+&lt;/ol&gt;
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🔗 Links and Images</h2>
+            
+            <h3>Creating Links:</h3>
+            <div class="code-box">
+&lt;a href="https://www.example.com"&gt;Visit Example&lt;/a&gt;
+&lt;a href="page2.html"&gt;Go to Page 2&lt;/a&gt;
+            </div>
+            
+            <h3>Adding Images:</h3>
+            <div class="code-box">
+&lt;img src="image.jpg" alt="Description" width="300"&gt;
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>⚙️ HTML Attributes</h2>
+            <p>Attributes provide additional information about elements:</p>
+            
+            <ul>
+                <li><strong>id:</strong> Unique identifier</li>
+                <li><strong>class:</strong> CSS class name</li>
+                <li><strong>src:</strong> Source file for images</li>
+                <li><strong>href:</strong> Link destination</li>
+                <li><strong>alt:</strong> Alternative text</li>
+            </ul>
+            
+            <div class="code-box">
+&lt;p id="intro" class="highlight"&gt;Paragraph with attributes&lt;/p&gt;
+&lt;img src="logo.png" alt="Logo" class="logo"&gt;
+            </div>
+        </div>
+        
+        <table class="info-table" style="margin-top: 40px;">
+            <tr>
+                <th colspan="2">✅ Class 1 Learning Outcomes</th>
+            </tr>
+            <tr>
+                <td>HTML Structure</td>
+                <td>✅ Completed</td>
+            </tr>
+            <tr>
+                <td>Basic Elements</td>
+                <td>✅ Completed</td>
+            </tr>
+            <tr>
+                <td>Links & Images</td>
+                <td>✅ Completed</td>
+            </tr>
+            <tr>
+                <td>HTML Attributes</td>
+                <td>✅ Completed</td>
+            </tr>
+            <tr>
+                <td>Lists</td>
+                <td>✅ Completed</td>
+            </tr>
+        </table>
+        
+        <h3 style="margin-top: 40px;">🔗 Navigation</h3>
+        <p>
+            <a href="main.html">🏠 Main Dashboard</a> | 
+            <a href="class_Test_02.html">📊 Class Test 02</a> | 
+            <a href="list.html">📋 Lists Guide</a> | 
+            <a href="index.html">📖 Full Documentation</a>
+        </p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 2: Lists, Tables & Forms - Web Programming Lab</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #2d3436 0%, #636e72 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .lab-info {
+            background: linear-gradient(135deg, #00b894 0%, #00a085 100%);
+            color: white;
+            padding: 25px 30px;
+            margin: 0;
+        }
+        .section {
+            padding: 30px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        .section:last-child {
+            border-bottom: none;
+        }
+        .section-title {
+            color: #2d3436;
+            border-bottom: 3px solid #74b9ff;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            font-size: 2.2em;
+            font-weight: bold;
+        }
+        .objectives {
+            background: linear-gradient(135deg, #d5f4e6 0%, #e8f5e8 100%);
+            border-left: 8px solid #27ae60;
+        }
+        .example {
+            background: #f8f9fa;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+        }
+        .code-block {
+            background: #2d3436;
+            color: #ecf0f1;
+            padding: 25px;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .light-code {
+            background: #f8f9fa;
+            color: #2d3436;
+            border: 2px solid #e9ecef;
+        }
+        code {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .highlight {
+            background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background: linear-gradient(135deg, #636e72 0%, #2d3436 100%);
+            color: white;
+        }
+        .demo-table td {
+            background-color: #f8f9fa;
+        }
+        ul, ol {
+            font-size: 1.1em;
+            line-height: 1.8;
+            padding-left: 25px;
+        }
+        .navigation {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        .nav-button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+        .nav-button:hover {
+            transform: translateY(-3px);
+        }
+        .status-completed {
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        h3 {
+            color: #34495e;
+            font-size: 1.5em;
+            margin: 25px 0 15px 0;
+            border-left: 4px solid #fd79a8;
+            padding-left: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📋 Class 2: Lists, Tables & Forms</h1>
+            <h2>Lab Manual 2: Creating Lists, Tables & Forms using HTML Tags</h2>
+            <p>Student: Majharul Islam | ID: 232002256 | Date: October 7, 2025</p>
+        </div>
+
+        <div class="lab-info">
+            <h3>📋 Lab Manual 2 Overview</h3>
+            <p><strong>Topic:</strong> Creating Lists, Tables & Forms using HTML Tags</p>
+            <p><strong>PDF Reference:</strong> 2_Creating_Lists__Table__Forms_using_HTML_Tags.pdf</p>
+            <p><strong>Status:</strong> <span class="status-completed">✅ Completed</span></p>
+            <p><strong>Class Test:</strong> <span class="status-completed">✅ Teacher Routine Table Completed</span></p>
+        </div>
+
+        <div class="section objectives">
+            <h2 class="section-title">🎯 Learning Objectives</h2>
+            <ul>
+                <li>Master HTML list types: unordered, ordered, and description lists</li>
+                <li>Create complex nested list structures</li>
+                <li>Build professional HTML tables with advanced features</li>
+                <li>Implement table colspan and rowspan for complex layouts</li>
+                <li>Design and create HTML forms with various input types</li>
+                <li>Apply proper table styling and accessibility features</li>
+            </ul>
+        </div>
+
+        <!-- HTML Lists Section -->
+        <div class="section">
+            <h2 class="section-title">📝 HTML Lists</h2>
+            
+            <div class="example">
+                <h3>1. Unordered Lists (UL)</h3>
+                <div class="code-block light-code">
+<code>&lt;!-- Basic Unordered List --&gt;
+&lt;ul&gt;
+    &lt;li&gt;HTML&lt;/li&gt;
+    &lt;li&gt;CSS&lt;/li&gt;
+    &lt;li&gt;JavaScript&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- Different Bullet Types --&gt;
+&lt;ul type="square"&gt;
+    &lt;li&gt;Square bullets&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul type="circle"&gt;
+    &lt;li&gt;Circle bullets&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul type="disc"&gt;
+    &lt;li&gt;Disc bullets (default)&lt;/li&gt;
+&lt;/ul&gt;</code>
+                </div>
+            </div>
+
+            <div class="example">
+                <h3>2. Ordered Lists (OL)</h3>
+                <div class="code-block light-code">
+<code>&lt;!-- Basic Ordered List --&gt;
+&lt;ol&gt;
+    &lt;li&gt;Plan the project&lt;/li&gt;
+    &lt;li&gt;Write the code&lt;/li&gt;
+    &lt;li&gt;Test the application&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!-- Different Numbering Types --&gt;
+&lt;ol type="I"&gt;
+    &lt;li&gt;Roman numerals (upper)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ol type="i"&gt;
+    &lt;li&gt;Roman numerals (lower)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ol type="A"&gt;
+    &lt;li&gt;Letters (upper)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ol type="a"&gt;
+    &lt;li&gt;Letters (lower)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!-- Custom Starting Number --&gt;
+&lt;ol start="5"&gt;
+    &lt;li&gt;Item 5&lt;/li&gt;
+    &lt;li value="10"&gt;Item 10 (custom)&lt;/li&gt;
+    &lt;li&gt;Item 11&lt;/li&gt;
+&lt;/ol&gt;</code>
+                </div>
+            </div>
+
+            <div class="example">
+                <h3>3. Description Lists (DL)</h3>
+                <div class="code-block light-code">
+<code>&lt;dl&gt;
+    &lt;dt&gt;HTML&lt;/dt&gt;
+    &lt;dd&gt;HyperText Markup Language&lt;/dd&gt;
+    &lt;dd&gt;Used for creating web page structure&lt;/dd&gt;
+    
+    &lt;dt&gt;CSS&lt;/dt&gt;
+    &lt;dd&gt;Cascading Style Sheets&lt;/dd&gt;
+    &lt;dd&gt;Used for styling web pages&lt;/dd&gt;
+    
+    &lt;dt&gt;JavaScript&lt;/dt&gt;
+    &lt;dd&gt;Programming language for web interactivity&lt;/dd&gt;
+&lt;/dl&gt;</code>
+                </div>
+            </div>
+
+            <div class="example">
+                <h3>4. Nested Lists</h3>
+                <div class="code-block light-code">
+<code>&lt;ol&gt;
+    &lt;li&gt;Frontend Development
+        &lt;ul&gt;
+            &lt;li&gt;HTML5&lt;/li&gt;
+            &lt;li&gt;CSS3
+                &lt;ul&gt;
+                    &lt;li&gt;Flexbox&lt;/li&gt;
+                    &lt;li&gt;Grid&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li&gt;JavaScript&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;Backend Development
+        &lt;ul&gt;
+            &lt;li&gt;Node.js&lt;/li&gt;
+            &lt;li&gt;PHP&lt;/li&gt;
+            &lt;li&gt;Python&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+&lt;/ol&gt;</code>
+                </div>
+            </div>
+        </div>
+
+        <!-- HTML Tables Section -->
+        <div class="section">
+            <h2 class="section-title">📊 HTML Tables</h2>
+            
+            <div class="example">
+                <h3>1. Basic Table Structure</h3>
+                <div class="code-block light-code">
+<code>&lt;table border="1"&gt;
+    &lt;caption&gt;Student Information&lt;/caption&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;ID&lt;/th&gt;
+            &lt;th&gt;Name&lt;/th&gt;
+            &lt;th&gt;Department&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;232002256&lt;/td&gt;
+            &lt;td&gt;Majharul Islam&lt;/td&gt;
+            &lt;td&gt;CSE&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;232002257&lt;/td&gt;
+            &lt;td&gt;Student 2&lt;/td&gt;
+            &lt;td&gt;CSE&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code>
+                </div>
+                
+                <table class="demo-table">
+                    <caption><strong>Demo: Student Information</strong></caption>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Department</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>232002256</td>
+                            <td>Majharul Islam</td>
+                            <td>CSE</td>
+                        </tr>
+                        <tr>
+                            <td>232002257</td>
+                            <td>Student 2</td>
+                            <td>CSE</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="example">
+                <h3>2. Advanced Table with Colspan and Rowspan</h3>
+                <div class="code-block light-code">
+<code>&lt;table border="1"&gt;
+    &lt;tr&gt;
+        &lt;th colspan="4"&gt;CSE Department&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;th rowspan="2"&gt;Student ID&lt;/th&gt;
+        &lt;th rowspan="2"&gt;Name&lt;/th&gt;
+        &lt;th colspan="2"&gt;Program&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Day&lt;/th&gt;
+        &lt;th&gt;Evening&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;232002256&lt;/td&gt;
+        &lt;td&gt;Majharul Islam&lt;/td&gt;
+        &lt;td&gt;Yes&lt;/td&gt;
+        &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code>
+                </div>
+            </div>
+
+            <div class="example">
+                <h3>3. Class Test: Teacher Routine Table</h3>
+                <p><strong>✅ Completed:</strong> Created a comprehensive teacher routine table for Tanpia Tasnim</p>
+                <div class="highlight">
+                    <h4>Features Implemented:</h4>
+                    <ul>
+                        <li>7-column layout with time slots from 08:30-10:00 to 04:30-06:00</li>
+                        <li>Course codes: CSE 300, CSE 201, CSE 301, CSE 312, CSE 311</li>
+                        <li>Room assignments: B-1005, B-411, D-702, B-802</li>
+                        <li>Colspan for merged cells (committee meetings)</li>
+                        <li>Professional CSS styling and responsive design</li>
+                        <li>Academic standards formatting</li>
+                    </ul>
+                    <p><a href="class_test_02.html" style="color: white; text-decoration: underline;">View Complete Class Test →</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- HTML Forms Section -->
+        <div class="section">
+            <h2 class="section-title">📝 HTML Forms</h2>
+            
+            <div class="example">
+                <h3>1. Basic Form Structure</h3>
+                <div class="code-block light-code">
+<code>&lt;form action="submit.php" method="POST"&gt;
+    &lt;label for="name"&gt;Full Name:&lt;/label&gt;
+    &lt;input type="text" id="name" name="name" required&gt;
+    
+    &lt;label for="email"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" id="email" name="email" required&gt;
+    
+    &lt;label for="password"&gt;Password:&lt;/label&gt;
+    &lt;input type="password" id="password" name="password" required&gt;
+    
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</code>
+                </div>
+            </div>
+
+            <div class="example">
+                <h3>2. Input Types</h3>
+                <div class="code-block light-code">
+<code>&lt;!-- Text Inputs --&gt;
+&lt;input type="text" placeholder="Enter text"&gt;
+&lt;input type="email" placeholder="Enter email"&gt;
+&lt;input type="password" placeholder="Enter password"&gt;
+&lt;input type="number" min="1" max="100"&gt;
+&lt;input type="tel" placeholder="Phone number"&gt;
+&lt;input type="url" placeholder="Website URL"&gt;
+
+&lt;!-- Date and Time --&gt;
+&lt;input type="date"&gt;
+&lt;input type="time"&gt;
+&lt;input type="datetime-local"&gt;
+
+&lt;!-- Selection Inputs --&gt;
+&lt;input type="radio" name="gender" value="male"&gt; Male
+&lt;input type="radio" name="gender" value="female"&gt; Female
+&lt;input type="checkbox" name="terms"&gt; Accept Terms
+
+&lt;!-- File Input --&gt;
+&lt;input type="file" accept=".jpg,.png,.pdf"&gt;
+
+&lt;!-- Other Inputs --&gt;
+&lt;input type="range" min="0" max="100" value="50"&gt;
+&lt;input type="color" value="#ff0000"&gt;</code>
+                </div>
+            </div>
+
+            <div class="example">
+                <h3>3. Select and Textarea</h3>
+                <div class="code-block light-code">
+<code>&lt;!-- Dropdown Select --&gt;
+&lt;select name="department"&gt;
+    &lt;option value=""&gt;Select Department&lt;/option&gt;
+    &lt;option value="cse"&gt;Computer Science&lt;/option&gt;
+    &lt;option value="eee"&gt;Electrical Engineering&lt;/option&gt;
+    &lt;option value="bba"&gt;Business Administration&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;!-- Multiple Select --&gt;
+&lt;select name="courses" multiple&gt;
+    &lt;option value="html"&gt;HTML&lt;/option&gt;
+    &lt;option value="css"&gt;CSS&lt;/option&gt;
+    &lt;option value="js"&gt;JavaScript&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;!-- Textarea --&gt;
+&lt;textarea name="message" rows="5" cols="50" 
+          placeholder="Enter your message"&gt;&lt;/textarea&gt;</code>
+                </div>
+            </div>
+
+            <div class="example">
+                <h3>4. Complete Student Registration Form</h3>
+                <div class="code-block light-code">
+<code>&lt;form action="register.php" method="POST" enctype="multipart/form-data"&gt;
+    &lt;fieldset&gt;
+        &lt;legend&gt;Personal Information&lt;/legend&gt;
+        
+        &lt;label for="fullname"&gt;Full Name:&lt;/label&gt;
+        &lt;input type="text" id="fullname" name="fullname" required&gt;
+        
+        &lt;label for="email"&gt;Email:&lt;/label&gt;
+        &lt;input type="email" id="email" name="email" required&gt;
+        
+        &lt;label for="phone"&gt;Phone:&lt;/label&gt;
+        &lt;input type="tel" id="phone" name="phone"&gt;
+        
+        &lt;label for="dob"&gt;Date of Birth:&lt;/label&gt;
+        &lt;input type="date" id="dob" name="dob"&gt;
+        
+        &lt;label&gt;Gender:&lt;/label&gt;
+        &lt;input type="radio" id="male" name="gender" value="male"&gt;
+        &lt;label for="male"&gt;Male&lt;/label&gt;
+        &lt;input type="radio" id="female" name="gender" value="female"&gt;
+        &lt;label for="female"&gt;Female&lt;/label&gt;
+    &lt;/fieldset&gt;
+    
+    &lt;fieldset&gt;
+        &lt;legend&gt;Academic Information&lt;/legend&gt;
+        
+        &lt;label for="student_id"&gt;Student ID:&lt;/label&gt;
+        &lt;input type="text" id="student_id" name="student_id" required&gt;
+        
+        &lt;label for="department"&gt;Department:&lt;/label&gt;
+        &lt;select id="department" name="department" required&gt;
+            &lt;option value=""&gt;Select Department&lt;/option&gt;
+            &lt;option value="cse"&gt;Computer Science &amp; Engineering&lt;/option&gt;
+            &lt;option value="eee"&gt;Electrical &amp; Electronic Engineering&lt;/option&gt;
+            &lt;option value="bba"&gt;Business Administration&lt;/option&gt;
+        &lt;/select&gt;
+        
+        &lt;label for="photo"&gt;Profile Photo:&lt;/label&gt;
+        &lt;input type="file" id="photo" name="photo" accept="image/*"&gt;
+    &lt;/fieldset&gt;
+    
+    &lt;fieldset&gt;
+        &lt;legend&gt;Additional Information&lt;/legend&gt;
+        
+        &lt;label for="address"&gt;Address:&lt;/label&gt;
+        &lt;textarea id="address" name="address" rows="4"&gt;&lt;/textarea&gt;
+        
+        &lt;input type="checkbox" id="terms" name="terms" required&gt;
+        &lt;label for="terms"&gt;I accept the terms and conditions&lt;/label&gt;
+        
+        &lt;input type="checkbox" id="newsletter" name="newsletter"&gt;
+        &lt;label for="newsletter"&gt;Subscribe to newsletter&lt;/label&gt;
+    &lt;/fieldset&gt;
+    
+    &lt;button type="submit"&gt;Register&lt;/button&gt;
+    &lt;button type="reset"&gt;Reset Form&lt;/button&gt;
+&lt;/form&gt;</code>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">✅ Lab Manual 2 - Achievements Summary</h2>
+            
+            <div class="highlight">
+                <h3>🎯 Completed Tasks:</h3>
+                <ul>
+                    <li>✅ Implemented all HTML list types (UL, OL, DL)</li>
+                    <li>✅ Created complex nested list structures</li>
+                    <li>✅ Built professional HTML tables with styling</li>
+                    <li>✅ Used advanced table features (colspan, rowspan)</li>
+                    <li>✅ Completed class test: Teacher routine table</li>
+                    <li>✅ Designed comprehensive HTML forms</li>
+                    <li>✅ Implemented various input types and validation</li>
+                </ul>
+                
+                <h3>📊 Skills Developed:</h3>
+                <ul>
+                    <li><strong>List Mastery:</strong> All list types with custom attributes</li>
+                    <li><strong>Table Expertise:</strong> Complex layouts with merged cells</li>
+                    <li><strong>Form Creation:</strong> Interactive forms with validation</li>
+                    <li><strong>Data Organization:</strong> Structured information presentation</li>
+                    <li><strong>Accessibility:</strong> Proper labels and semantic structure</li>
+                </ul>
+                
+                <h3>🏆 Special Achievement:</h3>
+                <p><strong>Class Test Success:</strong> Created a professional teacher routine table matching university standards with advanced HTML table features and responsive CSS styling.</p>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <h3>🧭 Navigation</h3>
+            <a href="main.html" class="nav-button">🏠 Main Dashboard</a>
+            <a href="class_01.html" class="nav-button">📖 Class 1: Basic HTML</a>
+            <a href="list.html" class="nav-button">🔖 Lists Documentation</a>
+            <a href="class_test_02.html" class="nav-button">📊 Class Test</a>
+            <a href="index.html" class="nav-button">📝 Complete Documentation</a>
+        </div>
+    </div>
+</body>
+</html>
