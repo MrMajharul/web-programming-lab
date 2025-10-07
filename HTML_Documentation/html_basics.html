@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Basics - Complete Reference</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .section {
+            padding: 30px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        .section-title {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            font-size: 2.2em;
+            font-weight: bold;
+        }
+        
+        .example {
+            background: #f8f9fa;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+        }
+        
+        .code-block {
+            background: #2d3436;
+            color: #ecf0f1;
+            padding: 25px;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border-left: 5px solid #3498db;
+        }
+        
+        .light-code {
+            background: #f8f9fa;
+            color: #2d3436;
+            border: 2px solid #e9ecef;
+        }
+        
+        code {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, #00b894 0%, #00a085 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .warning {
+            background: linear-gradient(135deg, #fdcb6e 0%, #e17055 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .navigation {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        
+        .nav-button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-button:hover {
+            transform: translateY(-3px);
+        }
+        
+        h3 {
+            color: #34495e;
+            font-size: 1.5em;
+            margin: 25px 0 15px 0;
+            border-left: 4px solid #e74c3c;
+            padding-left: 15px;
+        }
+        
+        h4 {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+        }
+        
+        ul, ol {
+            font-size: 1.1em;
+            line-height: 1.8;
+            padding-left: 25px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #636e72 0%, #2d3436 100%);
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .demo-html {
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            background: #ecf0f1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌐 HTML Basics</h1>
+            <h2>Fundamental HTML Concepts and Document Structure</h2>
+            <p>Student: Majharul Islam | ID: 232002256 | Date: October 2025</p>
+        </div>
+
+        <!-- What is HTML Section -->
+        <div class="section">
+            <h2 class="section-title">🌐 What is HTML?</h2>
+            
+            <div class="highlight">
+                <h3>HTML Definition</h3>
+                <p><strong>HTML (HyperText Markup Language)</strong> is the standard markup language for creating web pages and web applications. It describes the structure of a web page using markup elements.</p>
+            </div>
+            
+            <div class="example">
+                <h3>Key Characteristics of HTML:</h3>
+                <ul>
+                    <li><strong>Markup Language:</strong> Uses tags to define elements</li>
+                    <li><strong>Platform Independent:</strong> Works on any operating system</li>
+                    <li><strong>Browser Interpreted:</strong> Browsers read and display HTML</li>
+                    <li><strong>Semantic:</strong> Describes content structure and meaning</li>
+                    <li><strong>Extensible:</strong> Can be enhanced with CSS and JavaScript</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- HTML Document Structure Section -->
+        <div class="section">
+            <h2 class="section-title">📄 HTML Document Structure</h2>
+            
+            <div class="example">
+                <h3>Basic HTML5 Document Structure</h3>
+                <div class="code-block">
+<code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Page Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;My First Heading&lt;/h1&gt;
+    &lt;p&gt;My first paragraph.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code>
+                </div>
+            </div>
+            
+            <div class="example">
+                <h3>Document Structure Explanation</h3>
+                <table>
+                    <tr>
+                        <th>Element</th>
+                        <th>Purpose</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>&lt;!DOCTYPE html&gt;</td>
+                        <td>Document Type Declaration</td>
+                        <td>Tells browser this is HTML5 document</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;html&gt;</td>
+                        <td>Root Element</td>
+                        <td>Contains all other HTML elements</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;head&gt;</td>
+                        <td>Document Head</td>
+                        <td>Contains metadata and page information</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;body&gt;</td>
+                        <td>Document Body</td>
+                        <td>Contains visible page content</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- DOCTYPE Declaration Section -->
+        <div class="section">
+            <h2 class="section-title">📋 DOCTYPE Declaration</h2>
+            
+            <div class="example">
+                <h3>HTML5 DOCTYPE</h3>
+                <div class="code-block light-code">
+<code>&lt;!DOCTYPE html&gt;</code>
+                </div>
+                <p>The DOCTYPE declaration tells the browser which version of HTML the page is written in. HTML5 uses the simple declaration above.</p>
+            </div>
+            
+            <div class="warning">
+                <h3>⚠️ Important Notes:</h3>
+                <ul>
+                    <li>DOCTYPE must be the very first thing in HTML document</li>
+                    <li>Must be written in uppercase letters</li>
+                    <li>No closing tag required</li>
+                    <li>HTML5 DOCTYPE is case-insensitive but uppercase is recommended</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- HTML Element Structure Section -->
+        <div class="section">
+            <h2 class="section-title">🏗️ HTML Element Structure</h2>
+            
+            <div class="example">
+                <h3>Anatomy of an HTML Element</h3>
+                <div class="code-block light-code">
+<code>&lt;tagname attribute="value"&gt;Content&lt;/tagname&gt;</code>
+                </div>
+                
+                <h4>Components:</h4>
+                <ul>
+                    <li><strong>Opening Tag:</strong> &lt;tagname&gt;</li>
+                    <li><strong>Attributes:</strong> provide additional information</li>
+                    <li><strong>Content:</strong> text or other elements</li>
+                    <li><strong>Closing Tag:</strong> &lt;/tagname&gt;</li>
+                </ul>
+            </div>
+            
+            <div class="example">
+                <h3>Example HTML Elements</h3>
+                <div class="code-block light-code">
+<code>&lt;!-- Heading Element --&gt;
+&lt;h1&gt;Welcome to HTML&lt;/h1&gt;
+
+&lt;!-- Paragraph Element --&gt;
+&lt;p&gt;This is a paragraph with &lt;strong&gt;bold text&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;!-- Element with Attributes --&gt;
+&lt;a href="https://example.com" target="_blank"&gt;Visit Example&lt;/a&gt;
+
+&lt;!-- Self-closing Element --&gt;
+&lt;img src="image.jpg" alt="Description"&gt;</code>
+                </div>
+            </div>
+        </div>
+
+        <!-- HTML Attributes Section -->
+        <div class="section">
+            <h2 class="section-title">⚙️ HTML Attributes</h2>
+            
+            <div class="example">
+                <h3>Common HTML Attributes</h3>
+                <table>
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                    <tr>
+                        <td>id</td>
+                        <td>Unique identifier for an element</td>
+                        <td>&lt;div id="header"&gt;</td>
+                    </tr>
+                    <tr>
+                        <td>class</td>
+                        <td>CSS class name(s) for styling</td>
+                        <td>&lt;p class="highlight"&gt;</td>
+                    </tr>
+                    <tr>
+                        <td>style</td>
+                        <td>Inline CSS styling</td>
+                        <td>&lt;h1 style="color: blue;"&gt;</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>Tooltip text for element</td>
+                        <td>&lt;img title="Photo description"&gt;</td>
+                    </tr>
+                    <tr>
+                        <td>lang</td>
+                        <td>Language of the content</td>
+                        <td>&lt;html lang="en"&gt;</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Basic HTML Elements Section -->
+        <div class="section">
+            <h2 class="section-title">📝 Basic HTML Elements</h2>
+            
+            <div class="example">
+                <h3>Heading Elements</h3>
+                <div class="demo-html">
+                    <h1>Heading 1 - Most Important</h1>
+                    <h2>Heading 2 - Second Level</h2>
+                    <h3>Heading 3 - Third Level</h3>
+                    <h4>Heading 4 - Fourth Level</h4>
+                    <h5>Heading 5 - Fifth Level</h5>
+                    <h6>Heading 6 - Least Important</h6>
+                </div>
+                <div class="code-block light-code">
+<code>&lt;h1&gt;Heading 1 - Most Important&lt;/h1&gt;
+&lt;h2&gt;Heading 2 - Second Level&lt;/h2&gt;
+&lt;h3&gt;Heading 3 - Third Level&lt;/h3&gt;
+&lt;h4&gt;Heading 4 - Fourth Level&lt;/h4&gt;
+&lt;h5&gt;Heading 5 - Fifth Level&lt;/h5&gt;
+&lt;h6&gt;Heading 6 - Least Important&lt;/h6&gt;</code>
+                </div>
+            </div>
+            
+            <div class="example">
+                <h3>Paragraph and Text Elements</h3>
+                <div class="demo-html">
+                    <p>This is a paragraph element. It contains text content and can include other inline elements.</p>
+                    <p>Another paragraph with <strong>strong text</strong>, <em>emphasized text</em>, and <a href="#">a link</a>.</p>
+                </div>
+                <div class="code-block light-code">
+<code>&lt;p&gt;This is a paragraph element.&lt;/p&gt;
+&lt;p&gt;Text with &lt;strong&gt;strong text&lt;/strong&gt; and &lt;em&gt;emphasized text&lt;/em&gt;.&lt;/p&gt;</code>
+                </div>
+            </div>
+        </div>
+
+        <!-- HTML Comments Section -->
+        <div class="section">
+            <h2 class="section-title">💬 HTML Comments</h2>
+            
+            <div class="example">
+                <h3>Comment Syntax</h3>
+                <div class="code-block light-code">
+<code>&lt;!-- This is an HTML comment --&gt;
+&lt;!-- Comments are not displayed in the browser --&gt;
+&lt;!-- They are useful for documentation and debugging --&gt;
+
+&lt;h1&gt;Visible Content&lt;/h1&gt;
+&lt;!-- &lt;h2&gt;Hidden Content&lt;/h2&gt; --&gt;</code>
+                </div>
+                
+                <h4>Comment Uses:</h4>
+                <ul>
+                    <li>Document code for future reference</li>
+                    <li>Debug by commenting out code</li>
+                    <li>Add notes for other developers</li>
+                    <li>Temporarily hide content</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- HTML Validation Section -->
+        <div class="section">
+            <h2 class="section-title">✅ HTML Best Practices</h2>
+            
+            <div class="example">
+                <h3>HTML Validation Rules</h3>
+                <ul>
+                    <li><strong>Proper Nesting:</strong> Elements must be properly nested</li>
+                    <li><strong>Closing Tags:</strong> All elements must have closing tags (except self-closing)</li>
+                    <li><strong>Attribute Quotes:</strong> Use quotes around attribute values</li>
+                    <li><strong>Lowercase Tags:</strong> Use lowercase for HTML tags</li>
+                    <li><strong>Semantic Structure:</strong> Use appropriate elements for content</li>
+                </ul>
+            </div>
+            
+            <div class="warning">
+                <h3>❌ Common HTML Mistakes:</h3>
+                <ul>
+                    <li>Forgetting to close tags</li>
+                    <li>Improper nesting (e.g., &lt;p&gt;&lt;div&gt;&lt;/p&gt;&lt;/div&gt;)</li>
+                    <li>Missing alt attributes on images</li>
+                    <li>Using deprecated HTML elements</li>
+                    <li>Missing DOCTYPE declaration</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <h3>🧭 Navigation</h3>
+            <a href="index.html" class="nav-button">📚 Back to HTML Index</a>
+            <a href="html_elements.html" class="nav-button">📝 HTML Elements</a>
+            <a href="html_attributes.html" class="nav-button">⚙️ HTML Attributes</a>
+            <a href="../main.html" class="nav-button">🏠 Main Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>

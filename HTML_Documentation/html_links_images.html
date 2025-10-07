@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Links and Images - Complete Reference</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .section {
+            padding: 30px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        .section-title {
+            color: #2c3e50;
+            border-bottom: 3px solid #34495e;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            font-size: 2.2em;
+            font-weight: bold;
+        }
+        
+        .example {
+            background: #f8f9fa;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+        }
+        
+        .code-block {
+            background: #2d3436;
+            color: #ecf0f1;
+            padding: 25px;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border-left: 5px solid #34495e;
+        }
+        
+        .light-code {
+            background: #f8f9fa;
+            color: #2d3436;
+            border: 2px solid #e9ecef;
+        }
+        
+        code {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .warning {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .navigation {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        
+        .nav-button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-button:hover {
+            transform: translateY(-3px);
+        }
+        
+        h3 {
+            color: #34495e;
+            font-size: 1.5em;
+            margin: 25px 0 15px 0;
+            border-left: 4px solid #34495e;
+            padding-left: 15px;
+        }
+        
+        h4 {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+        }
+        
+        ul, ol {
+            font-size: 1.1em;
+            line-height: 1.8;
+            padding-left: 25px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #636e72 0%, #2d3436 100%);
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .demo-html {
+            border: 2px solid #34495e;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            background: #ecf0f1;
+        }
+        
+        .demo-link {
+            color: #3498db;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        
+        .demo-link:hover {
+            color: #2980b9;
+        }
+        
+        .demo-image {
+            width: 200px;
+            height: 150px;
+            background: linear-gradient(45deg, #3498db, #9b59b6);
+            border: 2px solid #34495e;
+            display: inline-block;
+            text-align: center;
+            line-height: 150px;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .link-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .link-card {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .link-card:hover {
+            transform: translateY(-5px);
+            border-color: #34495e;
+        }
+        
+        .link-name {
+            font-weight: bold;
+            color: #34495e;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔗 HTML Links and Images</h1>
+            <h2>Complete Guide to Links and Images in HTML</h2>
+            <p>Student: Majharul Islam | ID: 232002256 | Date: October 2025</p>
+        </div>
+
+        <!-- Links Overview -->
+        <div class="section">
+            <h2 class="section-title">🔗 HTML Links Overview</h2>
+            
+            <div class="highlight">
+                <h3>What are HTML Links?</h3>
+                <p>HTML links (hyperlinks) allow users to navigate between web pages and resources. They are created using the &lt;a&gt; (anchor) element and can link to other pages, sections, files, or external resources.</p>
+            </div>
+            
+            <div class="example">
+                <h3>Basic Link Structure</h3>
+                <div class="code-block light-code">
+<code>&lt;a href="destination"&gt;Link Text&lt;/a&gt;</code>
+                </div>
+                <p>The <code>href</code> attribute specifies the destination URL or location.</p>
+            </div>
+        </div>
+
+        <!-- Types of Links -->
+        <div class="section">
+            <h2 class="section-title">🌐 Types of Links</h2>
+            
+            <div class="link-grid">
+                <div class="link-card">
+                    <div class="link-name">External Links</div>
+                    <div class="demo-html">
+                        <a href="https://www.google.com" class="demo-link">Visit Google</a>
+                    </div>
+                    <div class="code-block light-code">
+<code>&lt;a href="https://www.google.com"&gt;Visit Google&lt;/a&gt;</code>
+                    </div>
+                    <p><strong>Use for:</strong> Linking to other websites</p>
+                </div>
+                
+                <div class="link-card">
+                    <div class="link-name">Internal Links</div>
+                    <div class="demo-html">
+                        <a href="about.html" class="demo-link">About Us</a>
+                    </div>
+                    <div class="code-block light-code">
+<code>&lt;a href="about.html"&gt;About Us&lt;/a&gt;
+&lt;a href="pages/contact.html"&gt;Contact&lt;/a&gt;</code>
+                    </div>
+                    <p><strong>Use for:</strong> Linking to pages within your site</p>
+                </div>
+                
+                <div class="link-card">
+                    <div class="link-name">Anchor Links</div>
+                    <div class="demo-html">
+                        <a href="#section1" class="demo-link">Go to Section 1</a>
+                    </div>
+                    <div class="code-block light-code">
+<code>&lt;a href="#section1"&gt;Go to Section 1&lt;/a&gt;
+&lt;h2 id="section1"&gt;Section 1&lt;/h2&gt;</code>
+                    </div>
+                    <p><strong>Use for:</strong> Linking to sections within the same page</p>
+                </div>
+                
+                <div class="link-card">
+                    <div class="link-name">Email Links</div>
+                    <div class="demo-html">
+                        <a href="mailto:contact@example.com" class="demo-link">Send Email</a>
+                    </div>
+                    <div class="code-block light-code">
+<code>&lt;a href="mailto:contact@example.com"&gt;Send Email&lt;/a&gt;
+&lt;a href="mailto:user@example.com?subject=Hello"&gt;Email with Subject&lt;/a&gt;</code>
+                    </div>
+                    <p><strong>Use for:</strong> Opening email client</p>
+                </div>
+                
+                <div class="link-card">
+                    <div class="link-name">Phone Links</div>
+                    <div class="demo-html">
+                        <a href="tel:+1234567890" class="demo-link">Call Us</a>
+                    </div>
+                    <div class="code-block light-code">
+<code>&lt;a href="tel:+1234567890"&gt;Call Us&lt;/a&gt;
+&lt;a href="tel:+1-234-567-8900"&gt;Formatted Phone&lt;/a&gt;</code>
+                    </div>
+                    <p><strong>Use for:</strong> Making phone calls on mobile devices</p>
+                </div>
+                
+                <div class="link-card">
+                    <div class="link-name">Download Links</div>
+                    <div class="demo-html">
+                        <a href="document.pdf" class="demo-link">Download PDF</a>
+                    </div>
+                    <div class="code-block light-code">
+<code>&lt;a href="document.pdf" download&gt;Download PDF&lt;/a&gt;
+&lt;a href="file.zip" download="my-file.zip"&gt;Download File&lt;/a&gt;</code>
+                    </div>
+                    <p><strong>Use for:</strong> Triggering file downloads</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Link Attributes -->
+        <div class="section">
+            <h2 class="section-title">⚙️ Link Attributes</h2>
+            
+            <div class="example">
+                <h3>Important Link Attributes</h3>
+                <table>
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                    <tr>
+                        <td>href</td>
+                        <td>Link destination URL</td>
+                        <td>&lt;a href="page.html"&gt;</td>
+                    </tr>
+                    <tr>
+                        <td>target</td>
+                        <td>How to open the link</td>
+                        <td>&lt;a target="_blank"&gt;</td>
+                    </tr>
+                    <tr>
+                        <td>rel</td>
+                        <td>Relationship to target</td>
+                        <td>&lt;a rel="noopener"&gt;</td>
+                    </tr>
+                    <tr>
+                        <td>download</td>
+                        <td>Force download of file</td>
+                        <td>&lt;a download&gt;</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>Tooltip text</td>
+                        <td>&lt;a title="More info"&gt;</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="example">
+                <h3>Target Attribute Values</h3>
+                <table>
+                    <tr>
+                        <th>Value</th>
+                        <th>Description</th>
+                        <th>Use Case</th>
+                    </tr>
+                    <tr>
+                        <td>_self</td>
+                        <td>Same window/tab (default)</td>
+                        <td>Internal navigation</td>
+                    </tr>
+                    <tr>
+                        <td>_blank</td>
+                        <td>New window/tab</td>
+                        <td>External links</td>
+                    </tr>
+                    <tr>
+                        <td>_parent</td>
+                        <td>Parent frame</td>
+                        <td>Framed content</td>
+                    </tr>
+                    <tr>
+                        <td>_top</td>
+                        <td>Full window</td>
+                        <td>Breaking out of frames</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="code-block light-code">
+<code>&lt;!-- Link Attributes Examples --&gt;
+&lt;a href="https://example.com" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   title="Visit Example Website"&gt;
+    External Link
+&lt;/a&gt;
+
+&lt;a href="document.pdf" download="my-document.pdf"&gt;
+    Download Document
+&lt;/a&gt;
+
+&lt;a href="mailto:contact@example.com?subject=Hello&amp;body=Hi there"&gt;
+    Send Email
+&lt;/a&gt;</code>
+            </div>
+        </div>
+
+        <!-- Images Overview -->
+        <div class="section">
+            <h2 class="section-title">🖼️ HTML Images Overview</h2>
+            
+            <div class="highlight">
+                <h3>What are HTML Images?</h3>
+                <p>HTML images are displayed using the &lt;img&gt; element. Images enhance web pages by providing visual content, icons, diagrams, and photographs.</p>
+            </div>
+            
+            <div class="example">
+                <h3>Basic Image Structure</h3>
+                <div class="code-block light-code">
+<code>&lt;img src="image.jpg" alt="Description"&gt;</code>
+                </div>
+                <p>The <code>src</code> attribute specifies the image source, and <code>alt</code> provides alternative text.</p>
+            </div>
+        </div>
+
+        <!-- Image Attributes -->
+        <div class="section">
+            <h2 class="section-title">🖼️ Image Attributes</h2>
+            
+            <div class="example">
+                <h3>Essential Image Attributes</h3>
+                <table>
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Description</th>
+                        <th>Required</th>
+                        <th>Example</th>
+                    </tr>
+                    <tr>
+                        <td>src</td>
+                        <td>Image source URL</td>
+                        <td>Yes</td>
+                        <td>src="photo.jpg"</td>
+                    </tr>
+                    <tr>
+                        <td>alt</td>
+                        <td>Alternative text</td>
+                        <td>Yes</td>
+                        <td>alt="Beautiful sunset"</td>
+                    </tr>
+                    <tr>
+                        <td>width</td>
+                        <td>Image width in pixels</td>
+                        <td>No</td>
+                        <td>width="300"</td>
+                    </tr>
+                    <tr>
+                        <td>height</td>
+                        <td>Image height in pixels</td>
+                        <td>No</td>
+                        <td>height="200"</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>Tooltip text</td>
+                        <td>No</td>
+                        <td>title="Click to enlarge"</td>
+                    </tr>
+                    <tr>
+                        <td>loading</td>
+                        <td>Loading behavior</td>
+                        <td>No</td>
+                        <td>loading="lazy"</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="example">
+                <h3>Image Examples</h3>
+                <div class="demo-html">
+                    <div class="demo-image">Sample Image</div>
+                    <p><small>Demo image placeholder</small></p>
+                </div>
+                
+                <div class="code-block light-code">
+<code>&lt;!-- Basic Image --&gt;
+&lt;img src="photo.jpg" alt="Beautiful landscape"&gt;
+
+&lt;!-- Image with Size --&gt;
+&lt;img src="logo.png" alt="Company Logo" width="200" height="100"&gt;
+
+&lt;!-- Image with Loading Optimization --&gt;
+&lt;img src="large-image.jpg" 
+     alt="Large image" 
+     width="800" 
+     height="600" 
+     loading="lazy"&gt;
+
+&lt;!-- Image with Title --&gt;
+&lt;img src="chart.png" 
+     alt="Sales Chart" 
+     title="Click to view full size"&gt;</code>
+                </div>
+            </div>
+        </div>
+
+        <!-- Image Formats -->
+        <div class="section">
+            <h2 class="section-title">📁 Image Formats</h2>
+            
+            <div class="example">
+                <h3>Common Web Image Formats</h3>
+                <table>
+                    <tr>
+                        <th>Format</th>
+                        <th>Extension</th>
+                        <th>Best For</th>
+                        <th>Features</th>
+                    </tr>
+                    <tr>
+                        <td>JPEG</td>
+                        <td>.jpg, .jpeg</td>
+                        <td>Photos, complex images</td>
+                        <td>Lossy compression, small file size</td>
+                    </tr>
+                    <tr>
+                        <td>PNG</td>
+                        <td>.png</td>
+                        <td>Graphics, logos, transparency</td>
+                        <td>Lossless compression, transparency</td>
+                    </tr>
+                    <tr>
+                        <td>GIF</td>
+                        <td>.gif</td>
+                        <td>Simple animations, icons</td>
+                        <td>Animation, limited colors</td>
+                    </tr>
+                    <tr>
+                        <td>WebP</td>
+                        <td>.webp</td>
+                        <td>Modern web images</td>
+                        <td>Better compression than JPEG</td>
+                    </tr>
+                    <tr>
+                        <td>SVG</td>
+                        <td>.svg</td>
+                        <td>Vector graphics, icons</td>
+                        <td>Scalable, small file size</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Responsive Images -->
+        <div class="section">
+            <h2 class="section-title">📱 Responsive Images</h2>
+            
+            <div class="example">
+                <h3>Picture Element for Responsive Images</h3>
+                <div class="code-block light-code">
+<code>&lt;picture&gt;
+    &lt;source media="(min-width: 800px)" srcset="large-image.jpg"&gt;
+    &lt;source media="(min-width: 400px)" srcset="medium-image.jpg"&gt;
+    &lt;img src="small-image.jpg" alt="Responsive image"&gt;
+&lt;/picture&gt;</code>
+                </div>
+                <p>Provides different images for different screen sizes.</p>
+            </div>
+            
+            <div class="example">
+                <h3>Srcset Attribute for High-DPI Displays</h3>
+                <div class="code-block light-code">
+<code>&lt;img src="image.jpg" 
+     srcset="image.jpg 1x, image-2x.jpg 2x, image-3x.jpg 3x" 
+     alt="High-resolution image"&gt;</code>
+                </div>
+                <p>Provides different resolution images for different pixel densities.</p>
+            </div>
+        </div>
+
+        <!-- Figure and Figcaption -->
+        <div class="section">
+            <h2 class="section-title">📊 Figure and Figcaption</h2>
+            
+            <div class="example">
+                <h3>Semantic Image with Caption</h3>
+                <div class="code-block light-code">
+<code>&lt;figure&gt;
+    &lt;img src="chart.png" alt="Sales growth chart"&gt;
+    &lt;figcaption&gt;
+        Figure 1: Sales growth from 2020 to 2025 showing a 150% increase.
+    &lt;/figcaption&gt;
+&lt;/figure&gt;</code>
+                </div>
+                <p>Use &lt;figure&gt; and &lt;figcaption&gt; for images with captions or diagrams.</p>
+            </div>
+        </div>
+
+        <!-- Best Practices -->
+        <div class="section">
+            <h2 class="section-title">✅ Best Practices</h2>
+            
+            <div class="highlight">
+                <h3>✅ Link Best Practices:</h3>
+                <ul>
+                    <li><strong>Descriptive Link Text:</strong> Use meaningful text, not "click here"</li>
+                    <li><strong>External Links:</strong> Use target="_blank" with rel="noopener"</li>
+                    <li><strong>Accessibility:</strong> Ensure links are keyboard accessible</li>
+                    <li><strong>Visual Indicators:</strong> Make links visually distinct</li>
+                    <li><strong>Broken Links:</strong> Regularly check and fix broken links</li>
+                </ul>
+            </div>
+            
+            <div class="highlight">
+                <h3>✅ Image Best Practices:</h3>
+                <ul>
+                    <li><strong>Always Use Alt Text:</strong> Required for accessibility</li>
+                    <li><strong>Optimize File Sizes:</strong> Compress images for web</li>
+                    <li><strong>Use Appropriate Formats:</strong> JPEG for photos, PNG for graphics</li>
+                    <li><strong>Responsive Images:</strong> Use srcset and picture elements</li>
+                    <li><strong>Lazy Loading:</strong> Use loading="lazy" for below-fold images</li>
+                    <li><strong>Descriptive Alt Text:</strong> Describe the image content</li>
+                </ul>
+            </div>
+            
+            <div class="warning">
+                <h3>❌ Common Mistakes:</h3>
+                <ul>
+                    <li><strong>Missing Alt Text:</strong> Always provide alternative text</li>
+                    <li><strong>Generic Link Text:</strong> Avoid "click here" or "read more"</li>
+                    <li><strong>Large Image Files:</strong> Optimize images before uploading</li>
+                    <li><strong>Missing Images:</strong> Provide fallback for missing images</li>
+                    <li><strong>Broken Links:</strong> Test all links regularly</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Complete Example -->
+        <div class="section">
+            <h2 class="section-title">📚 Complete Example</h2>
+            
+            <div class="example">
+                <h3>Real-World Links and Images Example</h3>
+                <div class="code-block light-code">
+<code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Links and Images Example&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;nav&gt;
+            &lt;a href="#home"&gt;Home&lt;/a&gt;
+            &lt;a href="#about"&gt;About&lt;/a&gt;
+            &lt;a href="#contact"&gt;Contact&lt;/a&gt;
+            &lt;a href="https://github.com" target="_blank" rel="noopener"&gt;GitHub&lt;/a&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+    
+    &lt;main&gt;
+        &lt;section id="home"&gt;
+            &lt;h1&gt;Welcome to Our Website&lt;/h1&gt;
+            &lt;img src="hero-image.jpg" alt="Beautiful landscape" width="800" height="400"&gt;
+            
+            &lt;figure&gt;
+                &lt;img src="product-chart.png" alt="Product performance chart"&gt;
+                &lt;figcaption&gt;Figure 1: Our product performance over the last year&lt;/figcaption&gt;
+            &lt;/figure&gt;
+        &lt;/section&gt;
+        
+        &lt;section id="contact"&gt;
+            &lt;h2&gt;Contact Us&lt;/h2&gt;
+            &lt;p&gt;Email us at &lt;a href="mailto:contact@example.com"&gt;contact@example.com&lt;/a&gt;&lt;/p&gt;
+            &lt;p&gt;Call us at &lt;a href="tel:+1234567890"&gt;(123) 456-7890&lt;/a&gt;&lt;/p&gt;
+            &lt;p&gt;Download our &lt;a href="brochure.pdf" download&gt;company brochure&lt;/a&gt;&lt;/p&gt;
+        &lt;/section&gt;
+    &lt;/main&gt;
+    
+    &lt;footer&gt;
+        &lt;p&gt;&lt;small&gt;© 2025 Company Name. All rights reserved.&lt;/small&gt;&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <h3>🧭 Navigation</h3>
+            <a href="index.html" class="nav-button">📚 Back to HTML Index</a>
+            <a href="html_basics.html" class="nav-button">🌐 HTML Basics</a>
+            <a href="html_elements.html" class="nav-button">📝 HTML Elements</a>
+            <a href="html_attributes.html" class="nav-button">⚙️ HTML Attributes</a>
+            <a href="../main.html" class="nav-button">🏠 Main Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>

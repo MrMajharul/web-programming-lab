@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Text Formatting - Complete Reference</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .section {
+            padding: 30px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        .section-title {
+            color: #2c3e50;
+            border-bottom: 3px solid #1abc9c;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            font-size: 2.2em;
+            font-weight: bold;
+        }
+        
+        .example {
+            background: #f8f9fa;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+        }
+        
+        .code-block {
+            background: #2d3436;
+            color: #ecf0f1;
+            padding: 25px;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border-left: 5px solid #1abc9c;
+        }
+        
+        .light-code {
+            background: #f8f9fa;
+            color: #2d3436;
+            border: 2px solid #e9ecef;
+        }
+        
+        code {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .warning {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .navigation {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        
+        .nav-button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-button:hover {
+            transform: translateY(-3px);
+        }
+        
+        h3 {
+            color: #34495e;
+            font-size: 1.5em;
+            margin: 25px 0 15px 0;
+            border-left: 4px solid #1abc9c;
+            padding-left: 15px;
+        }
+        
+        h4 {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+        }
+        
+        ul, ol {
+            font-size: 1.1em;
+            line-height: 1.8;
+            padding-left: 25px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #636e72 0%, #2d3436 100%);
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .demo-html {
+            border: 2px solid #1abc9c;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            background: #ecf0f1;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        
+        .formatting-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .formatting-card {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .formatting-card:hover {
+            transform: translateY(-5px);
+            border-color: #1abc9c;
+        }
+        
+        .formatting-name {
+            font-weight: bold;
+            color: #1abc9c;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        
+        /* Demo styling for text formatting examples */
+        .demo-strong { font-weight: bold; }
+        .demo-em { font-style: italic; }
+        .demo-u { text-decoration: underline; }
+        .demo-s { text-decoration: line-through; }
+        .demo-mark { background-color: yellow; }
+        .demo-small { font-size: 0.8em; }
+        .demo-big { font-size: 1.2em; }
+        .demo-sub { vertical-align: sub; font-size: 0.8em; }
+        .demo-sup { vertical-align: super; font-size: 0.8em; }
+        .demo-code { font-family: monospace; background: #f4f4f4; padding: 2px 4px; }
+        .demo-kbd { font-family: monospace; background: #f4f4f4; padding: 2px 4px; border: 1px solid #ccc; }
+        .demo-samp { font-family: monospace; background: #f4f4f4; padding: 2px 4px; }
+        .demo-var { font-style: italic; color: #666; }
+        .demo-pre { font-family: monospace; white-space: pre; background: #f4f4f4; padding: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>✏️ HTML Text Formatting</h1>
+            <h2>Complete Guide to HTML Text Formatting Elements</h2>
+            <p>Student: Majharul Islam | ID: 232002256 | Date: October 2025</p>
+        </div>
+
+        <!-- Text Formatting Overview -->
+        <div class="section">
+            <h2 class="section-title">📝 Text Formatting Overview</h2>
+            
+            <div class="highlight">
+                <h3>What is Text Formatting?</h3>
+                <p>HTML provides various elements to format and style text content. These elements help convey meaning and improve readability while maintaining semantic structure.</p>
+            </div>
+            
+            <div class="example">
+                <h3>Text Formatting Categories</h3>
+                <ul>
+                    <li><strong>Emphasis Elements:</strong> Strong, em, mark</li>
+                    <li><strong>Text Decoration:</strong> Underline, strikethrough</li>
+                    <li><strong>Text Size:</strong> Small, big elements</li>
+                    <li><strong>Text Position:</strong> Subscript, superscript</li>
+                    <li><strong>Code Elements:</strong> Code, kbd, samp, var</li>
+                    <li><strong>Preformatted:</strong> Pre element for preserved formatting</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Emphasis Elements -->
+        <div class="section">
+            <h2 class="section-title">💪 Emphasis Elements</h2>
+            
+            <div class="formatting-grid">
+                <div class="formatting-card">
+                    <div class="formatting-name">&lt;strong&gt; - Strong Text</div>
+                    <div class="demo-html">
+                        <p>This text is <span class="demo-strong">strong and important</span>.</p>
+                    </div>
+                    <div class="code-block light-code">
+<code>&lt;p&gt;This text is &lt;strong&gt;strong and important&lt;/strong&gt;.&lt;/p&gt;</code>
+                    </div>
+                    <p><strong>Use for:</strong> Important content that should stand out</p>
+                </div>
+                
+                <div class="formatting-card">
+                    <div class="formatting-name">&lt;em&gt; - Emphasized Text</div>
+                    <div class="demo-html">
+                        <p>This text is <span class="demo-em">emphasized</span>.</p>
+                    </div>
+                    <div class="code-block light-code">
+<code>&lt;p&gt;This text is &lt;em&gt;emphasized&lt;/em&gt;.&lt;/p&gt;</code>
+                    </div>
+                    <p><strong>Use for:</strong> Text that should be stressed or emphasized</p>
+                </div>
+                
+                <div class="formatting-card">
+                    <div class="formatting-name">&lt;mark&gt; - Highlighted Text</div>
+                    <div class="demo-html">
+                        <p>This text is <span class="demo-mark">highlighted for reference</span>.</p>
+                    </div>
+                    <div class="code-block light-code">
+<code>&lt;p&gt;This text is &lt;mark&gt;highlighted for reference&lt;/mark&gt;.&lt;/p&gt;</code>
+                    </div>
+                    <p><strong>Use for:</strong> Text that should be highlighted or marked</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Text Decoration Elements -->
+        <div class="section">
+            <h2 class="section-title">🎨 Text Decoration Elements</h2>
+            
+            <div class="formatting-grid">
+                <div class="formatting-card">
+                    <div class="formatting-name">&lt;u&gt; - Underlined Text</div>
+                    <div class="demo-html">
+                        <p>This text is <span class="demo-u">underlined</span>.</p>
+                    </div>
+                    <div class="code-block light-code">
+<code>&lt;p&gt;This text is &lt;u&gt;underlined&lt;/u&gt;.&lt;/p&gt;</code>
+                    </div>
+                    <p><strong>Use for:</strong> Text that should be underlined (avoid for links)</p>
+                </div>
+                
+                <div class="formatting-card">
+                    <div class="formatting-name">&lt;s&gt; - Strikethrough Text</div>
+                    <div class="demo-html">
+                        <p>This text is <span class="demo-s">strikethrough</span>.</p>
+                    </div>
+                    <div class="code-block light-code">
+<code>&lt;p&gt;This text is &lt;s&gt;strikethrough&lt;/s&gt;.&lt;/p&gt;</code>
+                    </div>
+                    <p><strong>Use for:</strong> Text that should be crossed out or deleted</p>
+                </div>
+            </div>
+            
+            <div class="warning">
+                <h3>⚠️ Deprecated Elements (Avoid Using):</h3>
+                <ul>
+                    <li><strong>&lt;b&gt; and &lt;i&gt;:</strong> Use &lt;strong&gt; and &lt;em&gt; instead</li>
+                    <li><strong>&lt;strike&gt;:</strong> Use &lt;s&gt; instead</li>
+                    <li><strong>&lt;tt&gt;:</strong> Use CSS font-family: monospace instead</li>
+                    <li><strong>&lt;font&gt;:</strong> Use CSS styling instead</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Text Size Elements -->
+        <div class="section">
+            <h2 class="section-title">📏 Text Size Elements</h2>
+            
+            <div class="formatting-grid">
+                <div class="formatting-card">
+                    <div class="formatting-name">&lt;small&gt; - Small Text</div>
+                    <div class="demo-html">
+                        <p>Normal text with <span class="demo-small">small text</span>.</p>
+                    </div>
+                    <div class="code-block light-code">
+<code>&lt;p&gt;Normal text with &lt;small&gt;small text&lt;/small&gt;.&lt;/p&gt;</code>
+                    </div>
+                    <p><strong>Use for:</strong> Fine print, disclaimers, legal text</p>
+                </div>
+                
+                <div class="formatting-card">
+                    <div class="formatting-name">&lt;big&gt; - Big Text</div>
+                    <div class="demo-html">
+                        <p>Normal text with <span class="demo-big">big text</span>.</p>
+                    </div>
+                    <div class="code-block light-code">
+<code>&lt;p&gt;Normal text with &lt;big&gt;big text&lt;/big&gt;.&lt;/p&gt;</code>
+                    </div>
+                    <p><strong>Note:</strong> &lt;big&gt; is deprecated, use CSS font-size instead</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Text Position Elements -->
+        <div class="section">
+            <h2 class="section-title">📐 Text Position Elements</h2>
+            
+            <div class="formatting-grid">
+                <div class="formatting-card">
+                    <div class="formatting-name">&lt;sub&gt; - Subscript Text</div>
+                    <div class="demo-html">
+                        <p>Chemical formula: H<span class="demo-sub">2</span>O</p>
+                        <p>Mathematical: x<span class="demo-sub">1</span> + x<span class="demo-sub">2</span></p>
+                    </div>
+                    <div class="code-block light-code">
+<code>&lt;p&gt;Chemical formula: H&lt;sub&gt;2&lt;/sub&gt;O&lt;/p&gt;
+&lt;p&gt;Mathematical: x&lt;sub&gt;1&lt;/sub&gt; + x&lt;sub&gt;2&lt;/sub&gt;&lt;/p&gt;</code>
+                    </div>
+                    <p><strong>Use for:</strong> Chemical formulas, mathematical subscripts</p>
+                </div>
+                
+                <div class="formatting-card">
+                    <div class="formatting-name">&lt;sup&gt; - Superscript Text</div>
+                    <div class="demo-html">
+                        <p>Mathematical: E=mc<span class="demo-sup">2</span></p>
+                        <p>Date: 5<span class="demo-sup">th</span> of October</p>
+                        <p>Power: 10<span class="demo-sup">3</span> = 1000</p>
+                    </div>
+                    <div class="code-block light-code">
+<code>&lt;p&gt;Mathematical: E=mc&lt;sup&gt;2&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;Date: 5&lt;sup&gt;th&lt;/sup&gt; of October&lt;/p&gt;
+&lt;p&gt;Power: 10&lt;sup&gt;3&lt;/sup&gt; = 1000&lt;/p&gt;</code>
+                    </div>
+                    <p><strong>Use for:</strong> Exponents, ordinals, footnotes</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Code Elements -->
+        <div class="section">
+            <h2 class="section-title">💻 Code Elements</h2>
+            
+            <div class="formatting-grid">
+                <div class="formatting-card">
+                    <div class="formatting-name">&lt;code&gt; - Inline Code</div>
+                    <div class="demo-html">
+                        <p>Use the <span class="demo-code">console.log()</span> function to debug.</p>
+                    </div>
+                    <div class="code-block light-code">
+<code>&lt;p&gt;Use the &lt;code&gt;console.log()&lt;/code&gt; function to debug.&lt;/p&gt;</code>
+                    </div>
+                    <p><strong>Use for:</strong> Short code snippets, function names, variables</p>
+                </div>
+                
+                <div class="formatting-card">
+                    <div class="formatting-name">&lt;kbd&gt; - Keyboard Input</div>
+                    <div class="demo-html">
+                        <p>Press <span class="demo-kbd">Ctrl</span> + <span class="demo-kbd">C</span> to copy.</p>
+                    </div>
+                    <div class="code-block light-code">
+<code>&lt;p&gt;Press &lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;C&lt;/kbd&gt; to copy.&lt;/p&gt;</code>
+                    </div>
+                    <p><strong>Use for:</strong> Keyboard shortcuts, key combinations</p>
+                </div>
+                
+                <div class="formatting-card">
+                    <div class="formatting-name">&lt;samp&gt; - Sample Output</div>
+                    <div class="demo-html">
+                        <p>Output: <span class="demo-samp">Hello, World!</span></p>
+                    </div>
+                    <div class="code-block light-code">
+<code>&lt;p&gt;Output: &lt;samp&gt;Hello, World!&lt;/samp&gt;&lt;/p&gt;</code>
+                    </div>
+                    <p><strong>Use for:</strong> Program output, sample text</p>
+                </div>
+                
+                <div class="formatting-card">
+                    <div class="formatting-name">&lt;var&gt; - Variable Names</div>
+                    <div class="demo-html">
+                        <p>The variable <span class="demo-var">userName</span> stores the name.</p>
+                    </div>
+                    <div class="code-block light-code">
+<code>&lt;p&gt;The variable &lt;var&gt;userName&lt;/var&gt; stores the name.&lt;/p&gt;</code>
+                    </div>
+                    <p><strong>Use for:</strong> Variable names, mathematical variables</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Preformatted Text -->
+        <div class="section">
+            <h2 class="section-title">📄 Preformatted Text</h2>
+            
+            <div class="example">
+                <h3>&lt;pre&gt; - Preformatted Text</h3>
+                <p>The &lt;pre&gt; element preserves whitespace, line breaks, and formatting exactly as written.</p>
+                
+                <div class="demo-html">
+                    <div class="demo-pre">    This text preserves
+    spaces and line breaks
+        exactly as written.
+    
+    ┌─────────────────┐
+    │   ASCII Art     │
+    └─────────────────┘</div>
+                </div>
+                
+                <div class="code-block light-code">
+<code>&lt;pre&gt;
+    This text preserves
+    spaces and line breaks
+        exactly as written.
+    
+    ┌─────────────────┐
+    │   ASCII Art     │
+    └─────────────────┘
+&lt;/pre&gt;</code>
+                </div>
+            </div>
+            
+            <div class="example">
+                <h3>&lt;pre&gt; with &lt;code&gt; - Code Blocks</h3>
+                <div class="code-block light-code">
+<code>&lt;pre&gt;&lt;code&gt;
+function greetUser(name) {
+    console.log(`Hello, ${name}!`);
+    return `Welcome, ${name}`;
+}
+&lt;/code&gt;&lt;/pre&gt;</code>
+                </div>
+                <p><strong>Use for:</strong> Code blocks, ASCII art, formatted text</p>
+            </div>
+        </div>
+
+        <!-- Complete Text Formatting Example -->
+        <div class="section">
+            <h2 class="section-title">📚 Complete Text Formatting Example</h2>
+            
+            <div class="example">
+                <h3>Real-World Text Formatting Example</h3>
+                <div class="demo-html">
+                    <h2>HTML Text Formatting Demo</h2>
+                    <p>This is a <span class="demo-strong">strong paragraph</span> with <span class="demo-em">emphasized text</span> and <span class="demo-mark">highlighted content</span>.</p>
+                    
+                    <p>Here's some <span class="demo-code">inline code</span> and a <span class="demo-u">underlined phrase</span>.</p>
+                    
+                    <p>Mathematical expressions: H<span class="demo-sub">2</span>SO<span class="demo-sub">4</span> and E=mc<span class="demo-sup">2</span></p>
+                    
+                    <p>Keyboard shortcut: <span class="demo-kbd">Ctrl</span> + <span class="demo-kbd">Shift</span> + <span class="demo-kbd">I</span></p>
+                    
+                    <p>Program output: <span class="demo-samp">Compilation successful</span></p>
+                    
+                    <p>Variable <span class="demo-var">totalScore</span> contains the result.</p>
+                    
+                    <p><span class="demo-small">Small print for legal disclaimers</span></p>
+                </div>
+                
+                <div class="code-block light-code">
+<code>&lt;h2&gt;HTML Text Formatting Demo&lt;/h2&gt;
+&lt;p&gt;This is a &lt;strong&gt;strong paragraph&lt;/strong&gt; with &lt;em&gt;emphasized text&lt;/em&gt; and &lt;mark&gt;highlighted content&lt;/mark&gt;.&lt;/p&gt;
+
+&lt;p&gt;Here's some &lt;code&gt;inline code&lt;/code&gt; and a &lt;u&gt;underlined phrase&lt;/u&gt;.&lt;/p&gt;
+
+&lt;p&gt;Mathematical expressions: H&lt;sub&gt;2&lt;/sub&gt;SO&lt;sub&gt;4&lt;/sub&gt; and E=mc&lt;sup&gt;2&lt;/sup&gt;&lt;/p&gt;
+
+&lt;p&gt;Keyboard shortcut: &lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;Shift&lt;/kbd&gt; + &lt;kbd&gt;I&lt;/kbd&gt;&lt;/p&gt;
+
+&lt;p&gt;Program output: &lt;samp&gt;Compilation successful&lt;/samp&gt;&lt;/p&gt;
+
+&lt;p&gt;Variable &lt;var&gt;totalScore&lt;/var&gt; contains the result.&lt;/p&gt;
+
+&lt;p&gt;&lt;small&gt;Small print for legal disclaimers&lt;/small&gt;&lt;/p&gt;</code>
+                </div>
+            </div>
+        </div>
+
+        <!-- Best Practices -->
+        <div class="section">
+            <h2 class="section-title">✅ Text Formatting Best Practices</h2>
+            
+            <div class="highlight">
+                <h3>✅ Good Practices:</h3>
+                <ul>
+                    <li><strong>Use Semantic Elements:</strong> &lt;strong&gt; instead of &lt;b&gt;</li>
+                    <li><strong>Meaningful Emphasis:</strong> Use &lt;em&gt; for emphasis, &lt;strong&gt; for importance</li>
+                    <li><strong>Accessibility:</strong> Screen readers understand semantic elements</li>
+                    <li><strong>Consistency:</strong> Use the same elements for the same purposes</li>
+                    <li><strong>CSS for Styling:</strong> Use CSS for visual styling, HTML for meaning</li>
+                </ul>
+            </div>
+            
+            <div class="warning">
+                <h3>❌ Avoid These Mistakes:</h3>
+                <ul>
+                    <li><strong>Don't use deprecated elements:</strong> &lt;b&gt;, &lt;i&gt;, &lt;font&gt;, &lt;tt&gt;</li>
+                    <li><strong>Don't overuse emphasis:</strong> Too much emphasis reduces impact</li>
+                    <li><strong>Don't use formatting for structure:</strong> Use proper headings instead</li>
+                    <li><strong>Don't forget accessibility:</strong> Ensure screen readers can understand your content</li>
+                    <li><strong>Don't mix formatting with styling:</strong> Keep HTML semantic, CSS visual</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <h3>🧭 Navigation</h3>
+            <a href="index.html" class="nav-button">📚 Back to HTML Index</a>
+            <a href="html_basics.html" class="nav-button">🌐 HTML Basics</a>
+            <a href="html_elements.html" class="nav-button">📝 HTML Elements</a>
+            <a href="html_attributes.html" class="nav-button">⚙️ HTML Attributes</a>
+            <a href="../main.html" class="nav-button">🏠 Main Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>

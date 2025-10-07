@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete HTML Reference - Web Programming Lab</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.05) 10px,
+                rgba(255,255,255,0.05) 20px
+            );
+            animation: slide 20s linear infinite;
+        }
+        
+        @keyframes slide {
+            0% { transform: translateX(-50px); }
+            100% { transform: translateX(50px); }
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+        }
+        
+        .header h2 {
+            font-size: 1.8em;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+        
+        .student-info {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 25px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .student-details {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.1em;
+        }
+        
+        .status-badge {
+            background: #27ae60;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1em;
+        }
+        
+        .navigation {
+            padding: 40px;
+        }
+        
+        .nav-title {
+            color: #2c3e50;
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+        }
+        
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .topic-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .topic-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .topic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            border-color: #3498db;
+        }
+        
+        .topic-card:hover::before {
+            left: 100%;
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8em;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .icon-basics { background: linear-gradient(135deg, #3498db, #2980b9); }
+        .icon-elements { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+        .icon-attributes { background: linear-gradient(135deg, #f39c12, #e67e22); }
+        .icon-semantic { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
+        .icon-text { background: linear-gradient(135deg, #1abc9c, #16a085); }
+        .icon-links { background: linear-gradient(135deg, #34495e, #2c3e50); }
+        .icon-lists { background: linear-gradient(135deg, #e67e22, #d35400); }
+        .icon-tables { background: linear-gradient(135deg, #8e44ad, #9b59b6); }
+        .icon-forms { background: linear-gradient(135deg, #27ae60, #2ecc71); }
+        .icon-multimedia { background: linear-gradient(135deg, #f1c40f, #f39c12); }
+        
+        .card-title {
+            color: #2c3e50;
+            font-size: 1.4em;
+            font-weight: bold;
+            margin: 0;
+        }
+        
+        .card-description {
+            color: #7f8c8d;
+            font-size: 1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .card-features {
+            margin-bottom: 25px;
+        }
+        
+        .card-features h4 {
+            color: #34495e;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .features-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .features-list li {
+            color: #7f8c8d;
+            margin: 5px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .features-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        .card-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+        
+        .card-link:hover {
+            background: linear-gradient(135deg, #2980b9, #1c598a);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+        }
+        
+        .stats-section {
+            background: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%);
+            padding: 30px 40px;
+            margin: 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .stat-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #3498db;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 1em;
+            font-weight: 500;
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 30px 40px;
+            text-align: center;
+        }
+        
+        .footer p {
+            opacity: 0.8;
+            margin: 5px 0;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link:hover {
+            background: linear-gradient(135deg, #7f8c8d, #6c7b7d);
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2.5em; }
+            .header h2 { font-size: 1.4em; }
+            .student-details { justify-content: center; }
+            .topics-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="header-content">
+                <h1>📚 Complete HTML Reference</h1>
+                <h2>Comprehensive HTML Documentation</h2>
+                <p>All HTML Topics Covered in Detail with Examples</p>
+            </div>
+        </div>
+        
+        <!-- Student Information -->
+        <div class="student-info">
+            <div class="student-details">
+                <div class="detail-item">
+                    <span>👨‍🎓</span>
+                    <span><strong>Student:</strong> Majharul Islam</span>
+                </div>
+                <div class="detail-item">
+                    <span>🆔</span>
+                    <span><strong>ID:</strong> 232002256</span>
+                </div>
+                <div class="detail-item">
+                    <span>🏫</span>
+                    <span><strong>Department:</strong> CSE</span>
+                </div>
+                <div class="detail-item">
+                    <span>📅</span>
+                    <span><strong>Date:</strong> October 2025</span>
+                </div>
+            </div>
+            <div class="status-badge">
+                ✅ Complete HTML Reference
+            </div>
+        </div>
+        
+        <!-- Navigation Section -->
+        <div class="navigation">
+            <h2 class="nav-title">🎯 HTML Topics Documentation</h2>
+            
+            <div class="topics-grid">
+                <!-- HTML Basics Card -->
+                <div class="topic-card">
+                    <div class="card-header">
+                        <div class="card-icon icon-basics">🌐</div>
+                        <h3 class="card-title">HTML Basics</h3>
+                    </div>
+                    <p class="card-description">
+                        Fundamental HTML concepts, document structure, DOCTYPE, and basic HTML elements.
+                    </p>
+                    <div class="card-features">
+                        <h4>📋 Contains:</h4>
+                        <ul class="features-list">
+                            <li>HTML document structure</li>
+                            <li>DOCTYPE declarations</li>
+                            <li>Basic HTML elements</li>
+                            <li>Head and body sections</li>
+                            <li>HTML syntax and rules</li>
+                        </ul>
+                    </div>
+                    <a href="html_basics.html" class="card-link">🌐 View HTML Basics</a>
+                </div>
+                
+                <!-- HTML Elements Card -->
+                <div class="topic-card">
+                    <div class="card-header">
+                        <div class="card-icon icon-elements">📝</div>
+                        <h3 class="card-title">HTML Elements</h3>
+                    </div>
+                    <p class="card-description">
+                        Complete reference of HTML elements including headings, paragraphs, and structural elements.
+                    </p>
+                    <div class="card-features">
+                        <h4>📋 Contains:</h4>
+                        <ul class="features-list">
+                            <li>Heading elements (H1-H6)</li>
+                            <li>Paragraph and text elements</li>
+                            <li>Block and inline elements</li>
+                            <li>Self-closing elements</li>
+                            <li>Element nesting rules</li>
+                        </ul>
+                    </div>
+                    <a href="html_elements.html" class="card-link">📝 View HTML Elements</a>
+                </div>
+                
+                <!-- HTML Attributes Card -->
+                <div class="topic-card">
+                    <div class="card-header">
+                        <div class="card-icon icon-attributes">⚙️</div>
+                        <h3 class="card-title">HTML Attributes</h3>
+                    </div>
+                    <p class="card-description">
+                        Comprehensive guide to HTML attributes including global attributes and element-specific attributes.
+                    </p>
+                    <div class="card-features">
+                        <h4>📋 Contains:</h4>
+                        <ul class="features-list">
+                            <li>Global attributes (id, class, style)</li>
+                            <li>Element-specific attributes</li>
+                            <li>Data attributes</li>
+                            <li>Accessibility attributes</li>
+                            <li>Event handler attributes</li>
+                        </ul>
+                    </div>
+                    <a href="html_attributes.html" class="card-link">⚙️ View HTML Attributes</a>
+                </div>
+                
+                <!-- HTML5 Semantic Elements Card -->
+                <div class="topic-card">
+                    <div class="card-header">
+                        <div class="card-icon icon-semantic">🏗️</div>
+                        <h3 class="card-title">HTML5 Semantic Elements</h3>
+                    </div>
+                    <p class="card-description">
+                        Modern HTML5 semantic elements for better document structure and accessibility.
+                    </p>
+                    <div class="card-features">
+                        <h4>📋 Contains:</h4>
+                        <ul class="features-list">
+                            <li>Header, nav, main elements</li>
+                            <li>Section, article, aside elements</li>
+                            <li>Footer and figure elements</li>
+                            <li>Semantic document structure</li>
+                            <li>Accessibility benefits</li>
+                        </ul>
+                    </div>
+                    <a href="html_semantic.html" class="card-link">🏗️ View Semantic Elements</a>
+                </div>
+                
+                <!-- Text Formatting Card -->
+                <div class="topic-card">
+                    <div class="card-header">
+                        <div class="card-icon icon-text">✏️</div>
+                        <h3 class="card-title">Text Formatting</h3>
+                    </div>
+                    <p class="card-description">
+                        Complete guide to HTML text formatting elements and typography.
+                    </p>
+                    <div class="card-features">
+                        <h4>📋 Contains:</h4>
+                        <ul class="features-list">
+                            <li>Bold, italic, underline</li>
+                            <li>Superscript and subscript</li>
+                            <li>Strikethrough and emphasis</li>
+                            <li>Strong and mark elements</li>
+                            <li>Text formatting best practices</li>
+                        </ul>
+                    </div>
+                    <a href="html_text_formatting.html" class="card-link">✏️ View Text Formatting</a>
+                </div>
+                
+                <!-- Links and Images Card -->
+                <div class="topic-card">
+                    <div class="card-header">
+                        <div class="card-icon icon-links">🔗</div>
+                        <h3 class="card-title">Links and Images</h3>
+                    </div>
+                    <p class="card-description">
+                        Comprehensive guide to creating links and working with images in HTML.
+                    </p>
+                    <div class="card-features">
+                        <h4>📋 Contains:</h4>
+                        <ul class="features-list">
+                            <li>Hyperlinks (internal/external)</li>
+                            <li>Image elements and attributes</li>
+                            <li>Alt text and accessibility</li>
+                            <li>Image formats and optimization</li>
+                            <li>Link targeting and navigation</li>
+                        </ul>
+                    </div>
+                    <a href="html_links_images.html" class="card-link">🔗 View Links & Images</a>
+                </div>
+                
+                <!-- Advanced Lists Card -->
+                <div class="topic-card">
+                    <div class="card-header">
+                        <div class="card-icon icon-lists">📋</div>
+                        <h3 class="card-title">Advanced HTML Lists</h3>
+                    </div>
+                    <p class="card-description">
+                        Advanced list techniques including nested lists and custom styling.
+                    </p>
+                    <div class="card-features">
+                        <h4>📋 Contains:</h4>
+                        <ul class="features-list">
+                            <li>Unordered, ordered, description lists</li>
+                            <li>Nested list structures</li>
+                            <li>List attributes and customization</li>
+                            <li>Accessibility considerations</li>
+                            <li>Advanced list techniques</li>
+                        </ul>
+                    </div>
+                    <a href="html_lists_advanced.html" class="card-link">📋 View Advanced Lists</a>
+                </div>
+                
+                <!-- Advanced Tables Card -->
+                <div class="topic-card">
+                    <div class="card-header">
+                        <div class="card-icon icon-tables">📊</div>
+                        <h3 class="card-title">Advanced HTML Tables</h3>
+                    </div>
+                    <p class="card-description">
+                        Professional table creation with advanced features and accessibility.
+                    </p>
+                    <div class="card-features">
+                        <h4>📋 Contains:</h4>
+                        <ul class="features-list">
+                            <li>Table structure and semantics</li>
+                            <li>Colspan and rowspan</li>
+                            <li>Table headers and captions</li>
+                            <li>Accessible table design</li>
+                            <li>Responsive table techniques</li>
+                        </ul>
+                    </div>
+                    <a href="html_tables_advanced.html" class="card-link">📊 View Advanced Tables</a>
+                </div>
+                
+                <!-- Advanced Forms Card -->
+                <div class="topic-card">
+                    <div class="card-header">
+                        <div class="card-icon icon-forms">📝</div>
+                        <h3 class="card-title">Advanced HTML Forms</h3>
+                    </div>
+                    <p class="card-description">
+                        Complete form creation guide with all input types and validation.
+                    </p>
+                    <div class="card-features">
+                        <h4>📋 Contains:</h4>
+                        <ul class="features-list">
+                            <li>Form structure and elements</li>
+                            <li>All input types (text, email, etc.)</li>
+                            <li>Select, textarea, and buttons</li>
+                            <li>Form validation and accessibility</li>
+                            <li>Advanced form techniques</li>
+                        </ul>
+                    </div>
+                    <a href="html_forms_advanced.html" class="card-link">📝 View Advanced Forms</a>
+                </div>
+                
+                <!-- Multimedia Elements Card -->
+                <div class="topic-card">
+                    <div class="card-header">
+                        <div class="card-icon icon-multimedia">🎵</div>
+                        <h3 class="card-title">Multimedia Elements</h3>
+                    </div>
+                    <p class="card-description">
+                        Working with audio, video, and other multimedia elements in HTML5.
+                    </p>
+                    <div class="card-features">
+                        <h4>📋 Contains:</h4>
+                        <ul class="features-list">
+                            <li>Audio and video elements</li>
+                            <li>Media attributes and controls</li>
+                            <li>Canvas and SVG graphics</li>
+                            <li>Embedded content (iframe)</li>
+                            <li>Media accessibility</li>
+                        </ul>
+                    </div>
+                    <a href="html_multimedia.html" class="card-link">🎵 View Multimedia Elements</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Statistics Section -->
+        <div class="stats-section">
+            <h2 class="nav-title">📊 HTML Documentation Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">10</div>
+                    <div class="stat-label">HTML Topics Covered</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Code Examples</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">HTML Elements</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">Complete</div>
+                    <div class="stat-label">HTML Reference</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Back to Main -->
+        <div style="text-align: center; padding: 20px;">
+            <a href="../main.html" class="back-link">🏠 Back to Main Dashboard</a>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>Complete HTML Reference - Web Programming Lab</strong></p>
+            <p>Department of Computer Science & Engineering - Green University of Bangladesh</p>
+            <p>© 2025 Majharul Islam (232002256) - All Rights Reserved</p>
+        </div>
+    </div>
+</body>
+</html>

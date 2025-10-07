@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Attributes - Complete Reference</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .section {
+            padding: 30px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        .section-title {
+            color: #2c3e50;
+            border-bottom: 3px solid #f39c12;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            font-size: 2.2em;
+            font-weight: bold;
+        }
+        
+        .example {
+            background: #f8f9fa;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+        }
+        
+        .code-block {
+            background: #2d3436;
+            color: #ecf0f1;
+            padding: 25px;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border-left: 5px solid #f39c12;
+        }
+        
+        .light-code {
+            background: #f8f9fa;
+            color: #2d3436;
+            border: 2px solid #e9ecef;
+        }
+        
+        code {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .warning {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .navigation {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        
+        .nav-button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-button:hover {
+            transform: translateY(-3px);
+        }
+        
+        h3 {
+            color: #34495e;
+            font-size: 1.5em;
+            margin: 25px 0 15px 0;
+            border-left: 4px solid #f39c12;
+            padding-left: 15px;
+        }
+        
+        h4 {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+        }
+        
+        ul, ol {
+            font-size: 1.1em;
+            line-height: 1.8;
+            padding-left: 25px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #636e72 0%, #2d3436 100%);
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .attribute-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .attribute-card {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .attribute-card:hover {
+            transform: translateY(-5px);
+            border-color: #f39c12;
+        }
+        
+        .attribute-name {
+            font-weight: bold;
+            color: #f39c12;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        
+        .demo-html {
+            border: 2px solid #f39c12;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            background: #ecf0f1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>⚙️ HTML Attributes</h1>
+            <h2>Complete Reference of HTML Attributes</h2>
+            <p>Student: Majharul Islam | ID: 232002256 | Date: October 2025</p>
+        </div>
+
+        <!-- HTML Attributes Overview -->
+        <div class="section">
+            <h2 class="section-title">📋 HTML Attributes Overview</h2>
+            
+            <div class="highlight">
+                <h3>What are HTML Attributes?</h3>
+                <p>HTML attributes provide additional information about HTML elements. They are always specified in the start tag and come in name/value pairs like <code>name="value"</code>.</p>
+            </div>
+            
+            <div class="example">
+                <h3>Attribute Syntax</h3>
+                <div class="code-block light-code">
+<code>&lt;element attribute="value"&gt;Content&lt;/element&gt;
+
+&lt;!-- Examples --&gt;
+&lt;img src="image.jpg" alt="Description" width="300" height="200"&gt;
+&lt;a href="https://example.com" target="_blank"&gt;Link&lt;/a&gt;
+&lt;input type="text" name="username" required&gt;</code>
+                </div>
+            </div>
+            
+            <div class="example">
+                <h3>Attribute Categories</h3>
+                <ul>
+                    <li><strong>Global Attributes:</strong> Can be used with any HTML element</li>
+                    <li><strong>Element-Specific Attributes:</strong> Only work with specific elements</li>
+                    <li><strong>Boolean Attributes:</strong> Don't require a value (true when present)</li>
+                    <li><strong>Data Attributes:</strong> Custom attributes starting with "data-"</li>
+                    <li><strong>Event Handler Attributes:</strong> Handle user interactions</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Global Attributes -->
+        <div class="section">
+            <h2 class="section-title">🌐 Global Attributes</h2>
+            
+            <div class="example">
+                <h3>Core Global Attributes</h3>
+                <table>
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                    <tr>
+                        <td>id</td>
+                        <td>Unique identifier for an element</td>
+                        <td>&lt;div id="header"&gt;</td>
+                    </tr>
+                    <tr>
+                        <td>class</td>
+                        <td>CSS class name(s) for styling</td>
+                        <td>&lt;p class="highlight important"&gt;</td>
+                    </tr>
+                    <tr>
+                        <td>style</td>
+                        <td>Inline CSS styling</td>
+                        <td>&lt;h1 style="color: blue;"&gt;</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>Tooltip text displayed on hover</td>
+                        <td>&lt;img title="Photo description"&gt;</td>
+                    </tr>
+                    <tr>
+                        <td>lang</td>
+                        <td>Language of the content</td>
+                        <td>&lt;html lang="en"&gt;</td>
+                    </tr>
+                    <tr>
+                        <td>dir</td>
+                        <td>Text direction (ltr, rtl)</td>
+                        <td>&lt;p dir="rtl"&gt;</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="attribute-grid">
+                <div class="attribute-card">
+                    <div class="attribute-name">id</div>
+                    <p>Provides a unique identifier for an element. Must be unique within the document.</p>
+                    <div class="code-block light-code">
+<code>&lt;div id="main-content"&gt;
+&lt;h1 id="page-title"&gt;Title&lt;/h1&gt;</code>
+                    </div>
+                </div>
+                
+                <div class="attribute-card">
+                    <div class="attribute-name">class</div>
+                    <p>Specifies one or more CSS class names. Multiple classes separated by spaces.</p>
+                    <div class="code-block light-code">
+<code>&lt;p class="highlight important"&gt;
+&lt;div class="container sidebar"&gt;</code>
+                    </div>
+                </div>
+                
+                <div class="attribute-card">
+                    <div class="attribute-name">style</div>
+                    <p>Inline CSS styling. Should be avoided in favor of external stylesheets.</p>
+                    <div class="code-block light-code">
+<code>&lt;h1 style="color: blue; font-size: 24px;"&gt;
+&lt;div style="background: yellow;"&gt;</code>
+                    </div>
+                </div>
+                
+                <div class="attribute-card">
+                    <div class="attribute-name">title</div>
+                    <p>Provides additional information about an element. Shown as tooltip on hover.</p>
+                    <div class="code-block light-code">
+<code>&lt;img src="photo.jpg" title="Beautiful sunset"&gt;
+&lt;abbr title="HyperText Markup Language"&gt;HTML&lt;/abbr&gt;</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Accessibility Attributes -->
+        <div class="section">
+            <h2 class="section-title">♿ Accessibility Attributes</h2>
+            
+            <div class="example">
+                <h3>Accessibility Attributes Reference</h3>
+                <table>
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                    <tr>
+                        <td>alt</td>
+                        <td>Alternative text for images</td>
+                        <td>&lt;img alt="Description"&gt;</td>
+                    </tr>
+                    <tr>
+                        <td>aria-label</td>
+                        <td>Accessible label for screen readers</td>
+                        <td>&lt;button aria-label="Close"&gt;×&lt;/button&gt;</td>
+                    </tr>
+                    <tr>
+                        <td>aria-describedby</td>
+                        <td>References element that describes this one</td>
+                        <td>&lt;input aria-describedby="help-text"&gt;</td>
+                    </tr>
+                    <tr>
+                        <td>role</td>
+                        <td>Defines the role of an element</td>
+                        <td>&lt;div role="button"&gt;</td>
+                    </tr>
+                    <tr>
+                        <td>tabindex</td>
+                        <td>Controls tab order</td>
+                        <td>&lt;div tabindex="0"&gt;</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="highlight">
+                <h3>♿ Accessibility Best Practices:</h3>
+                <ul>
+                    <li>Always provide alt text for images</li>
+                    <li>Use semantic HTML elements when possible</li>
+                    <li>Ensure proper heading hierarchy</li>
+                    <li>Provide labels for form inputs</li>
+                    <li>Use ARIA attributes when needed</li>
+                    <li>Test with screen readers</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Data Attributes -->
+        <div class="section">
+            <h2 class="section-title">📊 Data Attributes</h2>
+            
+            <div class="example">
+                <h3>Custom Data Attributes</h3>
+                <p>Data attributes allow you to store extra information on HTML elements. They start with "data-" and can be accessed via JavaScript.</p>
+                
+                <div class="code-block light-code">
+<code>&lt;!-- Data Attributes Examples --&gt;
+&lt;div data-user-id="123" data-role="admin"&gt;User Info&lt;/div&gt;
+&lt;button data-action="save" data-target="form1"&gt;Save&lt;/button&gt;
+&lt;article data-category="technology" data-published="2025-10-01"&gt;
+    Article content
+&lt;/article&gt;
+
+&lt;!-- CSS Access --&gt;
+[data-role="admin"] { background-color: red; }
+
+&lt;!-- JavaScript Access --&gt;
+element.dataset.userId; // "123"
+element.dataset.role;   // "admin"</code>
+                </div>
+            </div>
+            
+            <div class="example">
+                <h3>Data Attribute Rules</h3>
+                <ul>
+                    <li>Must start with "data-"</li>
+                    <li>Can contain hyphens and lowercase letters</li>
+                    <li>Values are always strings</li>
+                    <li>Accessible via element.dataset property</li>
+                    <li>Hyphens become camelCase in JavaScript</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Element-Specific Attributes -->
+        <div class="section">
+            <h2 class="section-title">🎯 Element-Specific Attributes</h2>
+            
+            <div class="attribute-grid">
+                <div class="attribute-card">
+                    <div class="attribute-name">Image Attributes</div>
+                    <p>Attributes specific to &lt;img&gt; elements.</p>
+                    <div class="code-block light-code">
+<code>&lt;img src="image.jpg" 
+     alt="Description" 
+     width="300" 
+     height="200" 
+     loading="lazy"&gt;</code>
+                    </div>
+                </div>
+                
+                <div class="attribute-card">
+                    <div class="attribute-name">Link Attributes</div>
+                    <p>Attributes specific to &lt;a&gt; elements.</p>
+                    <div class="code-block light-code">
+<code>&lt;a href="https://example.com" 
+   target="_blank" 
+   rel="noopener" 
+   download="file.pdf"&gt;Link&lt;/a&gt;</code>
+                    </div>
+                </div>
+                
+                <div class="attribute-card">
+                    <div class="attribute-name">Form Attributes</div>
+                    <p>Attributes for form elements.</p>
+                    <div class="code-block light-code">
+<code>&lt;form action="submit.php" 
+      method="POST" 
+      enctype="multipart/form-data"&gt;
+
+&lt;input type="email" 
+       name="email" 
+       required 
+       placeholder="Enter email"&gt;</code>
+                    </div>
+                </div>
+                
+                <div class="attribute-card">
+                    <div class="attribute-name">Table Attributes</div>
+                    <p>Attributes for table elements.</p>
+                    <div class="code-block light-code">
+<code>&lt;table border="1" cellpadding="10" cellspacing="0"&gt;
+&lt;td colspan="2" rowspan="3"&gt;Cell&lt;/td&gt;</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Boolean Attributes -->
+        <div class="section">
+            <h2 class="section-title">✅ Boolean Attributes</h2>
+            
+            <div class="example">
+                <h3>Boolean Attributes Reference</h3>
+                <p>Boolean attributes don't require a value. They are true when present and false when absent.</p>
+                
+                <table>
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Elements</th>
+                        <th>Purpose</th>
+                    </tr>
+                    <tr>
+                        <td>checked</td>
+                        <td>&lt;input type="checkbox"&gt;, &lt;input type="radio"&gt;</td>
+                        <td>Pre-selects the input</td>
+                    </tr>
+                    <tr>
+                        <td>disabled</td>
+                        <td>&lt;input&gt;, &lt;button&gt;, &lt;select&gt;</td>
+                        <td>Disables the element</td>
+                    </tr>
+                    <tr>
+                        <td>readonly</td>
+                        <td>&lt;input&gt;, &lt;textarea&gt;</td>
+                        <td>Makes element read-only</td>
+                    </tr>
+                    <tr>
+                        <td>required</td>
+                        <td>&lt;input&gt;, &lt;select&gt;, &lt;textarea&gt;</td>
+                        <td>Makes field required</td>
+                    </tr>
+                    <tr>
+                        <td>selected</td>
+                        <td>&lt;option&gt;</td>
+                        <td>Pre-selects the option</td>
+                    </tr>
+                    <tr>
+                        <td>autoplay</td>
+                        <td>&lt;audio&gt;, &lt;video&gt;</td>
+                        <td>Starts playing automatically</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="code-block light-code">
+<code>&lt;!-- Boolean Attributes Examples --&gt;
+&lt;input type="checkbox" checked&gt;
+&lt;input type="text" required&gt;
+&lt;button disabled&gt;Disabled Button&lt;/button&gt;
+&lt;textarea readonly&gt;Read-only text&lt;/textarea&gt;
+&lt;option selected&gt;Default Option&lt;/option&gt;</code>
+            </div>
+        </div>
+
+        <!-- Event Handler Attributes -->
+        <div class="section">
+            <h2 class="section-title">⚡ Event Handler Attributes</h2>
+            
+            <div class="example">
+                <h3>Common Event Handlers</h3>
+                <table>
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Event</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>onclick</td>
+                        <td>click</td>
+                        <td>Mouse click</td>
+                    </tr>
+                    <tr>
+                        <td>onload</td>
+                        <td>load</td>
+                        <td>Element loaded</td>
+                    </tr>
+                    <tr>
+                        <td>onchange</td>
+                        <td>change</td>
+                        <td>Value changed</td>
+                    </tr>
+                    <tr>
+                        <td>onsubmit</td>
+                        <td>submit</td>
+                        <td>Form submitted</td>
+                    </tr>
+                    <tr>
+                        <td>onmouseover</td>
+                        <td>mouseover</td>
+                        <td>Mouse enters element</td>
+                    </tr>
+                    <tr>
+                        <td>onfocus</td>
+                        <td>focus</td>
+                        <td>Element receives focus</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="code-block light-code">
+<code>&lt;!-- Event Handler Examples --&gt;
+&lt;button onclick="alert('Hello!')"&gt;Click Me&lt;/button&gt;
+&lt;img src="image.jpg" onload="console.log('Image loaded')"&gt;
+&lt;input onchange="validateInput(this)"&gt;
+&lt;form onsubmit="return confirm('Submit?')"&gt;
+&lt;div onmouseover="this.style.background='yellow'"&gt;Hover me&lt;/div&gt;</code>
+            </div>
+            
+            <div class="warning">
+                <h3>⚠️ Event Handler Best Practices:</h3>
+                <ul>
+                    <li>Prefer JavaScript event listeners over inline handlers</li>
+                    <li>Keep inline handlers simple for quick prototypes</li>
+                    <li>Consider accessibility when using event handlers</li>
+                    <li>Test event handlers across different browsers</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Attribute Best Practices -->
+        <div class="section">
+            <h2 class="section-title">✅ Attribute Best Practices</h2>
+            
+            <div class="example">
+                <h3>HTML5 Attribute Guidelines</h3>
+                <ul>
+                    <li><strong>Quote Values:</strong> Always use quotes around attribute values</li>
+                    <li><strong>Lowercase Names:</strong> Use lowercase for attribute names</li>
+                    <li><strong>Meaningful Names:</strong> Choose descriptive attribute names</li>
+                    <li><strong>Avoid Deprecated:</strong> Don't use deprecated attributes</li>
+                    <li><strong>Validate HTML:</strong> Always validate your HTML</li>
+                </ul>
+            </div>
+            
+            <div class="highlight">
+                <h3>✅ Good Attribute Usage:</h3>
+                <div class="code-block light-code">
+<code>&lt;!-- Good: Proper quotes and meaningful names --&gt;
+&lt;img src="profile.jpg" alt="User profile picture" class="avatar"&gt;
+&lt;a href="https://example.com" title="Visit our website"&gt;Link&lt;/a&gt;
+&lt;input type="email" name="user-email" required placeholder="Enter email"&gt;</code>
+                </div>
+            </div>
+            
+            <div class="warning">
+                <h3>❌ Avoid These Mistakes:</h3>
+                <div class="code-block light-code">
+<code>&lt;!-- Bad: No quotes, uppercase, meaningless names --&gt;
+&lt;img src=profile.jpg alt=photo class=img1&gt;
+&lt;a HREF=https://example.com TITLE=link&gt;Link&lt;/a&gt;
+&lt;input type=email name=x required placeholder=email&gt;</code>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <h3>🧭 Navigation</h3>
+            <a href="index.html" class="nav-button">📚 Back to HTML Index</a>
+            <a href="html_basics.html" class="nav-button">🌐 HTML Basics</a>
+            <a href="html_elements.html" class="nav-button">📝 HTML Elements</a>
+            <a href="html_semantic.html" class="nav-button">🏗️ Semantic Elements</a>
+            <a href="../main.html" class="nav-button">🏠 Main Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>
