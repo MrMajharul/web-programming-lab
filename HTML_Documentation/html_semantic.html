@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Semantic Elements - Complete Reference</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .section {
+            padding: 30px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        .section-title {
+            color: #2c3e50;
+            border-bottom: 3px solid #9b59b6;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            font-size: 2.2em;
+            font-weight: bold;
+        }
+        
+        .example {
+            background: #f8f9fa;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+        }
+        
+        .code-block {
+            background: #2d3436;
+            color: #ecf0f1;
+            padding: 25px;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border-left: 5px solid #9b59b6;
+        }
+        
+        .light-code {
+            background: #f8f9fa;
+            color: #2d3436;
+            border: 2px solid #e9ecef;
+        }
+        
+        code {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .warning {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .navigation {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        
+        .nav-button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-button:hover {
+            transform: translateY(-3px);
+        }
+        
+        h3 {
+            color: #34495e;
+            font-size: 1.5em;
+            margin: 25px 0 15px 0;
+            border-left: 4px solid #9b59b6;
+            padding-left: 15px;
+        }
+        
+        h4 {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+        }
+        
+        ul, ol {
+            font-size: 1.1em;
+            line-height: 1.8;
+            padding-left: 25px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #636e72 0%, #2d3436 100%);
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .semantic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .semantic-card {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .semantic-card:hover {
+            transform: translateY(-5px);
+            border-color: #9b59b6;
+        }
+        
+        .semantic-name {
+            font-weight: bold;
+            color: #9b59b6;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        
+        .demo-html {
+            border: 2px solid #9b59b6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            background: #ecf0f1;
+        }
+        
+        /* Demo styling for semantic elements */
+        .demo-header { background: #3498db; color: white; padding: 10px; text-align: center; }
+        .demo-nav { background: #34495e; color: white; padding: 10px; }
+        .demo-main { background: #ecf0f1; padding: 15px; }
+        .demo-section { background: #d5dbdb; padding: 10px; margin: 5px 0; }
+        .demo-article { background: #f8f9fa; padding: 10px; margin: 5px 0; border-left: 3px solid #9b59b6; }
+        .demo-aside { background: #e8f6f3; padding: 10px; border: 1px solid #27ae60; }
+        .demo-footer { background: #2c3e50; color: white; padding: 10px; text-align: center; }
+        .demo-figure { border: 1px solid #9b59b6; padding: 10px; text-align: center; }
+        .demo-figcaption { background: #f8f9fa; padding: 5px; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏗️ HTML5 Semantic Elements</h1>
+            <h2>Complete Guide to Semantic HTML5 Elements</h2>
+            <p>Student: Majharul Islam | ID: 232002256 | Date: October 2025</p>
+        </div>
+
+        <!-- Semantic Elements Overview -->
+        <div class="section">
+            <h2 class="section-title">🏗️ Semantic Elements Overview</h2>
+            
+            <div class="highlight">
+                <h3>What are Semantic Elements?</h3>
+                <p>Semantic elements clearly describe their meaning in a human- and machine-readable way. HTML5 introduced new semantic elements that provide better document structure and accessibility.</p>
+            </div>
+            
+            <div class="example">
+                <h3>Benefits of Semantic Elements</h3>
+                <ul>
+                    <li><strong>Better SEO:</strong> Search engines understand content structure</li>
+                    <li><strong>Improved Accessibility:</strong> Screen readers can navigate better</li>
+                    <li><strong>Cleaner Code:</strong> More meaningful and maintainable HTML</li>
+                    <li><strong>Future-Proof:</strong> Better compatibility with new technologies</li>
+                    <li><strong>Enhanced Styling:</strong> CSS can target specific content areas</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Document Structure Elements -->
+        <div class="section">
+            <h2 class="section-title">📄 Document Structure Elements</h2>
+            
+            <div class="semantic-grid">
+                <div class="semantic-card">
+                    <div class="semantic-name">&lt;header&gt; - Document Header</div>
+                    <p>Represents introductory content or navigational aids for its nearest ancestor.</p>
+                    <div class="code-block light-code">
+<code>&lt;header&gt;
+    &lt;h1&gt;Website Title&lt;/h1&gt;
+    &lt;nav&gt;Navigation&lt;/nav&gt;
+&lt;/header&gt;</code>
+                    </div>
+                    <p><strong>Use for:</strong> Page headers, section headers, article headers</p>
+                </div>
+                
+                <div class="semantic-card">
+                    <div class="semantic-name">&lt;nav&gt; - Navigation</div>
+                    <p>Represents a section of a page that links to other pages or parts within the page.</p>
+                    <div class="code-block light-code">
+<code>&lt;nav&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="home.html"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="about.html"&gt;About&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code>
+                    </div>
+                    <p><strong>Use for:</strong> Main navigation, breadcrumbs, pagination</p>
+                </div>
+                
+                <div class="semantic-card">
+                    <div class="semantic-name">&lt;main&gt; - Main Content</div>
+                    <p>Represents the dominant content of the document. Only one per page.</p>
+                    <div class="code-block light-code">
+<code>&lt;main&gt;
+    &lt;h1&gt;Main Content&lt;/h1&gt;
+    &lt;p&gt;Primary content of the page&lt;/p&gt;
+&lt;/main&gt;</code>
+                    </div>
+                    <p><strong>Use for:</strong> Primary content area (not in header, footer, or aside)</p>
+                </div>
+                
+                <div class="semantic-card">
+                    <div class="semantic-name">&lt;footer&gt; - Document Footer</div>
+                    <p>Represents a footer for its nearest ancestor sectioning content.</p>
+                    <div class="code-block light-code">
+<code>&lt;footer&gt;
+    &lt;p&gt;© 2025 Company Name&lt;/p&gt;
+    &lt;nav&gt;Footer links&lt;/nav&gt;
+&lt;/footer&gt;</code>
+                    </div>
+                    <p><strong>Use for:</strong> Page footers, article footers, contact info</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Sectioning Elements -->
+        <div class="section">
+            <h2 class="section-title">📋 Content Sectioning Elements</h2>
+            
+            <div class="semantic-grid">
+                <div class="semantic-card">
+                    <div class="semantic-name">&lt;section&gt; - Section</div>
+                    <p>Represents a standalone section of content that forms a complete, or self-contained, composition.</p>
+                    <div class="code-block light-code">
+<code>&lt;section&gt;
+    &lt;h2&gt;Chapter 1&lt;/h2&gt;
+    &lt;p&gt;Section content&lt;/p&gt;
+&lt;/section&gt;</code>
+                    </div>
+                    <p><strong>Use for:</strong> Thematic grouping of content, chapters, tabs</p>
+                </div>
+                
+                <div class="semantic-card">
+                    <div class="semantic-name">&lt;article&gt; - Article</div>
+                    <p>Represents a self-contained composition in a document that is independently distributable.</p>
+                    <div class="code-block light-code">
+<code>&lt;article&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Article Title&lt;/h1&gt;
+    &lt;/header&gt;
+    &lt;p&gt;Article content&lt;/p&gt;
+&lt;/article&gt;</code>
+                    </div>
+                    <p><strong>Use for:</strong> Blog posts, news articles, forum posts</p>
+                </div>
+                
+                <div class="semantic-card">
+                    <div class="semantic-name">&lt;aside&gt; - Aside</div>
+                    <p>Represents a portion of a document whose content is only indirectly related to the main content.</p>
+                    <div class="code-block light-code">
+<code>&lt;aside&gt;
+    &lt;h3&gt;Related Links&lt;/h3&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Related Article 1&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/aside&gt;</code>
+                    </div>
+                    <p><strong>Use for:</strong> Sidebars, related content, advertisements</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Text Content Elements -->
+        <div class="section">
+            <h2 class="section-title">📝 Text Content Elements</h2>
+            
+            <div class="semantic-grid">
+                <div class="semantic-card">
+                    <div class="semantic-name">&lt;figure&gt; - Figure</div>
+                    <p>Represents self-contained content, potentially with an optional caption.</p>
+                    <div class="code-block light-code">
+<code>&lt;figure&gt;
+    &lt;img src="chart.png" alt="Sales Chart"&gt;
+    &lt;figcaption&gt;Figure 1: Sales Data&lt;/figcaption&gt;
+&lt;/figure&gt;</code>
+                    </div>
+                    <p><strong>Use for:</strong> Images, diagrams, code snippets with captions</p>
+                </div>
+                
+                <div class="semantic-card">
+                    <div class="semantic-name">&lt;figcaption&gt; - Figure Caption</div>
+                    <p>Represents a caption or legend for the rest of the contents of its parent figure element.</p>
+                    <div class="code-block light-code">
+<code>&lt;figcaption&gt;
+    Figure 1: This shows the sales data for Q1 2025
+&lt;/figcaption&gt;</code>
+                    </div>
+                    <p><strong>Use for:</strong> Descriptions of figures, images, or diagrams</p>
+                </div>
+                
+                <div class="semantic-card">
+                    <div class="semantic-name">&lt;time&gt; - Time</div>
+                    <p>Represents a specific period in time. May include the datetime attribute.</p>
+                    <div class="code-block light-code">
+<code>&lt;time datetime="2025-10-01"&gt;October 1, 2025&lt;/time&gt;
+&lt;time datetime="14:30"&gt;2:30 PM&lt;/time&gt;</code>
+                    </div>
+                    <p><strong>Use for:</strong> Dates, times, durations with machine-readable format</p>
+                </div>
+                
+                <div class="semantic-card">
+                    <div class="semantic-name">&lt;address&gt; - Address</div>
+                    <p>Represents the contact information for its nearest article or body element ancestor.</p>
+                    <div class="code-block light-code">
+<code>&lt;address&gt;
+    Written by &lt;a href="mailto:author@example.com"&gt;Author Name&lt;/a&gt;&lt;br&gt;
+    Visit us at:&lt;br&gt;
+    Example.com&lt;br&gt;
+    123 Main St, City, Country
+&lt;/address&gt;</code>
+                    </div>
+                    <p><strong>Use for:</strong> Contact information, author details</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Complete Semantic Document Structure -->
+        <div class="section">
+            <h2 class="section-title">📚 Complete Semantic Document Structure</h2>
+            
+            <div class="example">
+                <h3>Real-World Semantic HTML5 Document</h3>
+                <div class="code-block light-code">
+<code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Semantic HTML5 Example&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;h1&gt;My Blog&lt;/h1&gt;
+        &lt;nav&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="index.html"&gt;Home&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="about.html"&gt;About&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="contact.html"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+    
+    &lt;main&gt;
+        &lt;article&gt;
+            &lt;header&gt;
+                &lt;h1&gt;Understanding Semantic HTML5&lt;/h1&gt;
+                &lt;p&gt;Published on &lt;time datetime="2025-10-01"&gt;October 1, 2025&lt;/time&gt;&lt;/p&gt;
+            &lt;/header&gt;
+            
+            &lt;section&gt;
+                &lt;h2&gt;What are Semantic Elements?&lt;/h2&gt;
+                &lt;p&gt;Semantic elements provide meaning to the content...&lt;/p&gt;
+                
+                &lt;figure&gt;
+                    &lt;img src="semantic-diagram.png" alt="Semantic HTML structure diagram"&gt;
+                    &lt;figcaption&gt;Figure 1: Semantic HTML document structure&lt;/figcaption&gt;
+                &lt;/figure&gt;
+            &lt;/section&gt;
+            
+            &lt;section&gt;
+                &lt;h2&gt;Benefits of Semantic HTML&lt;/h2&gt;
+                &lt;p&gt;There are several advantages to using semantic elements...&lt;/p&gt;
+            &lt;/section&gt;
+            
+            &lt;footer&gt;
+                &lt;address&gt;
+                    Written by &lt;a href="mailto:author@example.com"&gt;John Doe&lt;/a&gt;&lt;br&gt;
+                    Contact: &lt;a href="tel:+1234567890"&gt;(123) 456-7890&lt;/a&gt;
+                &lt;/address&gt;
+            &lt;/footer&gt;
+        &lt;/article&gt;
+        
+        &lt;aside&gt;
+            &lt;h3&gt;Related Articles&lt;/h3&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="css-basics.html"&gt;CSS Basics&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="javascript-intro.html"&gt;JavaScript Introduction&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/aside&gt;
+    &lt;/main&gt;
+    
+    &lt;footer&gt;
+        &lt;p&gt;&copy; 2025 My Blog. All rights reserved.&lt;/p&gt;
+        &lt;nav&gt;
+            &lt;a href="privacy.html"&gt;Privacy Policy&lt;/a&gt; |
+            &lt;a href="terms.html"&gt;Terms of Service&lt;/a&gt;
+        &lt;/nav&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visual Demo -->
+        <div class="section">
+            <h2 class="section-title">👀 Visual Semantic Structure Demo</h2>
+            
+            <div class="example">
+                <h3>How Semantic Elements Create Document Structure</h3>
+                <div class="demo-html">
+                    <div class="demo-header">
+                        <h1>Website Header</h1>
+                        <div class="demo-nav">Navigation Menu</div>
+                    </div>
+                    
+                    <div class="demo-main">
+                        <div class="demo-article">
+                            <h2>Article Title</h2>
+                            <div class="demo-section">Article Section 1</div>
+                            <div class="demo-section">Article Section 2</div>
+                        </div>
+                        
+                        <div class="demo-aside">
+                            <h3>Sidebar Content</h3>
+                            <p>Related information</p>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-footer">
+                        <p>Website Footer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Semantic vs Non-Semantic -->
+        <div class="section">
+            <h2 class="section-title">🔄 Semantic vs Non-Semantic</h2>
+            
+            <div class="example">
+                <h3>Before (Non-Semantic HTML)</h3>
+                <div class="code-block light-code">
+<code>&lt;div id="header"&gt;
+    &lt;h1&gt;Website Title&lt;/h1&gt;
+    &lt;div class="nav"&gt;Navigation&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="main"&gt;
+    &lt;div class="post"&gt;
+        &lt;h2&gt;Post Title&lt;/h2&gt;
+        &lt;p&gt;Post content&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="sidebar"&gt;Sidebar&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="footer"&gt;Footer&lt;/div&gt;</code>
+                </div>
+            </div>
+            
+            <div class="example">
+                <h3>After (Semantic HTML5)</h3>
+                <div class="code-block light-code">
+<code>&lt;header&gt;
+    &lt;h1&gt;Website Title&lt;/h1&gt;
+    &lt;nav&gt;Navigation&lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+    &lt;article&gt;
+        &lt;h2&gt;Post Title&lt;/h2&gt;
+        &lt;p&gt;Post content&lt;/p&gt;
+    &lt;/article&gt;
+    &lt;aside&gt;Sidebar&lt;/aside&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;Footer&lt;/footer&gt;</code>
+                </div>
+            </div>
+            
+            <div class="highlight">
+                <h3>✅ Advantages of Semantic HTML:</h3>
+                <ul>
+                    <li><strong>Clear Structure:</strong> Easy to understand document hierarchy</li>
+                    <li><strong>Better SEO:</strong> Search engines understand content better</li>
+                    <li><strong>Accessibility:</strong> Screen readers can navigate effectively</li>
+                    <li><strong>Maintainability:</strong> Easier to update and modify</li>
+                    <li><strong>Future-Proof:</strong> Compatible with new technologies</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Best Practices -->
+        <div class="section">
+            <h2 class="section-title">✅ Semantic HTML Best Practices</h2>
+            
+            <div class="highlight">
+                <h3>✅ Good Practices:</h3>
+                <ul>
+                    <li><strong>Use One Main:</strong> Only one &lt;main&gt; element per page</li>
+                    <li><strong>Logical Hierarchy:</strong> Use headings in proper order (h1, h2, h3...)</li>
+                    <li><strong>Meaningful Sections:</strong> Use &lt;section&gt; for thematic content</li>
+                    <li><strong>Independent Articles:</strong> Use &lt;article&gt; for standalone content</li>
+                    <li><strong>Proper Navigation:</strong> Use &lt;nav&gt; for navigation links</li>
+                    <li><strong>Semantic Time:</strong> Use &lt;time&gt; with datetime attribute</li>
+                </ul>
+            </div>
+            
+            <div class="warning">
+                <h3>❌ Common Mistakes:</h3>
+                <ul>
+                    <li><strong>Overusing Divs:</strong> Don't use &lt;div&gt; when semantic elements exist</li>
+                    <li><strong>Wrong Element Choice:</strong> Don't use &lt;section&gt; for styling containers</li>
+                    <li><strong>Multiple Mains:</strong> Don't use multiple &lt;main&gt; elements</li>
+                    <li><strong>Nested Articles:</strong> Avoid nesting &lt;article&gt; inside &lt;article&gt;</li>
+                    <li><strong>Missing Headings:</strong> Always include headings in sections</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Accessibility Benefits -->
+        <div class="section">
+            <h2 class="section-title">♿ Accessibility Benefits</h2>
+            
+            <div class="example">
+                <h3>How Semantic Elements Help Accessibility</h3>
+                <table>
+                    <tr>
+                        <th>Element</th>
+                        <th>Screen Reader Support</th>
+                        <th>Navigation Aid</th>
+                    </tr>
+                    <tr>
+                        <td>&lt;header&gt;</td>
+                        <td>Identifies page header</td>
+                        <td>Landmark navigation</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;nav&gt;</td>
+                        <td>Identifies navigation areas</td>
+                        <td>Quick navigation access</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;main&gt;</td>
+                        <td>Identifies main content</td>
+                        <td>Skip to main content</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;article&gt;</td>
+                        <td>Identifies article content</td>
+                        <td>Article navigation</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;section&gt;</td>
+                        <td>Identifies content sections</td>
+                        <td>Section navigation</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;aside&gt;</td>
+                        <td>Identifies sidebar content</td>
+                        <td>Complementary content</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <h3>🧭 Navigation</h3>
+            <a href="index.html" class="nav-button">📚 Back to HTML Index</a>
+            <a href="html_basics.html" class="nav-button">🌐 HTML Basics</a>
+            <a href="html_elements.html" class="nav-button">📝 HTML Elements</a>
+            <a href="html_attributes.html" class="nav-button">⚙️ HTML Attributes</a>
+            <a href="../main.html" class="nav-button">🏠 Main Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>

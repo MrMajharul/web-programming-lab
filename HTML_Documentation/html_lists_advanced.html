@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced HTML Lists - Complete Reference</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .section {
+            padding: 30px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        .section-title {
+            color: #2c3e50;
+            border-bottom: 3px solid #e67e22;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            font-size: 2.2em;
+            font-weight: bold;
+        }
+        
+        .example {
+            background: #f8f9fa;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+        }
+        
+        .code-block {
+            background: #2d3436;
+            color: #ecf0f1;
+            padding: 25px;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border-left: 5px solid #e67e22;
+        }
+        
+        .light-code {
+            background: #f8f9fa;
+            color: #2d3436;
+            border: 2px solid #e9ecef;
+        }
+        
+        code {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .warning {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .navigation {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        
+        .nav-button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-button:hover {
+            transform: translateY(-3px);
+        }
+        
+        h3 {
+            color: #34495e;
+            font-size: 1.5em;
+            margin: 25px 0 15px 0;
+            border-left: 4px solid #e67e22;
+            padding-left: 15px;
+        }
+        
+        h4 {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+        }
+        
+        ul, ol, dl {
+            font-size: 1.1em;
+            line-height: 1.8;
+            padding-left: 25px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #636e72 0%, #2d3436 100%);
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .demo-html {
+            border: 2px solid #e67e22;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            background: #ecf0f1;
+        }
+        
+        .list-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .list-card {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .list-card:hover {
+            transform: translateY(-5px);
+            border-color: #e67e22;
+        }
+        
+        .list-name {
+            font-weight: bold;
+            color: #e67e22;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        
+        /* Demo list styling */
+        .demo-ul-square { list-style-type: square; }
+        .demo-ul-circle { list-style-type: circle; }
+        .demo-ul-disc { list-style-type: disc; }
+        .demo-ul-none { list-style-type: none; }
+        
+        .demo-ol-upper-roman { list-style-type: upper-roman; }
+        .demo-ol-lower-roman { list-style-type: lower-roman; }
+        .demo-ol-upper-alpha { list-style-type: upper-alpha; }
+        .demo-ol-lower-alpha { list-style-type: lower-alpha; }
+        .demo-ol-decimal-leading-zero { list-style-type: decimal-leading-zero; }
+        
+        dt {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 10px;
+        }
+        
+        dd {
+            margin-left: 25px;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📋 Advanced HTML Lists</h1>
+            <h2>Complete Guide to HTML List Elements and Techniques</h2>
+            <p>Student: Majharul Islam | ID: 232002256 | Date: October 2025</p>
+        </div>
+
+        <!-- Lists Overview -->
+        <div class="section">
+            <h2 class="section-title">📋 HTML Lists Overview</h2>
+            
+            <div class="highlight">
+                <h3>What are HTML Lists?</h3>
+                <p>HTML lists are used to group related items together. There are three main types: unordered lists (&lt;ul&gt;), ordered lists (&lt;ol&gt;), and description lists (&lt;dl&gt;).</p>
+            </div>
+            
+            <div class="example">
+                <h3>List Types Comparison</h3>
+                <table>
+                    <tr>
+                        <th>List Type</th>
+                        <th>Element</th>
+                        <th>Purpose</th>
+                        <th>Default Marker</th>
+                    </tr>
+                    <tr>
+                        <td>Unordered List</td>
+                        <td>&lt;ul&gt;</td>
+                        <td>Items without specific order</td>
+                        <td>Bullet points</td>
+                    </tr>
+                    <tr>
+                        <td>Ordered List</td>
+                        <td>&lt;ol&gt;</td>
+                        <td>Items with specific sequence</td>
+                        <td>Numbers</td>
+                    </tr>
+                    <tr>
+                        <td>Description List</td>
+                        <td>&lt;dl&gt;</td>
+                        <td>Term-definition pairs</td>
+                        <td>No markers</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Unordered Lists -->
+        <div class="section">
+            <h2 class="section-title">⚫ Unordered Lists (UL)</h2>
+            
+            <div class="list-grid">
+                <div class="list-card">
+                    <div class="list-name">Basic Unordered List</div>
+                    <div class="demo-html">
+                        <ul>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JavaScript</li>
+                        </ul>
+                    </div>
+                    <div class="code-block light-code">
+<code>&lt;ul&gt;
+    &lt;li&gt;HTML&lt;/li&gt;
+    &lt;li&gt;CSS&lt;/li&gt;
+    &lt;li&gt;JavaScript&lt;/li&gt;
+&lt;/ul&gt;</code>
+                    </div>
+                </div>
+                
+                <div class="list-card">
+                    <div class="list-name">Square Bullets</div>
+                    <div class="demo-html">
+                        <ul class="demo-ul-square">
+                            <li>Web Development</li>
+                            <li>Mobile Development</li>
+                            <li>Desktop Applications</li>
+                        </ul>
+                    </div>
+                    <div class="code-block light-code">
+<code>&lt;ul type="square"&gt;
+    &lt;li&gt;Web Development&lt;/li&gt;
+    &lt;li&gt;Mobile Development&lt;/li&gt;
+    &lt;li&gt;Desktop Applications&lt;/li&gt;
+&lt;/ul&gt;</code>
+                    </div>
+                </div>
+                
+                <div class="list-card">
+                    <div class="list-name">Circle Bullets</div>
+                    <div class="demo-html">
+                        <ul class="demo-ul-circle">
+                            <li>Frontend Technologies</li>
+                            <li>Backend Technologies</li>
+                            <li>Database Management</li>
+                        </ul>
+                    </div>
+                    <div class="code-block light-code">
+<code>&lt;ul type="circle"&gt;
+    &lt;li&gt;Frontend Technologies&lt;/li&gt;
+    &lt;li&gt;Backend Technologies&lt;/li&gt;
+    &lt;li&gt;Database Management&lt;/li&gt;
+&lt;/ul&gt;</code>
+                    </div>
+                </div>
+                
+                <div class="list-card">
+                    <div class="list-name">No Bullets</div>
+                    <div class="demo-html">
+                        <ul class="demo-ul-none">
+                            <li>Plain List Item 1</li>
+                            <li>Plain List Item 2</li>
+                            <li>Plain List Item 3</li>
+                        </ul>
+                    </div>
+                    <div class="code-block light-code">
+<code>&lt;ul style="list-style-type: none;"&gt;
+    &lt;li&gt;Plain List Item 1&lt;/li&gt;
+    &lt;li&gt;Plain List Item 2&lt;/li&gt;
+    &lt;li&gt;Plain List Item 3&lt;/li&gt;
+&lt;/ul&gt;</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ordered Lists -->
+        <div class="section">
+            <h2 class="section-title">🔢 Ordered Lists (OL)</h2>
+            
+            <div class="list-grid">
+                <div class="list-card">
+                    <div class="list-name">Basic Ordered List</div>
+                    <div class="demo-html">
+                        <ol>
+                            <li>Plan the project</li>
+                            <li>Design the interface</li>
+                            <li>Write the code</li>
+                            <li>Test and debug</li>
+                        </ol>
+                    </div>
+                    <div class="code-block light-code">
+<code>&lt;ol&gt;
+    &lt;li&gt;Plan the project&lt;/li&gt;
+    &lt;li&gt;Design the interface&lt;/li&gt;
+    &lt;li&gt;Write the code&lt;/li&gt;
+    &lt;li&gt;Test and debug&lt;/li&gt;
+&lt;/ol&gt;</code>
+                    </div>
+                </div>
+                
+                <div class="list-card">
+                    <div class="list-name">Roman Numerals (Upper)</div>
+                    <div class="demo-html">
+                        <ol class="demo-ol-upper-roman">
+                            <li>Introduction</li>
+                            <li>Background</li>
+                            <li>Methodology</li>
+                            <li>Results</li>
+                        </ol>
+                    </div>
+                    <div class="code-block light-code">
+<code>&lt;ol type="I"&gt;
+    &lt;li&gt;Introduction&lt;/li&gt;
+    &lt;li&gt;Background&lt;/li&gt;
+    &lt;li&gt;Methodology&lt;/li&gt;
+    &lt;li&gt;Results&lt;/li&gt;
+&lt;/ol&gt;</code>
+                    </div>
+                </div>
+                
+                <div class="list-card">
+                    <div class="list-name">Letters (Lower)</div>
+                    <div class="demo-html">
+                        <ol class="demo-ol-lower-alpha">
+                            <li>First option</li>
+                            <li>Second option</li>
+                            <li>Third option</li>
+                            <li>Fourth option</li>
+                        </ol>
+                    </div>
+                    <div class="code-block light-code">
+<code>&lt;ol type="a"&gt;
+    &lt;li&gt;First option&lt;/li&gt;
+    &lt;li&gt;Second option&lt;/li&gt;
+    &lt;li&gt;Third option&lt;/li&gt;
+    &lt;li&gt;Fourth option&lt;/li&gt;
+&lt;/ol&gt;</code>
+                    </div>
+                </div>
+                
+                <div class="list-card">
+                    <div class="list-name">Custom Starting Number</div>
+                    <div class="demo-html">
+                        <ol start="10">
+                            <li>Advanced HTML Concepts</li>
+                            <li>CSS Grid Mastery</li>
+                            <li>JavaScript ES6+</li>
+                            <li>React Framework</li>
+                        </ol>
+                    </div>
+                    <div class="code-block light-code">
+<code>&lt;ol start="10"&gt;
+    &lt;li&gt;Advanced HTML Concepts&lt;/li&gt;
+    &lt;li&gt;CSS Grid Mastery&lt;/li&gt;
+    &lt;li&gt;JavaScript ES6+&lt;/li&gt;
+    &lt;li&gt;React Framework&lt;/li&gt;
+&lt;/ol&gt;</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Description Lists -->
+        <div class="section">
+            <h2 class="section-title">📖 Description Lists (DL)</h2>
+            
+            <div class="example">
+                <h3>Basic Description List</h3>
+                <div class="demo-html">
+                    <dl>
+                        <dt>HTML</dt>
+                        <dd>HyperText Markup Language</dd>
+                        <dd>Used for creating web page structure</dd>
+                        
+                        <dt>CSS</dt>
+                        <dd>Cascading Style Sheets</dd>
+                        <dd>Used for styling web pages</dd>
+                        
+                        <dt>JavaScript</dt>
+                        <dd>Programming language for web interactivity</dd>
+                        <dd>Runs in the browser and on servers</dd>
+                    </dl>
+                </div>
+                <div class="code-block light-code">
+<code>&lt;dl&gt;
+    &lt;dt&gt;HTML&lt;/dt&gt;
+    &lt;dd&gt;HyperText Markup Language&lt;/dd&gt;
+    &lt;dd&gt;Used for creating web page structure&lt;/dd&gt;
+    
+    &lt;dt&gt;CSS&lt;/dt&gt;
+    &lt;dd&gt;Cascading Style Sheets&lt;/dd&gt;
+    &lt;dd&gt;Used for styling web pages&lt;/dd&gt;
+    
+    &lt;dt&gt;JavaScript&lt;/dt&gt;
+    &lt;dd&gt;Programming language for web interactivity&lt;/dd&gt;
+    &lt;dd&gt;Runs in the browser and on servers&lt;/dd&gt;
+&lt;/dl&gt;</code>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nested Lists -->
+        <div class="section">
+            <h2 class="section-title">🔗 Nested Lists</h2>
+            
+            <div class="example">
+                <h3>Complex Nested List Structure</h3>
+                <div class="demo-html">
+                    <ol>
+                        <li>Frontend Development
+                            <ul>
+                                <li>HTML5
+                                    <ul>
+                                        <li>Semantic Elements</li>
+                                        <li>Forms and Input Types</li>
+                                        <li>Canvas and SVG</li>
+                                    </ul>
+                                </li>
+                                <li>CSS3
+                                    <ul>
+                                        <li>Flexbox</li>
+                                        <li>Grid Layout</li>
+                                        <li>Animations</li>
+                                        <li>Responsive Design</li>
+                                    </ul>
+                                </li>
+                                <li>JavaScript
+                                    <ul>
+                                        <li>ES6+ Features</li>
+                                        <li>DOM Manipulation</li>
+                                        <li>Event Handling</li>
+                                        <li>AJAX and Fetch API</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Backend Development
+                            <ul>
+                                <li>Server Languages
+                                    <ol type="a">
+                                        <li>Node.js</li>
+                                        <li>PHP</li>
+                                        <li>Python (Django/Flask)</li>
+                                        <li>Java (Spring)</li>
+                                    </ol>
+                                </li>
+                                <li>Databases
+                                    <ol type="a">
+                                        <li>MySQL</li>
+                                        <li>PostgreSQL</li>
+                                        <li>MongoDB</li>
+                                        <li>SQLite</li>
+                                    </ol>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Development Tools
+                            <ul>
+                                <li>Code Editors
+                                    <ul>
+                                        <li>Visual Studio Code</li>
+                                        <li>Sublime Text</li>
+                                        <li>Atom</li>
+                                    </ul>
+                                </li>
+                                <li>Version Control
+                                    <ul>
+                                        <li>Git</li>
+                                        <li>GitHub</li>
+                                        <li>GitLab</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+                <div class="code-block light-code">
+<code>&lt;ol&gt;
+    &lt;li&gt;Frontend Development
+        &lt;ul&gt;
+            &lt;li&gt;HTML5
+                &lt;ul&gt;
+                    &lt;li&gt;Semantic Elements&lt;/li&gt;
+                    &lt;li&gt;Forms and Input Types&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li&gt;CSS3&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;Backend Development&lt;/li&gt;
+&lt;/ol&gt;</code>
+                </div>
+            </div>
+        </div>
+
+        <!-- List Attributes -->
+        <div class="section">
+            <h2 class="section-title">⚙️ Advanced List Attributes</h2>
+            
+            <div class="example">
+                <h3>Ordered List Attributes</h3>
+                <table>
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                    <tr>
+                        <td>type</td>
+                        <td>Numbering type (1, a, A, i, I)</td>
+                        <td>&lt;ol type="a"&gt;</td>
+                    </tr>
+                    <tr>
+                        <td>start</td>
+                        <td>Starting number</td>
+                        <td>&lt;ol start="5"&gt;</td>
+                    </tr>
+                    <tr>
+                        <td>reversed</td>
+                        <td>Reverse numbering order</td>
+                        <td>&lt;ol reversed&gt;</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="example">
+                <h3>List Item Attributes</h3>
+                <table>
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                    <tr>
+                        <td>value</td>
+                        <td>Set specific number for list item</td>
+                        <td>&lt;li value="10"&gt;</td>
+                    </tr>
+                    <tr>
+                        <td>type</td>
+                        <td>Override list type for this item</td>
+                        <td>&lt;li type="a"&gt;</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="example">
+                <h3>Custom Value Example</h3>
+                <div class="demo-html">
+                    <ol start="5">
+                        <li>Item 5</li>
+                        <li value="10">Item 10 (custom value)</li>
+                        <li>Item 11</li>
+                        <li value="50">Item 50 (custom value)</li>
+                        <li>Item 51</li>
+                    </ol>
+                </div>
+                <div class="code-block light-code">
+<code>&lt;ol start="5"&gt;
+    &lt;li&gt;Item 5&lt;/li&gt;
+    &lt;li value="10"&gt;Item 10 (custom value)&lt;/li&gt;
+    &lt;li&gt;Item 11&lt;/li&gt;
+    &lt;li value="50"&gt;Item 50 (custom value)&lt;/li&gt;
+    &lt;li&gt;Item 51&lt;/li&gt;
+&lt;/ol&gt;</code>
+                </div>
+            </div>
+        </div>
+
+        <!-- List Styling with CSS -->
+        <div class="section">
+            <h2 class="section-title">🎨 List Styling with CSS</h2>
+            
+            <div class="example">
+                <h3>CSS List Properties</h3>
+                <table>
+                    <tr>
+                        <th>Property</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                    <tr>
+                        <td>list-style-type</td>
+                        <td>Type of marker</td>
+                        <td>list-style-type: square;</td>
+                    </tr>
+                    <tr>
+                        <td>list-style-image</td>
+                        <td>Custom marker image</td>
+                        <td>list-style-image: url('bullet.png');</td>
+                    </tr>
+                    <tr>
+                        <td>list-style-position</td>
+                        <td>Marker position (inside/outside)</td>
+                        <td>list-style-position: inside;</td>
+                    </tr>
+                    <tr>
+                        <td>list-style</td>
+                        <td>Shorthand property</td>
+                        <td>list-style: square inside;</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="code-block light-code">
+<code>/* Custom List Styling */
+ul.custom {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul.custom li {
+    background: #f4f4f4;
+    margin: 5px 0;
+    padding: 10px;
+    border-left: 3px solid #3498db;
+}
+
+ul.custom li::before {
+    content: "▶";
+    color: #3498db;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* Nested List Styling */
+ul.nested ul {
+    margin-left: 20px;
+    list-style-type: circle;
+}
+
+ul.nested ul ul {
+    list-style-type: square;
+}</code>
+            </div>
+        </div>
+
+        <!-- Accessibility Considerations -->
+        <div class="section">
+            <h2 class="section-title">♿ Accessibility Best Practices</h2>
+            
+            <div class="highlight">
+                <h3>✅ Accessibility Guidelines:</h3>
+                <ul>
+                    <li><strong>Proper Structure:</strong> Use correct list elements for their intended purpose</li>
+                    <li><strong>Screen Readers:</strong> Lists help screen readers navigate content</li>
+                    <li><strong>Logical Order:</strong> Ensure ordered lists follow logical sequence</li>
+                    <li><strong>Descriptive Content:</strong> Use meaningful list item text</li>
+                    <li><strong>Consistent Styling:</strong> Maintain consistent list appearance</li>
+                </ul>
+            </div>
+            
+            <div class="warning">
+                <h3>❌ Accessibility Mistakes to Avoid:</h3>
+                <ul>
+                    <li><strong>Don't use lists for layout:</strong> Use CSS for positioning</li>
+                    <li><strong>Don't skip list levels:</strong> Maintain proper hierarchy</li>
+                    <li><strong>Don't use empty list items:</strong> Provide meaningful content</li>
+                    <li><strong>Don't rely on visual styling alone:</strong> Ensure semantic structure</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Real-World Examples -->
+        <div class="section">
+            <h2 class="section-title">🌍 Real-World List Examples</h2>
+            
+            <div class="example">
+                <h3>Navigation Menu</h3>
+                <div class="code-block light-code">
+<code>&lt;nav&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="index.html"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="about.html"&gt;About&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;
+            &lt;a href="services.html"&gt;Services&lt;/a&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="web-design.html"&gt;Web Design&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="development.html"&gt;Development&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="maintenance.html"&gt;Maintenance&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/li&gt;
+        &lt;li&gt;&lt;a href="contact.html"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code>
+                </div>
+            </div>
+            
+            <div class="example">
+                <h3>Recipe Instructions</h3>
+                <div class="code-block light-code">
+<code>&lt;article&gt;
+    &lt;h1&gt;Chocolate Chip Cookies&lt;/h1&gt;
+    
+    &lt;h2&gt;Ingredients&lt;/h2&gt;
+    &lt;ul&gt;
+        &lt;li&gt;2 cups all-purpose flour&lt;/li&gt;
+        &lt;li&gt;1 tsp baking soda&lt;/li&gt;
+        &lt;li&gt;1/2 tsp salt&lt;/li&gt;
+        &lt;li&gt;1 cup butter, softened&lt;/li&gt;
+        &lt;li&gt;3/4 cup granulated sugar&lt;/li&gt;
+        &lt;li&gt;1 cup chocolate chips&lt;/li&gt;
+    &lt;/ul&gt;
+    
+    &lt;h2&gt;Instructions&lt;/h2&gt;
+    &lt;ol&gt;
+        &lt;li&gt;Preheat oven to 375°F (190°C)&lt;/li&gt;
+        &lt;li&gt;Mix dry ingredients in a bowl&lt;/li&gt;
+        &lt;li&gt;Cream butter and sugars together&lt;/li&gt;
+        &lt;li&gt;Add eggs and vanilla&lt;/li&gt;
+        &lt;li&gt;Gradually mix in flour mixture&lt;/li&gt;
+        &lt;li&gt;Stir in chocolate chips&lt;/li&gt;
+        &lt;li&gt;Drop rounded tablespoons onto ungreased cookie sheets&lt;/li&gt;
+        &lt;li&gt;Bake for 9-11 minutes until golden brown&lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/article&gt;</code>
+                </div>
+            </div>
+            
+            <div class="example">
+                <h3>FAQ Section</h3>
+                <div class="code-block light-code">
+<code>&lt;section&gt;
+    &lt;h2&gt;Frequently Asked Questions&lt;/h2&gt;
+    &lt;dl&gt;
+        &lt;dt&gt;What is HTML?&lt;/dt&gt;
+        &lt;dd&gt;HTML (HyperText Markup Language) is the standard markup language for creating web pages.&lt;/dd&gt;
+        
+        &lt;dt&gt;What is CSS?&lt;/dt&gt;
+        &lt;dd&gt;CSS (Cascading Style Sheets) is used to style and layout web pages.&lt;/dd&gt;
+        
+        &lt;dt&gt;What is JavaScript?&lt;/dt&gt;
+        &lt;dd&gt;JavaScript is a programming language that adds interactivity to web pages.&lt;/dd&gt;
+        
+        &lt;dt&gt;How do I learn web development?&lt;/dt&gt;
+        &lt;dd&gt;Start with HTML basics, then move to CSS for styling, and finally JavaScript for interactivity.&lt;/dd&gt;
+        &lt;dd&gt;Practice regularly and build projects to reinforce your learning.&lt;/dd&gt;
+    &lt;/dl&gt;
+&lt;/section&gt;</code>
+                </div>
+            </div>
+        </div>
+
+        <!-- Best Practices -->
+        <div class="section">
+            <h2 class="section-title">✅ List Best Practices</h2>
+            
+            <div class="highlight">
+                <h3>✅ Good Practices:</h3>
+                <ul>
+                    <li><strong>Choose the Right Type:</strong> Use ul for unordered items, ol for sequences</li>
+                    <li><strong>Logical Nesting:</strong> Don't nest too deeply (max 3-4 levels)</li>
+                    <li><strong>Consistent Styling:</strong> Use CSS for visual presentation</li>
+                    <li><strong>Meaningful Content:</strong> Write clear, descriptive list items</li>
+                    <li><strong>Proper Attributes:</strong> Use type, start, and value appropriately</li>
+                    <li><strong>Accessibility:</strong> Ensure lists work with screen readers</li>
+                </ul>
+            </div>
+            
+            <div class="warning">
+                <h3>❌ Common Mistakes:</h3>
+                <ul>
+                    <li><strong>Using divs instead of lists:</strong> Use proper list elements</li>
+                    <li><strong>Over-nesting:</strong> Too many nested levels are hard to follow</li>
+                    <li><strong>Empty list items:</strong> Provide meaningful content</li>
+                    <li><strong>Inconsistent numbering:</strong> Use value attribute carefully</li>
+                    <li><strong>Poor styling:</strong> Don't rely only on default appearance</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <h3>🧭 Navigation</h3>
+            <a href="index.html" class="nav-button">📚 Back to HTML Index</a>
+            <a href="html_basics.html" class="nav-button">🌐 HTML Basics</a>
+            <a href="html_elements.html" class="nav-button">📝 HTML Elements</a>
+            <a href="html_attributes.html" class="nav-button">⚙️ HTML Attributes</a>
+            <a href="../main.html" class="nav-button">🏠 Main Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>
