@@ -3,9 +3,446 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>HTML Lists - Web Programming Lab</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #2d3436 0%, #636e72 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .section {
+            padding: 30px;
+            border-bottom: 1px solid #ddd;
+        }
+        .section:last-child {
+            border-bottom: none;
+        }
+        .section-title {
+            color: #2d3436;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-left: 5px solid #74b9ff;
+            padding-left: 15px;
+        }
+        .example {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+        }
+        .example h3 {
+            color: #636e72;
+            margin-top: 0;
+            font-size: 1.3em;
+        }
+        ul, ol, dl {
+            font-size: 1.1em;
+            margin: 15px 0;
+        }
+        li {
+            margin: 8px 0;
+            padding: 2px 0;
+        }
+        dt {
+            font-weight: bold;
+            color: #2d3436;
+            margin-top: 10px;
+        }
+        dd {
+            margin-left: 25px;
+            color: #636e72;
+        }
+        .code-display {
+            background: #2d3436;
+            color: #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            overflow-x: auto;
+        }
+        .highlight {
+            background: linear-gradient(135deg, #00b894 0%, #00a085 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        .custom-list-1 {
+            list-style-type: square;
+            color: #e17055;
+        }
+        .custom-list-2 {
+            list-style-type: circle;
+            color: #fdcb6e;
+        }
+        .custom-list-3 {
+            list-style-type: disc;
+            color: #6c5ce7;
+        }
+        .roman-list {
+            list-style-type: upper-roman;
+            color: #fd79a8;
+        }
+        .alpha-list {
+            list-style-type: lower-alpha;
+            color: #00cec9;
+        }
+        .decimal-list {
+            list-style-type: decimal-leading-zero;
+            color: #e84393;
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <div class="header">
+            <h1>🔖 HTML Lists Documentation</h1>
+            <p>Complete Guide to HTML List Elements</p>
+            <p><strong>Student:</strong> Majharul Islam | <strong>ID:</strong> 232002256 | <strong>Date:</strong> October 7, 2025</p>
+        </div>
+
+        <!-- Unordered Lists Section -->
+        <div class="section">
+            <h2 class="section-title">1. Unordered Lists (UL)</h2>
+            
+            <div class="example">
+                <h3>Basic Unordered List</h3>
+                <ul>
+                    <li>HTML (HyperText Markup Language)</li>
+                    <li>CSS (Cascading Style Sheets)</li>
+                    <li>JavaScript</li>
+                    <li>PHP</li>
+                    <li>Python</li>
+                </ul>
+                <div class="code-display">
+&lt;ul&gt;
+    &lt;li&gt;HTML (HyperText Markup Language)&lt;/li&gt;
+    &lt;li&gt;CSS (Cascading Style Sheets)&lt;/li&gt;
+    &lt;li&gt;JavaScript&lt;/li&gt;
+    &lt;li&gt;PHP&lt;/li&gt;
+    &lt;li&gt;Python&lt;/li&gt;
+&lt;/ul&gt;
+                </div>
+            </div>
+
+            <div class="example">
+                <h3>Different Bullet Types</h3>
+                
+                <h4>Square Bullets:</h4>
+                <ul class="custom-list-1">
+                    <li>Web Development</li>
+                    <li>Mobile Development</li>
+                    <li>Desktop Applications</li>
+                </ul>
+
+                <h4>Circle Bullets:</h4>
+                <ul class="custom-list-2">
+                    <li>Frontend Technologies</li>
+                    <li>Backend Technologies</li>
+                    <li>Database Management</li>
+                </ul>
+
+                <h4>Disc Bullets (Default):</h4>
+                <ul class="custom-list-3">
+                    <li>HTML5</li>
+                    <li>CSS3</li>
+                    <li>ES6 JavaScript</li>
+                </ul>
+
+                <div class="code-display">
+&lt;ul type="square"&gt;
+    &lt;li&gt;Web Development&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul type="circle"&gt;
+    &lt;li&gt;Frontend Technologies&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul type="disc"&gt;
+    &lt;li&gt;HTML5&lt;/li&gt;
+&lt;/ul&gt;
+                </div>
+            </div>
+        </div>
+
+        <!-- Ordered Lists Section -->
+        <div class="section">
+            <h2 class="section-title">2. Ordered Lists (OL)</h2>
+            
+            <div class="example">
+                <h3>Basic Ordered List</h3>
+                <ol>
+                    <li>Plan the project</li>
+                    <li>Design the interface</li>
+                    <li>Write the HTML structure</li>
+                    <li>Add CSS styling</li>
+                    <li>Implement JavaScript functionality</li>
+                    <li>Test and debug</li>
+                    <li>Deploy the project</li>
+                </ol>
+                <div class="code-display">
+&lt;ol&gt;
+    &lt;li&gt;Plan the project&lt;/li&gt;
+    &lt;li&gt;Design the interface&lt;/li&gt;
+    &lt;li&gt;Write the HTML structure&lt;/li&gt;
+    &lt;li&gt;Add CSS styling&lt;/li&gt;
+    &lt;li&gt;Implement JavaScript functionality&lt;/li&gt;
+    &lt;li&gt;Test and debug&lt;/li&gt;
+    &lt;li&gt;Deploy the project&lt;/li&gt;
+&lt;/ol&gt;
+                </div>
+            </div>
+
+            <div class="example">
+                <h3>Different Numbering Types</h3>
+                
+                <h4>Roman Numerals (Upper):</h4>
+                <ol class="roman-list" type="I">
+                    <li>Introduction to Web Development</li>
+                    <li>HTML Fundamentals</li>
+                    <li>CSS Styling Techniques</li>
+                    <li>JavaScript Programming</li>
+                </ol>
+
+                <h4>Lowercase Letters:</h4>
+                <ol class="alpha-list" type="a">
+                    <li>Database Design</li>
+                    <li>SQL Queries</li>
+                    <li>Data Normalization</li>
+                    <li>Performance Optimization</li>
+                </ol>
+
+                <h4>Decimal with Leading Zeros:</h4>
+                <ol class="decimal-list" type="01" start="5">
+                    <li>Advanced CSS Grid</li>
+                    <li>Responsive Design</li>
+                    <li>CSS Animations</li>
+                    <li>Modern CSS Features</li>
+                </ol>
+
+                <div class="code-display">
+&lt;ol type="I"&gt;
+    &lt;li&gt;Introduction to Web Development&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ol type="a"&gt;
+    &lt;li&gt;Database Design&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ol type="01" start="5"&gt;
+    &lt;li&gt;Advanced CSS Grid&lt;/li&gt;
+&lt;/ol&gt;
+                </div>
+            </div>
+        </div>
+
+        <!-- Description Lists Section -->
+        <div class="section">
+            <h2 class="section-title">3. Description Lists (DL)</h2>
+            
+            <div class="example">
+                <h3>Programming Languages</h3>
+                <dl>
+                    <dt>HTML</dt>
+                    <dd>HyperText Markup Language - Used for creating web page structure</dd>
+                    <dd>Standard markup language for web documents</dd>
+                    
+                    <dt>CSS</dt>
+                    <dd>Cascading Style Sheets - Used for styling web pages</dd>
+                    <dd>Controls the presentation and layout of HTML elements</dd>
+                    
+                    <dt>JavaScript</dt>
+                    <dd>Programming language for web interactivity</dd>
+                    <dd>Runs in the browser and on servers (Node.js)</dd>
+                    <dd>Essential for modern web development</dd>
+                    
+                    <dt>Python</dt>
+                    <dd>High-level programming language</dd>
+                    <dd>Great for web development, data science, and AI</dd>
+                    
+                    <dt>PHP</dt>
+                    <dd>Server-side scripting language</dd>
+                    <dd>Widely used for web development</dd>
+                </dl>
+
+                <div class="code-display">
+&lt;dl&gt;
+    &lt;dt&gt;HTML&lt;/dt&gt;
+    &lt;dd&gt;HyperText Markup Language&lt;/dd&gt;
+    &lt;dd&gt;Used for creating web page structure&lt;/dd&gt;
     
+    &lt;dt&gt;CSS&lt;/dt&gt;
+    &lt;dd&gt;Cascading Style Sheets&lt;/dd&gt;
+    &lt;dd&gt;Used for styling web pages&lt;/dd&gt;
+&lt;/dl&gt;
+                </div>
+            </div>
+        </div>
+
+        <!-- Nested Lists Section -->
+        <div class="section">
+            <h2 class="section-title">4. Nested Lists</h2>
+            
+            <div class="example">
+                <h3>Web Development Technologies</h3>
+                <ol>
+                    <li>Frontend Development
+                        <ul>
+                            <li>HTML5
+                                <ul>
+                                    <li>Semantic Elements</li>
+                                    <li>Forms and Input Types</li>
+                                    <li>Canvas and SVG</li>
+                                </ul>
+                            </li>
+                            <li>CSS3
+                                <ul>
+                                    <li>Flexbox</li>
+                                    <li>Grid Layout</li>
+                                    <li>Animations</li>
+                                    <li>Responsive Design</li>
+                                </ul>
+                            </li>
+                            <li>JavaScript
+                                <ul>
+                                    <li>ES6+ Features</li>
+                                    <li>DOM Manipulation</li>
+                                    <li>Event Handling</li>
+                                    <li>AJAX and Fetch API</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Backend Development
+                        <ul>
+                            <li>Server Languages
+                                <ol type="a">
+                                    <li>Node.js</li>
+                                    <li>PHP</li>
+                                    <li>Python (Django/Flask)</li>
+                                    <li>Java (Spring)</li>
+                                </ol>
+                            </li>
+                            <li>Databases
+                                <ol type="a">
+                                    <li>MySQL</li>
+                                    <li>PostgreSQL</li>
+                                    <li>MongoDB</li>
+                                    <li>SQLite</li>
+                                </ol>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Development Tools
+                        <ul>
+                            <li>Code Editors
+                                <ul>
+                                    <li>Visual Studio Code</li>
+                                    <li>Sublime Text</li>
+                                    <li>Atom</li>
+                                </ul>
+                            </li>
+                            <li>Version Control
+                                <ul>
+                                    <li>Git</li>
+                                    <li>GitHub</li>
+                                    <li>GitLab</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <div class="code-display">
+&lt;ol&gt;
+    &lt;li&gt;Frontend Development
+        &lt;ul&gt;
+            &lt;li&gt;HTML5
+                &lt;ul&gt;
+                    &lt;li&gt;Semantic Elements&lt;/li&gt;
+                    &lt;li&gt;Forms and Input Types&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li&gt;CSS3&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;Backend Development&lt;/li&gt;
+&lt;/ol&gt;
+                </div>
+            </div>
+        </div>
+
+        <!-- Advanced List Features -->
+        <div class="section">
+            <h2 class="section-title">5. Advanced List Features</h2>
+            
+            <div class="example">
+                <h3>Custom Starting Values and Specific Values</h3>
+                <ol start="10">
+                    <li>Advanced HTML Concepts</li>
+                    <li>CSS Grid Mastery</li>
+                    <li value="25">JavaScript ES6+</li>
+                    <li>React Framework</li>
+                    <li value="50">Full Stack Development</li>
+                </ol>
+
+                <div class="code-display">
+&lt;ol start="10"&gt;
+    &lt;li&gt;Advanced HTML Concepts&lt;/li&gt;
+    &lt;li&gt;CSS Grid Mastery&lt;/li&gt;
+    &lt;li value="25"&gt;JavaScript ES6+&lt;/li&gt;
+    &lt;li&gt;React Framework&lt;/li&gt;
+    &lt;li value="50"&gt;Full Stack Development&lt;/li&gt;
+&lt;/ol&gt;
+                </div>
+            </div>
+
+            <div class="highlight">
+                <h3>🎯 Key Learning Points:</h3>
+                <ul>
+                    <li><strong>Unordered Lists (UL):</strong> Use for items without specific order</li>
+                    <li><strong>Ordered Lists (OL):</strong> Use for sequential or prioritized items</li>
+                    <li><strong>Description Lists (DL):</strong> Use for term-definition pairs</li>
+                    <li><strong>Nesting:</strong> You can nest any type of list inside another</li>
+                    <li><strong>Attributes:</strong> type, start, value for customization</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="highlight">
+                <h3>📊 Class Summary</h3>
+                <p><strong>Date:</strong> October 7, 2025</p>
+                <p><strong>Topics Covered:</strong> All HTML List Types and Advanced Features</p>
+                <p><strong>Student:</strong> Majharul Islam (232002256)</p>
+                <p><strong>Status:</strong> ✅ Completed Successfully</p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
