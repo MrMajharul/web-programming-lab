@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Class 03 - HTML Forms</title>
+  <link rel="stylesheet" href="class_03/form.css">
+  <style>
+    body{font-family: Arial, Helvetica, sans-serif; background:#f4f7fb; margin:0; padding:20px}
+    .container{max-width:1000px; margin:0 auto; background:#fff; padding:24px; border-radius:8px; box-shadow:0 8px 30px rgba(0,0,0,0.08)}
+    .meta{display:flex; justify-content:space-between; align-items:center; gap:12px}
+    .meta .info{font-size:14px; color:#555}
+    .section{margin-top:20px}
+    .code{background:#f1f1f1; padding:12px; border-radius:6px; font-family:monospace; overflow:auto}
+    .form-demo{margin-top:12px}
+    .btn{display:inline-block; padding:10px 14px; background:#04aa6d; color:#fff; border-radius:6px; text-decoration:none}
+    nav{margin-top:18px}
+    nav a{margin-right:10px; text-decoration:none; color:#04aa6d}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>HTML Forms — Class 03</h2>
+
+    <div class="meta">
+      <div class="info">
+        <strong>Instructor:</strong> Tanpia Tasnim<br>
+        <strong>Date:</strong> October 14, 2025
+      </div>
+      <div class="info">
+        <strong>Course:</strong> Web Programming Lab<br>
+        <strong>Student:</strong> Majharul Islam (232002256)
+      </div>
+    </div>
+
+    <p class="section">Today's class covers HTML forms: form elements, attributes, input types, labeling, accessibility, and basic client-side validation.</p>
+
+    <h3 class="section">Learning outcomes</h3>
+    <ul>
+      <li>Understand &lt;form&gt; structure and attributes (action, method)</li>
+      <li>Use common input types: text, email, password, number, radio, checkbox, select, textarea</li>
+      <li>Associate labels with inputs for accessibility</li>
+      <li>Perform simple client-side validation using HTML attributes (required, pattern, min/max)</li>
+      <li>Style forms using CSS</li>
+    </ul>
+
+    <h3 class="section">Basic form example</h3>
+    <div class="code">
+&lt;form action="/submit" method="post"&gt;<br>
+  &lt;label for="name"&gt;Name:&lt;/label&gt;<br>
+  &lt;input type="text" id="name" name="name" required&gt;&lt;br&gt;<br>
+
+  &lt;label for="email"&gt;Email:&lt;/label&gt;<br>
+  &lt;input type="email" id="email" name="email" required&gt;&lt;br&gt;<br>
+
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+    </div>
+
+    <h3 class="section">Form demo</h3>
+    <form class="form-demo" action="#" method="post">
+      <label for="fullname">Full name</label><br>
+      <input id="fullname" name="fullname" type="text" placeholder="Your Name" required><br><br>
+
+      <label for="email">Email</label><br>
+      <input id="email" name="email" type="email" placeholder="you@example.com" required><br><br>
+
+      <label>Gender</label><br>
+      <input type="radio" id="male" name="gender" value="male"><label for="male">Male</label>
+      <input type="radio" id="female" name="gender" value="female"><label for="female">Female</label><br><br>
+
+      <label for="dept">Department</label><br>
+      <select id="dept" name="dept">
+        <option value="cse">CSE</option>
+        <option value="eee">EEE</option>
+      </select><br><br>
+
+      <label for="bio">Short Bio</label><br>
+      <textarea id="bio" name="bio" rows="4"></textarea><br><br>
+
+      <button class="btn" type="submit">Send</button>
+    </form>
+
+    <h3 class="section">Styling tips</h3>
+    <p>Use CSS to improve form layout. Example uses `form.css` rules for headings and legends.</p>
+
+    <h3 class="section">Accessibility notes</h3>
+    <ul>
+      <li>Always use &lt;label&gt; elements linked via the <code>for</code> attribute.</li>
+      <li>Provide <code>aria-*</code> attributes for complex widgets.</li>
+      <li>Ensure keyboard focus order and visible focus indicators.</li>
+    </ul>
+
+    <nav>
+      <a href="main.html">🏠 Main</a>
+      <a href="class_01.html">Class 01</a>
+      <a href="class_Test_02.html">Class Test 02</a>
+      <a href="task/routine.html">Routine</a>
+    </nav>
+
+  </div>
+</body>
+</html>
