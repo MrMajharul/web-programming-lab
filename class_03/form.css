@@ -1,0 +1,13 @@
+h2{
+    color: red;
+    text-align: center;
+    font-size: 35px;
+    font-variant: small-caps;
+   text-decoration: underline; 
+    text-decoration-style: dotted;
+}
+legend{
+    color: blue;
+    text-align: center;
+    font-style: italic;
+}
