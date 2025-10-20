@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Organization Guide</title>
+    <link rel="stylesheet" href="universal-footer.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Courier New', monospace;
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 40px;
+            line-height: 1.8;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #252526;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+        
+        h1 {
+            color: #4ec9b0;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 3px solid #4ec9b0;
+            padding-bottom: 15px;
+        }
+        
+        h2 {
+            color: #569cd6;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        .tree {
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #4ec9b0;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        
+        .tree pre {
+            color: #ce9178;
+            font-size: 14px;
+        }
+        
+        .folder {
+            color: #dcdcaa;
+            font-weight: bold;
+        }
+        
+        .file {
+            color: #9cdcfe;
+        }
+        
+        .comment {
+            color: #6a9955;
+        }
+        
+        .section {
+            background: #2d2d30;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #569cd6;
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .feature-list li {
+            padding: 10px 15px;
+            margin: 8px 0;
+            background: #1e1e1e;
+            border-radius: 5px;
+            border-left: 3px solid #4ec9b0;
+        }
+        
+        .feature-list li::before {
+            content: '✓ ';
+            color: #4ec9b0;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .link-box {
+            background: linear-gradient(135deg, #569cd6, #4ec9b0);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .link-box a {
+            display: inline-block;
+            background: white;
+            color: #1e1e1e;
+            text-decoration: none;
+            padding: 15px 40px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+        }
+        
+        .link-box a:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(255,255,255,0.3);
+        }
+        
+        .status {
+            background: #4ec9b0;
+            color: #1e1e1e;
+            padding: 15px 30px;
+            border-radius: 25px;
+            display: inline-block;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📁 Web Programming Lab - Organization Guide</h1>
+        
+        <div class="status">✅ Fully Organized &amp; Documented</div>
+        
+        <h2>📂 New Directory Structure</h2>
+        <div class="tree">
+            <pre>
+<span class="folder">web_programming_lab/</span>
+│
+├── <span class="folder">main_website/</span>              <span class="comment"># Main landing page</span>
+│   ├── <span class="file">index.html</span>            <span class="comment"># Main dashboard</span>
+│   └── <span class="folder">css/</span>
+│       └── <span class="file">main-style.css</span>    <span class="comment"># Organized styles</span>
+│
+├── <span class="folder">classes/</span>                   <span class="comment"># All class materials</span>
+│   ├── <span class="folder">class_01/</span>
+│   │   ├── <span class="file">class_01.html</span>     <span class="comment"># HTML Basics</span>
+│   │   └── <span class="file">style.css</span>         <span class="comment"># Separated CSS</span>
+│   │
+│   ├── <span class="folder">class_02/</span>
+│   │   ├── <span class="file">class_02.html</span>     <span class="comment"># HTML Elements</span>
+│   │   └── <span class="file">style.css</span>         <span class="comment"># Class styles</span>
+│   │
+│   └── <span class="folder">class_03/</span>
+│       ├── <span class="file">class_03.html</span>     <span class="comment"># Forms &amp; CSS</span>
+│       ├── <span class="file">form.html</span>         <span class="comment"># Form examples</span>
+│       └── <span class="file">form.css</span>          <span class="comment"># Form styles</span>
+│
+├── <span class="folder">task/</span>                      <span class="comment"># Lab tasks</span>
+│   ├── <span class="file">login_page.html</span>      <span class="comment"># Login with validation</span>
+│   ├── <span class="file">login_page.css</span>       <span class="comment"># Login styles</span>
+│   └── <span class="file">routine.html</span>         <span class="comment"># Class routine</span>
+│
+├── <span class="folder">HTML_Documentation/</span>        <span class="comment"># Complete reference</span>
+│
+├── <span class="file">start.html</span>                <span class="comment"># Entry point (auto-redirect)</span>
+├── <span class="file">STRUCTURE.md</span>              <span class="comment"># Documentation</span>
+└── <span class="file">ORGANIZATION_SUMMARY.txt</span>  <span class="comment"># Summary</span>
+            </pre>
+        </div>
+        
+        <h2>✨ Key Improvements</h2>
+        <div class="section">
+            <ul class="feature-list">
+                <li><strong>Organized Folders:</strong> Each class has its own dedicated folder</li>
+                <li><strong>External CSS:</strong> All styles moved to separate .css files</li>
+                <li><strong>Clear Navigation:</strong> Updated links and paths throughout</li>
+                <li><strong>Main Website:</strong> Professional dashboard in main_website folder</li>
+                <li><strong>Better Structure:</strong> Logical grouping of related files</li>
+                <li><strong>Documentation:</strong> Comprehensive guides created</li>
+            </ul>
+        </div>
+        
+        <h2>🚀 How to Start</h2>
+        <div class="section">
+            <ol style="padding-left: 20px; color: #ce9178;">
+                <li style="margin: 15px 0;">
+                    <strong style="color: #569cd6;">Option 1 (Recommended):</strong> 
+                    Open <span class="file">start.html</span> - Auto-redirects to main dashboard
+                </li>
+                <li style="margin: 15px 0;">
+                    <strong style="color: #569cd6;">Option 2 (Direct):</strong> 
+                    Open <span class="file">main_website/index.html</span> - Main dashboard
+                </li>
+                <li style="margin: 15px 0;">
+                    <strong style="color: #569cd6;">Option 3 (Class Direct):</strong> 
+                    Navigate to <span class="folder">classes/class_##/</span> folders
+                </li>
+            </ol>
+        </div>
+        
+        <div class="link-box">
+            <p style="color: white; margin-bottom: 20px; font-size: 1.3em;">Ready to explore?</p>
+            <a href="main_website/index.html">🚀 Launch Main Dashboard</a>
+        </div>
+        
+        <h2>📝 Files Status</h2>
+        <div class="section">
+            <p style="color: #ce9178; margin-bottom: 15px;">
+                <strong style="color: #4ec9b0;">✅ CREATED:</strong> New organized structure with external CSS
+            </p>
+            <p style="color: #ce9178; margin-bottom: 15px;">
+                <strong style="color: #dcdcaa;">⚠️ OLD FILES:</strong> Original files remain in root (can be deleted after verification)
+            </p>
+            <p style="color: #ce9178;">
+                <strong style="color: #569cd6;">📁 PRESERVED:</strong> All content copied and organized
+            </p>
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px; padding: 20px; border-top: 2px solid #4ec9b0;">
+            <p style="color: #6a9955;">
+                <strong>Student:</strong> Majharul Islam (232002256)<br>
+                <strong>Department:</strong> Computer Science & Engineering<br>
+                <strong>Last Updated:</strong> October 21, 2025
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="universal-footer">
+        <div class="footer-content">
+            <div class="footer-brand">Project Organization Guide</div>
+            <div class="footer-info">
+                Web Programming Laboratory | Green University of Bangladesh<br>
+                Student: Majharul Islam | ID: 232002256
+            </div>
+            <div class="footer-links">
+                <a href="landing.html">Home</a>
+                <a href="main_website/index.html">Dashboard</a>
+                <a href="classes/">Classes</a>
+                <a href="assignments/">Assignments</a>
+                <a href="HTML_Documentation/">Documentation</a>
+            </div>
+            <div class="footer-copyright">
+                © 2025 Web Programming Lab - Project Organization & Structure Guide
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

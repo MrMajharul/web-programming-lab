@@ -1,0 +1,84 @@
+/* Universal Footer Styles */
+.universal-footer {
+  background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+  color: #e2e8f0;
+  padding: 2rem 0;
+  margin-top: 3rem;
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  border-top: 3px solid #2b6cb0;
+}
+
+.universal-footer .footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.universal-footer .footer-brand {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.universal-footer .footer-info {
+  font-size: 0.875rem;
+  color: #cbd5e0;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.universal-footer .footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.universal-footer .footer-links a {
+  color: #90cdf4;
+  text-decoration: none;
+  font-size: 0.875rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.universal-footer .footer-links a:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+}
+
+.universal-footer .footer-copyright {
+  font-size: 0.75rem;
+  color: #a0aec0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .universal-footer {
+    padding: 1.5rem 0;
+    margin-top: 2rem;
+  }
+  
+  .universal-footer .footer-links {
+    gap: 1rem;
+  }
+  
+  .universal-footer .footer-links a {
+    font-size: 0.8rem;
+  }
+}
+
+/* Dark theme compatibility */
+@media (prefers-color-scheme: dark) {
+  .universal-footer {
+    border-top-color: #4a5568;
+  }
+}
