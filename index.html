@@ -3,727 +3,863 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Programming Lab - Class Documentation</title>
+    <title>Web Programming Lab - Professional Documentation Hub</title>
     <link rel="stylesheet" href="universal-footer.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        * {
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             line-height: 1.6;
-            font-size: 16px;
+            color: #333;
         }
+        
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            background-color: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        /* Navigation Bar */
+        .navbar {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid #3498db;
+        }
+        
+        .navbar .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .navbar .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .navbar .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .navbar .nav-links a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 30px;
+            text-align: center;
+            position: relative;
             overflow: hidden;
         }
-        .header {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            color: white;
-            padding: 40px 30px;
-            text-align: center;
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
         }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
         .header h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        .header h2 {
-            font-size: 1.8em;
+            font-size: 3.5rem;
             margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-weight: 700;
+        }
+        
+        .header h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
             opacity: 0.9;
+            font-weight: 400;
         }
+        
         .header p {
-            font-size: 1.2em;
+            font-size: 1.1rem;
             opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto 30px;
         }
-        .class-info {
+        
+        .header-badges {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        
+        .badge {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .header-actions {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
             background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
             color: white;
-            padding: 25px 30px;
-            margin: 0;
-            border-left: none;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
         }
-        .class-info h3 {
-            font-size: 1.8em;
-            margin-bottom: 15px;
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
         }
-        .class-info p {
-            font-size: 1.1em;
-            margin: 8px 0;
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
         }
-        .topic-section {
-            background-color: white;
-            padding: 30px;
-            margin: 0;
-            border-bottom: 1px solid #ecf0f1;
+        
+        /* Quick Stats */
+        .quick-stats {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 40px 30px;
+            border-bottom: 1px solid #dee2e6;
         }
-        .topic-section:last-child {
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #3498db;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            color: #6c757d;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        /* Classes Grid */
+        .classes-section {
+            padding: 50px 30px;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: #6c757d;
+            margin-bottom: 50px;
+            font-size: 1.1rem;
+        }
+        
+        .classes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .class-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+            position: relative;
+        }
+        
+        .class-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+        
+        .class-card.featured {
+            border: 3px solid #3498db;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        }
+        
+        .class-card.featured::before {
+            content: 'Latest';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .class-header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 25px;
+            position: relative;
+        }
+        
+        .class-number {
+            font-size: 3rem;
+            font-weight: 700;
+            opacity: 0.3;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+        
+        .class-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .class-date {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        .class-body {
+            padding: 25px;
+        }
+        
+        .class-description {
+            color: #6c757d;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .topics-list {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+        
+        .topics-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f1f3f4;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .topics-list li:last-child {
             border-bottom: none;
         }
-        .completed {
-            background: linear-gradient(135deg, #d5f4e6 0%, #e8f5e8 100%);
-            border-left: 8px solid #27ae60;
-        }
-        .topic-header {
-            color: #2c3e50;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 15px;
-            margin-bottom: 25px;
-            font-size: 2.2em;
-            font-weight: bold;
-        }
-        h3 {
-            color: #34495e;
-            font-size: 1.5em;
-            margin: 25px 0 15px 0;
-            border-left: 4px solid #e74c3c;
-            padding-left: 15px;
-        }
-        h4 {
-            color: #7f8c8d;
-            font-size: 1.2em;
-            margin: 20px 0 10px 0;
-        }
-        ul, ol {
-            font-size: 1.1em;
-            line-height: 1.8;
-            padding-left: 25px;
-        }
-        li {
-            margin: 8px 0;
-        }
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            margin: 20px 0;
-            font-size: 1.1em;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        th, td {
-            border: 1px solid #bdc3c7;
-            padding: 15px 12px;
-            text-align: center;
-            vertical-align: middle;
-        }
-        th {
-            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
-            color: white;
-            font-weight: bold;
-            font-size: 1.1em;
-        }
-        td {
-            background-color: #f8f9fa;
-        }
-        tr:hover td {
-            background-color: #e8f4fd;
-            transition: background-color 0.3s ease;
-        }
-        .status-completed {
+        
+        .topics-list li i {
             color: #27ae60;
-            font-weight: bold;
-            font-size: 1.1em;
+            width: 16px;
         }
-        pre {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            color: #ecf0f1;
+        
+        .class-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .class-link {
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            flex: 1;
+            justify-content: center;
+            min-width: 120px;
+        }
+        
+        .class-link.primary {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+        }
+        
+        .class-link.secondary {
+            background: #f8f9fa;
+            color: #495057;
+            border: 1px solid #dee2e6;
+        }
+        
+        .class-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Navigation Section */
+        .navigation-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 50px 30px;
+            border-top: 1px solid #dee2e6;
+        }
+        
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .nav-card {
+            background: white;
             padding: 25px;
-            border-radius: 10px;
-            overflow-x: auto;
-            margin: 20px 0;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            border-left: 5px solid #3498db;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
         }
-        code {
-            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
-            font-size: 14px;
+        
+        .nav-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .nav-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #3498db;
+        }
+        
+        .nav-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .nav-description {
+            color: #6c757d;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
             line-height: 1.5;
         }
-        .light-code {
-            background: #f8f9fa;
-            color: #2c3e50;
-            border: 2px solid #e9ecef;
+        
+        .nav-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
         }
-        .light-code code {
-            color: #2c3e50;
+        
+        .nav-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
         }
-        p {
-            font-size: 1.1em;
-            line-height: 1.7;
-            color: #34495e;
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+            }
+            
+            .navbar .nav-links {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header-badges {
+                justify-content: center;
+            }
+            
+            .classes-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .container {
+                margin: 10px;
+                border-radius: 15px;
+            }
         }
-        strong {
-            color: #2c3e50;
-            font-weight: 600;
+        
+        @media (max-width: 480px) {
+            .header {
+                padding: 40px 20px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-actions {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>Web Programming Lab</h1>
-            <h2>Class Documentation Dashboard</h2>
-            <p>Student: Majharul Islam | ID: 232002256 | Department: CSE</p>
-        </div>
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fas fa-code"></i>
+                Web Programming Lab
+            </div>
+            <div class="nav-links">
+                <a href="landing.html"><i class="fas fa-home"></i> Home</a>
+                <a href="main_website/index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <a href="HTML_Documentation/index.html"><i class="fas fa-book"></i> Docs</a>
+                <a href="assignments/"><i class="fas fa-tasks"></i> Assignments</a>
+            </div>
+        </nav>
 
-    <div class="class-info">
-        <h3>📚 Classes Overview</h3>
-        <p><strong>Latest Update:</strong> October 21, 2025 - Class 04 Documentation Added</p>
-        <p><strong>Total Classes Documented:</strong> 4 Classes</p>
-        <p><strong>Status:</strong> <span class="status-completed">✅ All Classes Up to Date</span></p>
-    </div>
+        <!-- Header Section -->
+        <header class="header">
+            <div class="header-content">
+                <h1><i class="fas fa-laptop-code"></i> Web Programming Lab</h1>
+                <h2>Professional Documentation Hub</h2>
+                <p>Comprehensive learning journey through HTML5, CSS3, JavaScript, and modern web development practices. Complete documentation of all classes, assignments, and projects.</p>
+                
+                <div class="header-badges">
+                    <span class="badge"><i class="fab fa-html5"></i> HTML5</span>
+                    <span class="badge"><i class="fab fa-css3-alt"></i> CSS3</span>
+                    <span class="badge"><i class="fab fa-js-square"></i> JavaScript</span>
+                    <span class="badge"><i class="fas fa-user-graduate"></i> Majharul Islam (232002256)</span>
+                </div>
+                
+                <div class="header-actions">
+                    <a href="#classes" class="btn btn-primary">
+                        <i class="fas fa-graduation-cap"></i> View Classes
+                    </a>
+                    <a href="main_website/index.html" class="btn btn-secondary">
+                        <i class="fas fa-tachometer-alt"></i> Full Dashboard
+                    </a>
+                </div>
+            </div>
+        </header>
 
-    <div class="topic-section completed">
-        <h2 class="topic-header">📅 Class Documentation Links</h2>
-        
-        <table>
-            <tr>
-                <th>Class</th>
-                <th>Date</th>
-                <th>Topics Covered</th>
-                <th>Documentation Link</th>
-                <th>Status</th>
-            </tr>
-            <tr>
-                <td><strong>Class 04</strong></td>
-                <td>October 21, 2025</td>
-                <td>CSS Pseudo-classes, Element Centering, HSL Colors, Table Styling</td>
-                <td><a href="classes/class_04/class_04_documentation.html" style="color: #3498db; text-decoration: none; font-weight: bold;">📖 View Class 04 Documentation</a></td>
-                <td class="status-completed">✅ Completed</td>
-            </tr>
-            <tr>
-                <td><strong>Class 03</strong></td>
-                <td>October 15, 2025</td>
-                <td>HTML Forms, Input Types, CSS Form Styling</td>
-                <td><a href="classes/class_03/class_03.html" style="color: #3498db; text-decoration: none; font-weight: bold;">📖 View Class 03</a></td>
-                <td class="status-completed">✅ Completed</td>
-            </tr>
-            <tr>
-                <td><strong>Class 02</strong></td>
-                <td>October 10, 2025</td>
-                <td>Advanced HTML Elements, CSS Basics</td>
-                <td><a href="classes/class_02/class_02.html" style="color: #3498db; text-decoration: none; font-weight: bold;">📖 View Class 02</a></td>
-                <td class="status-completed">✅ Completed</td>
-            </tr>
-            <tr>
-                <td><strong>Class 01</strong></td>
-                <td>October 7, 2025</td>
-                <td>HTML Lists, Tables, Class Routine Creation</td>
-                <td><a href="classes/class_01/class_01.html" style="color: #3498db; text-decoration: none; font-weight: bold;">📖 View Class 01</a></td>
-                <td class="status-completed">✅ Completed</td>
-            </tr>
-        </table>
-    </div>
+        <!-- Quick Stats -->
+        <section class="quick-stats">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label"><i class="fas fa-graduation-cap"></i> Classes Completed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label"><i class="fas fa-file-code"></i> HTML Documents</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">300+</div>
+                    <div class="stat-label"><i class="fas fa-code"></i> Code Examples</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label"><i class="fas fa-check-circle"></i> Completion Rate</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label"><i class="fas fa-tasks"></i> Assignments</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label"><i class="fas fa-clipboard-check"></i> Class Tests</div>
+                </div>
+            </div>
+        </section>
 
-    <div class="topic-section completed">
-        <h2 class="topic-header">🎯 Class 04 - Latest Session (October 21, 2025)</h2>
-        
-        <h3>🔥 New Topics Covered</h3>
-        <ul>
-            <li>✅ <strong>CSS Pseudo-classes:</strong> :hover, :active, :link implementations</li>
-            <li>✅ <strong>Element Centering:</strong> margin: auto, text-align techniques</li>
-            <li>✅ <strong>HSL Color System:</strong> Modern color implementation with HSL values</li>
-            <li>✅ <strong>Professional Table Styling:</strong> Advanced border and spacing techniques</li>
-            <li>✅ <strong>Background Image Styling:</strong> Fixed positioning and full coverage</li>
-            <li>✅ <strong>Interactive Design:</strong> User feedback through hover states</li>
-        </ul>
+        <!-- Classes Section -->
+        <section id="classes" class="classes-section">
+            <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Class Documentation</h2>
+            <p class="section-subtitle">Comprehensive documentation of all completed classes with detailed examples and learning outcomes</p>
+            
+            <div class="classes-grid">
+                <!-- Class 04 - Featured -->
+                <div class="class-card featured">
+                    <div class="class-header">
+                        <div class="class-number">04</div>
+                        <h3 class="class-title">CSS Pseudo-classes & Advanced Styling</h3>
+                        <p class="class-date"><i class="fas fa-calendar"></i> October 21, 2025</p>
+                    </div>
+                    <div class="class-body">
+                        <p class="class-description">
+                            Advanced CSS techniques including pseudo-classes for interactive design, element centering methods, HSL color systems, and professional table styling with hover effects.
+                        </p>
+                        <ul class="topics-list">
+                            <li><i class="fas fa-check"></i> CSS Pseudo-classes (:hover, :active, :link)</li>
+                            <li><i class="fas fa-check"></i> Element Centering Techniques</li>
+                            <li><i class="fas fa-check"></i> HSL Color System Implementation</li>
+                            <li><i class="fas fa-check"></i> Professional Table Styling</li>
+                            <li><i class="fas fa-check"></i> Interactive User Interfaces</li>
+                        </ul>
+                        <div class="class-actions">
+                            <a href="classes/class_04/class_04_documentation.html" class="class-link primary">
+                                <i class="fas fa-book-open"></i> Documentation
+                            </a>
+                            <a href="classes/class_04/class_04.html" class="class-link secondary">
+                                <i class="fas fa-code"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-        <h3>👨‍💻 Technical Skills Gained</h3>
-        <table>
-            <tr>
-                <th>Skill Category</th>
-                <th>Specific Implementation</th>
-                <th>Real-world Application</th>
-            </tr>
-            <tr>
-                <td>CSS Pseudo-classes</td>
-                <td>.A:hover, .A:active, .A:link</td>
-                <td>Interactive navigation and user feedback</td>
-            </tr>
-            <tr>
-                <td>Element Positioning</td>
-                <td>margin: 20px auto; width: 80%;</td>
-                <td>Responsive layout and content centering</td>
-            </tr>
-            <tr>
-                <td>Color Systems</td>
-                <td>HSL(0,80%,50%) - HSL(240,80%,50%)</td>
-                <td>Consistent color theming and accessibility</td>
-            </tr>
-            <tr>
-                <td>Background Design</td>
-                <td>background-attachment: fixed</td>
-                <td>Professional page layouts and branding</td>
-            </tr>
-        </table>
+                <!-- Class 03 -->
+                <div class="class-card">
+                    <div class="class-header">
+                        <div class="class-number">03</div>
+                        <h3 class="class-title">HTML Forms & CSS Integration</h3>
+                        <p class="class-date"><i class="fas fa-calendar"></i> October 15, 2025</p>
+                    </div>
+                    <div class="class-body">
+                        <p class="class-description">
+                            Comprehensive form development with advanced input types, validation techniques, CSS styling, and responsive design patterns for modern web applications.
+                        </p>
+                        <ul class="topics-list">
+                            <li><i class="fas fa-check"></i> HTML5 Form Elements</li>
+                            <li><i class="fas fa-check"></i> Input Types & Validation</li>
+                            <li><i class="fas fa-check"></i> Form Styling with CSS</li>
+                            <li><i class="fas fa-check"></i> Responsive Form Design</li>
+                            <li><i class="fas fa-check"></i> User Experience Best Practices</li>
+                        </ul>
+                        <div class="class-actions">
+                            <a href="classes/class_03/class_03.html" class="class-link primary">
+                                <i class="fas fa-eye"></i> View Class
+                            </a>
+                            <a href="classes/class_03/form.html" class="class-link secondary">
+                                <i class="fas fa-edit"></i> Form Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-        <div style="background: linear-gradient(135deg, #e8f5e8 0%, #d5f4e6 100%); padding: 20px; border-radius: 10px; margin: 20px 0; border-left: 5px solid #27ae60;">
-            <h4 style="color: #27ae60; margin: 0 0 10px 0;">🎉 Class 04 Complete Documentation Available!</h4>
-            <p style="margin: 5px 0; font-size: 1.1em;"><strong>📖 <a href="classes/class_04/class_04_documentation.html" style="color: #27ae60; text-decoration: none;">Click here to view the complete Class 04 documentation</a></strong></p>
-            <p style="margin: 5px 0;">Comprehensive guide including all code examples, explanations, and learning outcomes.</p>
-        </div>
-    </div>
+                <!-- Class 02 -->
+                <div class="class-card">
+                    <div class="class-header">
+                        <div class="class-number">02</div>
+                        <h3 class="class-title">Advanced HTML Elements</h3>
+                        <p class="class-date"><i class="fas fa-calendar"></i> October 10, 2025</p>
+                    </div>
+                    <div class="class-body">
+                        <p class="class-description">
+                            Deep exploration of semantic HTML5 elements, accessibility principles, multimedia integration, and modern markup techniques for professional web development.
+                        </p>
+                        <ul class="topics-list">
+                            <li><i class="fas fa-check"></i> Semantic HTML5 Elements</li>
+                            <li><i class="fas fa-check"></i> Accessibility Best Practices</li>
+                            <li><i class="fas fa-check"></i> Multimedia Integration</li>
+                            <li><i class="fas fa-check"></i> Document Structure</li>
+                            <li><i class="fas fa-check"></i> SEO Optimization</li>
+                        </ul>
+                        <div class="class-actions">
+                            <a href="classes/class_02/class_02.html" class="class-link primary">
+                                <i class="fas fa-eye"></i> View Class
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="topic-section completed">
-        <h2 class="topic-header">✅ Previous Classes Summary</h2>
-        
-        <h3>1. HTML Lists Implementation</h3>
-        <ul>
-            <li>✅ Unordered Lists with different bullet types</li>
-            <li>✅ Ordered Lists with custom numbering</li>
-            <li>✅ Description Lists</li>
-            <li>✅ Nested Lists</li>
-        </ul>
+                <!-- Class 01 -->
+                <div class="class-card">
+                    <div class="class-header">
+                        <div class="class-number">01</div>
+                        <h3 class="class-title">HTML Fundamentals & Tables</h3>
+                        <p class="class-date"><i class="fas fa-calendar"></i> October 7, 2025</p>
+                    </div>
+                    <div class="class-body">
+                        <p class="class-description">
+                            Foundation course covering HTML document structure, lists, tables, and basic styling. Introduction to web development concepts and best practices.
+                        </p>
+                        <ul class="topics-list">
+                            <li><i class="fas fa-check"></i> HTML Document Structure</li>
+                            <li><i class="fas fa-check"></i> Lists (Ordered, Unordered, Description)</li>
+                            <li><i class="fas fa-check"></i> Table Creation & Styling</li>
+                            <li><i class="fas fa-check"></i> Class Routine Implementation</li>
+                            <li><i class="fas fa-check"></i> Basic CSS Integration</li>
+                        </ul>
+                        <div class="class-actions">
+                            <a href="classes/class_01/class_01.html" class="class-link primary">
+                                <i class="fas fa-eye"></i> View Class
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <h3>2. HTML Tables Implementation</h3>
-        <ul>
-            <li>✅ Basic table structure with borders and styling</li>
-            <li>✅ Table captions and headers</li>
-            <li>✅ Colspan and rowspan attributes</li>
-            <li>✅ Cell padding and spacing</li>
-        </ul>
+        <!-- Navigation Section -->
+        <section class="navigation-section">
+            <h2 class="section-title"><i class="fas fa-compass"></i> Quick Navigation</h2>
+            <p class="section-subtitle">Access all resources and documentation from one central location</p>
+            
+            <div class="nav-grid">
+                <div class="nav-card">
+                    <div class="nav-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <h3 class="nav-title">Main Dashboard</h3>
+                    <p class="nav-description">Comprehensive project overview with detailed statistics and complete navigation system</p>
+                    <a href="main_website/index.html" class="nav-link">
+                        <i class="fas fa-external-link-alt"></i> Open Dashboard
+                    </a>
+                </div>
 
-        <h3>3. Class Routine Project</h3>
-        <ul>
-            <li>✅ Created complete class routine table</li>
-            <li>✅ Added proper HTML5 structure</li>
-            <li>✅ Implemented responsive design</li>
-            <li>✅ Added professional styling and layout</li>
-        </ul>
+                <div class="nav-card">
+                    <div class="nav-icon"><i class="fas fa-book"></i></div>
+                    <h3 class="nav-title">HTML Documentation</h3>
+                    <p class="nav-description">Complete HTML reference guide with interactive examples and best practices</p>
+                    <a href="HTML_Documentation/index.html" class="nav-link">
+                        <i class="fas fa-book-open"></i> View Docs
+                    </a>
+                </div>
 
-        <h3>4. Class Test 02 - Table Creation</h3>
-        <ul>
-            <li>✅ Designed Teacher's class routine table</li>
-            <li>✅ Implemented complex table structure with rowspan/colspan</li>
-            <li>✅ Added proper time slots (08:30-10:00 to 04:30-06:00)</li>
-            <li>✅ Included course codes (CSE 300, CSE 201, CSE 301, CSE 312, CSE 311)</li>
-            <li>✅ Added room assignments (B-1005, B-411, D-702, B-802)</li>
-            <li>✅ Integrated counseling hours and committee meetings</li>
-            <li>✅ Applied professional CSS styling matching academic standards</li>
-        </ul>
-    </div>
+                <div class="nav-card">
+                    <div class="nav-icon"><i class="fas fa-tasks"></i></div>
+                    <h3 class="nav-title">Assignments</h3>
+                    <p class="nav-description">Practical assignments including login forms, validation, and responsive design</p>
+                    <a href="assignments/" class="nav-link">
+                        <i class="fas fa-clipboard-list"></i> View Tasks
+                    </a>
+                </div>
 
-    <div class="topic-section">
-        <h2 class="topic-header">🎯 Overall Learning Outcomes</h2>
-        <table>
-            <tr>
-                <th>Class</th>
-                <th>Topic</th>
-                <th>Skills Learned</th>
-                <th>Status</th>
-            </tr>
-            <tr style="background-color: #e8f5e8;">
-                <td><strong>Class 04</strong></td>
-                <td>CSS Pseudo-classes & Centering</td>
-                <td>Interactive design, element positioning, HSL colors</td>
-                <td class="status-completed">Completed</td>
-            </tr>
-            <tr>
-                <td>Class 03</td>
-                <td>HTML Forms</td>
-                <td>Form creation, input types, validation</td>
-                <td class="status-completed">Completed</td>
-            </tr>
-            <tr>
-                <td>Class 02</td>
-                <td>Advanced HTML</td>
-                <td>Semantic elements, CSS integration</td>
-                <td class="status-completed">Completed</td>
-            </tr>
-            <tr>
-                <td>Class 01</td>
-                <td>HTML Lists & Tables</td>
-                <td>Creating structured content with ul, ol, dl tags</td>
-                <td class="status-completed">Completed</td>
-            </tr>
-            <tr>
-                <td>All Classes</td>
-                <td>Git Version Control</td>
-                <td>Adding, committing, and pushing code to repository</td>
-                <td class="status-completed">Completed</td>
-            </tr>
-        </table>
-    </div>
+                <div class="nav-card">
+                    <div class="nav-icon"><i class="fas fa-clipboard-check"></i></div>
+                    <h3 class="nav-title">Class Tests</h3>
+                    <p class="nav-description">Evaluation materials and test implementations with professional table designs</p>
+                    <a href="class_tests/" class="nav-link">
+                        <i class="fas fa-graduation-cap"></i> View Tests
+                    </a>
+                </div>
 
-<div class="topic-section">
-    <h2 class="topic-header">📝 Code Examples from Today's Class</h2>
+                <div class="nav-card">
+                    <div class="nav-icon"><i class="fas fa-flask"></i></div>
+                    <h3 class="nav-title">Lab Reports</h3>
+                    <p class="nav-description">Detailed laboratory documentation and technical analysis reports</p>
+                    <a href="lab_reports/" class="nav-link">
+                        <i class="fas fa-file-alt"></i> View Reports
+                    </a>
+                </div>
 
-<h3>Unordered HTML List</h3>
-<ul type="square">
-  <li>Square</li>
-  <li>Circle</li>
-  <li>Disc</li>
-  <li>None</li>
-</ul>
-<h2>Ordered HTML List</h2>
-<ol type="i" start="20">
-
-  <li>Coffee</li>  
-    <ul>
-      <li>Black</li>
-      <li>With Milk</li>
-      <li>With Sugar</li>
-    </ul>
-  <li value="3">None</li>
-  <li>Tea</li>
-  <li>Milk</li>
-</ol> 
-<h2>Description List</h2>
-<dl>
-  <dt>Coffee</dt>
-  <dd>Black hot drink</dd>
-  <dd>With milk</dd>
-  <dd>With sugar</dd>
-  <dt>Tea</dt>
-
-<h2>Nested List</h2>
-<ol>
-  <li>Coffee</li>
-    <ul>
-      <li>Black</li>
-      <li>With Milk</li>
-      <li>With Sugar</li>
-    </ul>
-  <li>Tea</li>
-  <li>Milk</li>
-</ol>
-<h3>HTML Tables with Advanced Features</h3>
-<table border="1" style="margin: 20px 0;">
-    <caption style="color:blue; font-weight: bold;">Student Information</caption>
-    <tr>
-        <th>ID</th>
-        <th>Name</th> 
-        <th>Dept.</th>
-    </tr>
-    <tr>
-        <td>232002256</td>
-        <td>Majharul Islam</td> 
-        <td>CSE</td>
-    </tr>
-    <tr>
-        <td>232002257</td> 
-        <td>Mr. X</td>
-        <td>CSE</td> 
-    </tr>
-</table>
-
-<h3>Advanced Table with Colspan and Rowspan</h3>
-<table border="1" style="margin: 20px 0;">
-    <tr>
-        <th colspan="4">CSE Department</th>
-    </tr>
-    <tr>
-        <th rowspan="2">Student ID</th>
-        <th rowspan="2">Name</th> 
-        <th colspan="2">Program</th>
-    </tr>
-    <tr>
-        <th>Day</th>
-        <th>Evening</th>
-    </tr>
-    <tr>
-        <td>232002256</td>
-        <td>Majharul Islam</td> 
-        <td>Yes</td>
-        <td>No</td>
-    </tr>
-</table>
-
-</div>
-
-<div class="topic-section">
-    <h2 class="topic-header">🚀 Next Steps</h2>
-    <ul>
-        <li>Practice more complex table layouts</li>
-        <li>Learn CSS Grid and Flexbox</li>
-        <li>Implement responsive web design</li>
-        <li>Work on JavaScript integration</li>
-    </ul>
-</div>
-
-    <div class="topic-section">
-        <h2 class="topic-header">📁 All Files Created</h2>
-        
-        <h3>🔥 Class 04 Files (October 21, 2025)</h3>
-        <ul>
-            <li><strong>class_04.html</strong> - Main HTML with student table and CSS pseudo-classes</li>
-            <li><strong>class_04.css</strong> - Complete CSS with centering, HSL colors, and hover effects</li>
-            <li><strong>class_04_documentation.html</strong> - ⭐ Comprehensive documentation with all examples</li>
-        </ul>
-
-        <h3>📚 Previous Classes Files</h3>
-        <ul>
-            <li><strong>index.html</strong> - Main dashboard and documentation</li>
-            <li><strong>class_Test_02.html</strong> - ⭐ Class Test: Teacher's routine table with advanced HTML table features</li>
-            <li><strong>lab_task.html</strong> - Lab task implementations</li>
-            <li><strong>list.html</strong> - List examples and practice</li>
-            <li><strong>class_03.html & form.html</strong> - HTML forms and styling</li>
-            <li><strong>class_02.html</strong> - Advanced HTML elements</li>
-            <li><strong>class_01.html</strong> - Basic HTML structure and styling</li>
-        </ul>
-    </div><div class="topic-section completed">
-    <h2 class="topic-header">🎯 Class Test 02 Details</h2>
-    
-    <h3>Project Overview</h3>
-    <p><strong>Task:</strong> Create a professional class routine table for Teacher Tanpia Tasnim</p>
-    <p><strong>Department:</strong> Computer Science & Engineering, Green University of Bangladesh</p>
-    
-    <h3>Technical Implementation</h3>
-    <table>
-        <tr>
-            <th>Feature</th>
-            <th>Implementation</th>
-            <th>Status</th>
-        </tr>
-        <tr>
-            <td>Table Structure</td>
-            <td>7-column layout with time slots and days</td>
-            <td class="status-completed">✅ Completed</td>
-        </tr>
-        <tr>
-            <td>Responsive Design</td>
-            <td>CSS styling with proper spacing and colors</td>
-            <td class="status-completed">✅ Completed</td>
-        </tr>
-        <tr>
-            <td>Course Integration</td>
-            <td>Multiple CSE courses with room assignments</td>
-            <td class="status-completed">✅ Completed</td>
-        </tr>
-        <tr>
-            <td>Advanced Features</td>
-            <td>Colspan/rowspan for merged cells</td>
-            <td class="status-completed">✅ Completed</td>
-        </tr>
-        <tr>
-            <td>Academic Standards</td>
-            <td>Professional formatting matching university requirements</td>
-            <td class="status-completed">✅ Completed</td>
-        </tr>
-    </table>
-
-    <h3>Class Schedule Implemented</h3>
-    <ul>
-        <li><strong>Monday:</strong> CSE 300 (B-1005), Counseling Hour, Various committee meetings</li>
-        <li><strong>Tuesday:</strong> Counseling Hour, Meeting with Thesis Project Students</li>
-        <li><strong>Wednesday:</strong> CSE 201 (B-411), CSE 301 (D-702), Various committee meetings</li>
-        <li><strong>Thursday:</strong> Meeting with Thesis Project Students, Weekly AC Meeting</li>
-        <li><strong>Friday:</strong> CSE 312 (B-802), CSE 311 (B-411), Counseling Time</li>
-    </ul>
-</div>
-
-<div class="topic-section">
-    <h2 class="topic-header">💻 Core Code Examples</h2>
-    
-    <h3>1. HTML Lists - Core Implementation</h3>
-    <h4>Unordered List with Different Types:</h4>
-    <pre class="light-code">
-<code>&lt;h2&gt;Unordered HTML List&lt;/h2&gt;
-&lt;ul type="square"&gt;
-  &lt;li&gt;Square&lt;/li&gt;
-  &lt;li&gt;Circle&lt;/li&gt;
-  &lt;li&gt;Disc&lt;/li&gt;
-  &lt;li&gt;None&lt;/li&gt;
-&lt;/ul&gt;</code>
-    </pre>
-
-    <h4>Ordered List with Custom Numbering:</h4>
-    <pre class="light-code">
-<code>&lt;h2&gt;Ordered HTML List&lt;/h2&gt;
-&lt;ol type="i" start="20"&gt;
-  &lt;li&gt;Coffee&lt;/li&gt;  
-    &lt;ul&gt;
-      &lt;li&gt;Black&lt;/li&gt;
-      &lt;li&gt;With Milk&lt;/li&gt;
-      &lt;li&gt;With Sugar&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;li value="3"&gt;None&lt;/li&gt;
-  &lt;li&gt;Tea&lt;/li&gt;
-  &lt;li&gt;Milk&lt;/li&gt;
-&lt;/ol&gt;</code>
-    </pre>
-
-    <h4>Description List:</h4>
-    <pre class="light-code">
-<code>&lt;h2&gt;Description List&lt;/h2&gt;
-&lt;dl&gt;
-  &lt;dt&gt;Coffee&lt;/dt&gt;
-  &lt;dd&gt;Black hot drink&lt;/dd&gt;
-  &lt;dd&gt;With milk&lt;/dd&gt;
-  &lt;dd&gt;With sugar&lt;/dd&gt;
-  &lt;dt&gt;Tea&lt;/dt&gt;
-  &lt;dd&gt;Hot beverage with leaves&lt;/dd&gt;
-&lt;/dl&gt;</code>
-    </pre>
-
-    <h3>2. HTML Tables - Core Implementation</h3>
-    <h4>Basic Table with Styling:</h4>
-    <pre class="light-code">
-<code>&lt;table border="1" style="border-collapse: collapse; width: 100%;"&gt;
-    &lt;caption style="color:blue; font-weight: bold;"&gt;Student Information&lt;/caption&gt;
-    &lt;tr&gt;
-        &lt;th style="background-color: #f0f0f0; padding: 10px;"&gt;ID&lt;/th&gt;
-        &lt;th style="background-color: #f0f0f0; padding: 10px;"&gt;Name&lt;/th&gt; 
-        &lt;th style="background-color: #f0f0f0; padding: 10px;"&gt;Dept.&lt;/th&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td style="padding: 10px;"&gt;232002256&lt;/td&gt;
-        &lt;td style="padding: 10px;"&gt;Majharul Islam&lt;/td&gt; 
-        &lt;td style="padding: 10px;"&gt;CSE&lt;/td&gt;
-    &lt;/tr&gt;
-&lt;/table&gt;</code>
-    </pre>
-
-    <h4>Advanced Table with Colspan and Rowspan:</h4>
-    <pre class="light-code">
-<code>&lt;table border="1" style="border-collapse: collapse;"&gt;
-    &lt;tr&gt;
-        &lt;th colspan="4"&gt;CSE Department&lt;/th&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;th rowspan="2"&gt;Student ID&lt;/th&gt;
-        &lt;th rowspan="2"&gt;Name&lt;/th&gt; 
-        &lt;th colspan="2"&gt;Program&lt;/th&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;th&gt;Day&lt;/th&gt;
-        &lt;th&gt;Evening&lt;/th&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;232002256&lt;/td&gt;
-        &lt;td&gt;Majharul Islam&lt;/td&gt; 
-        &lt;td&gt;Yes&lt;/td&gt;
-        &lt;td&gt;No&lt;/td&gt;
-    &lt;/tr&gt;
-&lt;/table&gt;</code>
-    </pre>
-
-    <h3>3. Class Test 02 - Core Class Routine Table Code</h3>
-    <pre class="light-code">
-<code>&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;title&gt;Class Routine&lt;/title&gt;
-    &lt;style&gt;
-        table {
-            border-collapse: collapse;
-            width: 80%;
-            margin: 20px auto;
-            border: 2px solid #333;
-        }
-        th, td {
-            border: 1px solid #333;
-            padding: 8px;
-            text-align: center;
-        }
-        .day-cell {
-            background-color: #f5f5f5;
-            font-weight: bold;
-        }
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;h1&gt;Class Routine&lt;/h1&gt;
-    &lt;p&gt;&lt;strong&gt;Teacher Name: Tanpia Tasnim&lt;/strong&gt;&lt;/p&gt;
-    
-    &lt;table&gt;
-        &lt;tr&gt;
-            &lt;th&gt;Time&lt;/th&gt;
-            &lt;th&gt;08:30-10:00&lt;/th&gt;
-            &lt;th&gt;10:00-11:30&lt;/th&gt;
-            &lt;th&gt;11:30-01:00&lt;/th&gt;
-            &lt;th&gt;01:30-03:00&lt;/th&gt;
-            &lt;th&gt;03:00-04:30&lt;/th&gt;
-            &lt;th&gt;04:30-06:00&lt;/th&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-            &lt;td class="day-cell"&gt;Monday&lt;/td&gt;
-            &lt;td&gt;CSE 300&lt;br&gt;B-1005&lt;/td&gt;
-            &lt;td&gt;&lt;/td&gt;
-            &lt;td&gt;Counseling Hour&lt;/td&gt;
-            &lt;td&gt;&lt;/td&gt;
-            &lt;td colspan="2"&gt;Various committee meetings&lt;/td&gt;
-        &lt;/tr&gt;
-    &lt;/table&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code>
-    </pre>
-
-    <h3>4. CSS Styling - Core Implementation</h3>
-    <pre class="light-code">
-<code>&lt;style&gt;
-    table {
-        border-collapse: collapse;
-        width: 100%;
-        margin: 20px auto;
-    }
-    th, td {
-        border: 1px solid #333;
-        padding: 10px;
-        text-align: center;
-        vertical-align: middle;
-    }
-    th {
-        background-color: #f0f0f0;
-        font-weight: bold;
-    }
-    .day-cell {
-        background-color: #f5f5f5;
-        font-weight: bold;
-    }
-    .completed {
-        background-color: #d5f4e6;
-        border-left: 5px solid #27ae60;
-    }
-&lt;/style&gt;</code>
-    </pre>
-
-    <h3>5. Git Commands Used Today</h3>
-    <pre style="background-color: #2c3e50; color: #ecf0f1; padding: 15px; border-radius: 5px; overflow-x: auto;">
-<code># Add all files to git tracking
-git add .
-
-# Commit changes with message
-git commit -m "Add initial web programming lab files"
-
-# Push to remote repository
-git push origin main
-
-# Check repository status
-git status</code>
-    </pre>
-</div>
-
+                <div class="nav-card">
+                    <div class="nav-icon"><i class="fab fa-github"></i></div>
+                    <h3 class="nav-title">Source Code</h3>
+                    <p class="nav-description">Complete project repository with version control and collaboration features</p>
+                    <a href="https://github.com/MrMajharul/web-programming-lab" class="nav-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
     </div>
 
     <!-- Footer -->
     <footer class="universal-footer">
         <div class="footer-content">
-            <div class="footer-brand">Web Programming Lab - Documentation</div>
+            <div class="footer-brand">
+                <i class="fas fa-laptop-code"></i>
+                Web Programming Laboratory
+            </div>
             <div class="footer-info">
-                Web Programming Laboratory | Green University of Bangladesh<br>
-                Student: Majharul Islam | ID: 232002256
+                Green University of Bangladesh | Department of Computer Science & Engineering<br>
+                Student: Majharul Islam | ID: 232002256 | Complete Learning Portfolio
             </div>
             <div class="footer-links">
-                <a href="landing.html">Home</a>
-                <a href="main_website/index.html">Dashboard</a>
-                <a href="classes/">Classes</a>
-                <a href="assignments/">Assignments</a>
-                <a href="HTML_Documentation/">Documentation</a>
+                <a href="landing.html"><i class="fas fa-home"></i> Home</a>
+                <a href="main_website/index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <a href="classes/"><i class="fas fa-graduation-cap"></i> Classes</a>
+                <a href="assignments/"><i class="fas fa-tasks"></i> Assignments</a>
+                <a href="HTML_Documentation/"><i class="fas fa-book"></i> Documentation</a>
+                <a href="https://github.com/MrMajharul/web-programming-lab" target="_blank"><i class="fab fa-github"></i> GitHub</a>
             </div>
             <div class="footer-copyright">
-                © 2025 Web Programming Lab - Complete Class Documentation
+                © 2025 Web Programming Lab - Professional Documentation System | Last Updated: October 21, 2025
             </div>
         </div>
     </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add loading animation for external links
+        document.querySelectorAll('a[href^="http"], a[href^="classes/"], a[href^="assignments/"]').forEach(link => {
+            link.addEventListener('click', function() {
+                const originalText = this.innerHTML;
+                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                }, 1000);
+            });
+        });
+
+        // Add intersection observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards for animation
+        document.querySelectorAll('.class-card, .nav-card, .stat-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Add ripple effect to buttons
+        document.querySelectorAll('.btn, .class-link, .nav-link').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.classList.add('ripple');
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+    </script>
+
+    <style>
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            transform: scale(0);
+            animation: ripple-animation 0.6s linear;
+            pointer-events: none;
+        }
+
+        @keyframes ripple-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        .btn, .class-link, .nav-link {
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
 </body>
 </html>
