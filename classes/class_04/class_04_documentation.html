@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 04 Documentation - Web Programming Lab</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #34495e;
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #7f8c8d;
+            margin-top: 20px;
+        }
+        .date-info {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .code-block {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+        .highlight {
+            background-color: #f39c12;
+            color: white;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        .example {
+            background-color: #e8f5e8;
+            border-left: 4px solid #27ae60;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        .important {
+            background-color: #fdf2e9;
+            border-left: 4px solid #e67e22;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #bdc3c7;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .student-list {
+            background-color: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Web Programming Lab - Class 04 Documentation</h1>
+        
+        <div class="date-info">
+            <strong>Date:</strong> October 21, 2025<br>
+            <strong>Department:</strong> Computer Science & Engineering<br>
+            <strong>Institution:</strong> Green University of Bangladesh
+        </div>
+
+        <h2>📚 Class Overview</h2>
+        <p>Class 04 focused on advanced CSS styling techniques, including CSS pseudo-classes, element positioning, color systems, and table styling. Students learned how to create interactive web elements and implement professional styling approaches.</p>
+
+        <h2>🎯 Learning Objectives</h2>
+        <ul>
+            <li>Understanding and implementing CSS pseudo-classes (:hover, :active, :link)</li>
+            <li>Mastering element centering techniques using margin and auto values</li>
+            <li>Working with HSL and RGB color systems</li>
+            <li>Creating responsive table layouts</li>
+            <li>Implementing background images with proper positioning</li>
+            <li>Understanding border styles and box model properties</li>
+        </ul>
+
+        <h2>💻 Topics Covered</h2>
+
+        <h3>1. CSS Pseudo-Classes</h3>
+        <div class="example">
+            <strong>Example Implementation:</strong>
+            <div class="code-block">
+<pre>
+.A:hover {
+    color: red;
+}
+.A:active {
+    color: green;
+}   
+.A:link {
+    color: orange;
+}
+</pre>
+            </div>
+            <p><strong>Purpose:</strong> These pseudo-classes provide interactive feedback to users when they interact with links.</p>
+        </div>
+
+        <h3>2. Element Centering Techniques</h3>
+        <div class="example">
+            <strong>Centering Method Used:</strong>
+            <div class="code-block">
+<pre>
+.d {
+text-align: center;
+margin: 20px auto;
+width: 80%;
+}
+</pre>
+            </div>
+            <p><strong>Explanation:</strong></p>
+            <ul>
+                <li><span class="highlight">margin: 20px auto;</span> - Centers the element horizontally</li>
+                <li><span class="highlight">width: 80%;</span> - Provides specific width for auto margins to work</li>
+                <li><span class="highlight">text-align: center;</span> - Centers content within the element</li>
+            </ul>
+        </div>
+
+        <h3>3. Color Systems</h3>
+        <div class="important">
+            <strong>HSL Color System Implementation:</strong>
+            <div class="code-block"> <pre>
+.aa { color: hsl(0, 80%, 50%); }    /* Red */
+.bb { color: hsl(240, 80%, 50%); }  /* Blue */
+.cc { color: hsl(120, 80%, 50%); }  /* Green */
+.dd { color: hsl(60, 80%, 50%); }   /* Yellow */</pre>
+
+            </div>
+            <p><strong>HSL Benefits:</strong> More intuitive than RGB for color manipulation and theming.</p>
+        </div>
+
+        <h3>4. Background Image Styling</h3>
+        <div class="code-block">
+            <pre>
+body {
+    background-image: url("image_03.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 100% 100%;
+}</pre>
+
+        </div>
+
+        <h3>5. Table Styling and Structure</h3>
+        <div class="example">
+            <strong>Professional Table Styling:</strong>
+            <div class="code-block">
+                <pre>
+table, th, td {
+    text-align: center;
+    border: 1px solid purple;
+    border-collapse: collapse;
+    padding: 10px;
+}
+
+th {
+    background-color: blueviolet;
+}</pre>
+
+            </div>
+        </div>
+
+        <h2>👥 Class Participants</h2>
+        <div class="student-list">
+            <table>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Student ID</th>
+                    <th>Course</th>
+                </tr>
+                <tr>
+                    <td>Majharul Islam</td>
+                    <td>232002256</td>
+                    <td>CSE</td>
+                </tr>
+                <tr>
+                    <td>Amar</td>
+                    <td>232002257</td>
+                    <td>CSE</td>
+                </tr>
+                <tr>
+                    <td>Rafiq Ahmed</td>
+                    <td>232002258</td>
+                    <td>CSE</td>
+                </tr>
+            </table>
+        </div>
+
+        <h2>🔧 Technical Skills Developed</h2>
+        <table>
+            <tr>
+                <th>Skill</th>
+                <th>Implementation</th>
+                <th>Application</th>
+            </tr>
+            <tr>
+                <td>CSS Pseudo-classes</td>
+                <td>:hover, :active, :link</td>
+                <td>Interactive user interface elements</td>
+            </tr>
+            <tr>
+                <td>Element Positioning</td>
+                <td>margin: auto, text-align: center</td>
+                <td>Responsive layout design</td>
+            </tr>
+            <tr>
+                <td>Color Systems</td>
+                <td>HSL, RGB values</td>
+                <td>Consistent color theming</td>
+            </tr>
+            <tr>
+                <td>Background Styling</td>
+                <td>background properties</td>
+                <td>Professional page backgrounds</td>
+            </tr>
+            <tr>
+                <td>Table Design</td>
+                <td>border-collapse, padding</td>
+                <td>Data presentation</td>
+            </tr>
+        </table>
+
+        <h2>📝 Key Takeaways</h2>
+        <div class="important">
+            <ul>
+                <li><strong>Centering Elements:</strong> Use <code>margin: auto</code> with a defined width for horizontal centering</li>
+                <li><strong>Interactive Design:</strong> Pseudo-classes enhance user experience through visual feedback</li>
+                <li><strong>Color Consistency:</strong> HSL provides better control over color variations</li>
+                <li><strong>Professional Tables:</strong> Proper spacing and borders improve data readability</li>
+                <li><strong>Background Images:</strong> Fixed attachment creates engaging layouts</li>
+            </ul>
+        </div>
+
+        <h2>🚀 Next Steps</h2>
+        <ol>
+            <li>Practice implementing more complex pseudo-class combinations</li>
+            <li>Explore CSS Grid and Flexbox for advanced layouts</li>
+            <li>Learn responsive design principles</li>
+            <li>Study CSS animations and transitions</li>
+            <li>Implement JavaScript for dynamic interactions</li>
+        </ol>
+
+        <h2>📁 Files Created/Modified</h2>
+        <ul>
+            <li><code>class_04.html</code> - Main HTML structure with student table</li>
+            <li><code>class_04.css</code> - Complete styling with pseudo-classes and centering</li>
+            <li><code>class_04_documentation.html</code> - This comprehensive documentation</li>
+        </ul>
+
+        <div class="date-info" style="margin-top: 30px;">
+            <strong>Documentation Created:</strong> October 21, 2025<br>
+            <strong>Instructor:</strong> Web Programming Lab<br>
+            <strong>Department:</strong> CSE, Green University of Bangladesh
+        </div>
+    </div>
+</body>
+</html>
