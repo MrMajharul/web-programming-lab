@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <style>
+        .container{
+            display : grid;
+            grid-template-areas:
+            'header header header header'
+            'nav nav nav nav'
+            'container container container '
+            'sidebar'
+            'footer footer footer footer';
+            grid-gap: 10px;
+            background-color: #2196F3;
+            padding: 10px; 
+        }
+        .div1{ 
+            grid-area: header;
+            grid-column: 1 / span 4;
+            background-color: #2196F3;
+            padding: 20px;
+            text-align: center;
+            color: white;
+
+        }
+        .div2{
+            grid-area: heas;
+            grid-column: 1 / span 4;
+            background-color: #2196F3;
+            padding: 20px;
+            text-align: center;
+            color: white;
+
+        }
+        .div3{
+            grid-column: 1 / span 2;
+            background-color: #edd81f;
+            padding: 20px;
+            text-align: center;
+            color: black;
+        }
+        .div4{
+            grid-column: 3 / span 4;
+            background-color: #4CAF50;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        .div5{
+            grid-column: 1 / span 4;
+            background-color: #555555;
+            padding: 20px;
+            text-align: center;
+            color: white;       
+           
+        }
+
+       /* 
+        .div1 {
+            grid-area: header;
+            background-color: #2196F3;
+            padding: 20px;
+            text-align: center;
+            color: white; 
+        }
+        .div2 {
+            grid-area: header;
+            background-color: #2196F3;
+            padding: 20px;
+            text-align: center;
+            color: white; 
+        }
+        .div3 {
+            grid-area: container;
+            background-color: #edd81f;
+            padding: 20px;
+            text-align: center;
+            color: black; 
+            grid-column: span 2;
+        }
+        .div4 {
+            grid-area: sidebar;
+            background-color: #4CAF50;
+            padding: 20px;
+            text-align: center;
+            color: white; 
+            grid-column: span 2;
+        }
+        .div5 {
+            grid-area: footer;
+            background-color: #555555;
+            padding: 20px;
+            text-align: center;
+            color: white; 
+        }   */
+    </style>
+</head>             
+<body>
+    <div class="container">
+        <div class="div1">header</div>
+        <div class="div2">nav</div>
+        <div class="div3">container</div>
+        <div class="div4">sidebar</div>
+        <div class="div5">footer</div>
+    </div>
+</body>
+</html>

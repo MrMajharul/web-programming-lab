@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+    </script>
+</head>
+<body>
+    <p id="A"></p>
+<script>
+/* DOM - Document Object Model 
+    var name = "Green University of Bangladesh";
+    var course = "Web Programming Lab";
+    document.getElementById("A").innerHTML = "<b>Welcome to " + name + "<br><b>";
+    document.getElementById("A").innerHTML += "This is from HTML to JavaScript using DOM.";
+    document.getElementById("A").innerHTML += "<br><b>Course:</b> " + course;
+*/
+
+</script>
+    
+<script>
+    var name = "Green University of Bangladesh";
+    var course = "Web Programming Lab";
+    document.getElementById("A").innerHTML = `<b>Welcome to ${name}<br><b>`;
+    document.getElementById("A").innerHTML += `This is from HTML to JavaScript using DOM.`;
+    document.getElementById("A").innerHTML += `<br><b>Course:</b> ${course}`;   
+</script>
+</body>
+</html>
