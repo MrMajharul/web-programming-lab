@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test 07</title>
+</head>
+<body>
+    <p id="A"></p>
+    <script>
+        var arr = [
+        ["name", "ID", "Dept"],
+        ["Rahim", 1, "CSE"],
+        ["Karim", 2, "CSE"],
+         ];
+        document.write("<table border='1'>");
+            for (var i = 0; i <3; i++){
+                document.write("<tr>");
+                for (var j = 0; j <3; j++){
+                    document.write("<td>" + arr[i][j] + "</td>");
+                }
+                document.write("</tr>");
+            }
+            document.write("</table>");
+    </script>
+</body>
+</html>
