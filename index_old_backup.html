@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Programming Lab - Modern Academic Portfolio</title>
+    <meta name="description" content="Professional web development learning portfolio featuring HTML5, CSS3, JavaScript, and modern web technologies">
+    <link rel="stylesheet" href="modern-style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Page-specific custom styles */
+        .page-transition {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        /* Navigation Bar */
+        .navbar {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid #3498db;
+        }
+        
+        .navbar .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .navbar .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .navbar .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .navbar .nav-links a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-weight: 700;
+        }
+        
+        .header h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        .header-badges {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        
+        .badge {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .header-actions {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        
+        /* Quick Stats */
+        .quick-stats {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 40px 30px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #3498db;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            color: #6c757d;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        /* Classes Grid */
+        .classes-section {
+            padding: 50px 30px;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: #6c757d;
+            margin-bottom: 50px;
+            font-size: 1.1rem;
+        }
+        
+        .classes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .class-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+            position: relative;
+        }
+        
+        .class-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+        
+        .class-card.featured {
+            border: 3px solid #3498db;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        }
+        
+        .class-card.featured::before {
+            content: 'Latest';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .class-header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 25px;
+            position: relative;
+        }
+        
+        .class-number {
+            font-size: 3rem;
+            font-weight: 700;
+            opacity: 0.3;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+        
+        .class-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .class-date {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        .class-body {
+            padding: 25px;
+        }
+        
+        .class-description {
+            color: #6c757d;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .topics-list {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+        
+        .topics-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f1f3f4;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .topics-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .topics-list li i {
+            color: #27ae60;
+            width: 16px;
+        }
+        
+        .class-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .class-link {
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            flex: 1;
+            justify-content: center;
+            min-width: 120px;
+        }
+        
+        .class-link.primary {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+        }
+        
+        .class-link.secondary {
+            background: #f8f9fa;
+            color: #495057;
+            border: 1px solid #dee2e6;
+        }
+        
+        .class-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Navigation Section */
+        .navigation-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 50px 30px;
+            border-top: 1px solid #dee2e6;
+        }
+        
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .nav-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+        
+        .nav-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .nav-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #3498db;
+        }
+        
+        .nav-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .nav-description {
+            color: #6c757d;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .nav-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+            }
+            
+            .navbar .nav-links {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header-badges {
+                justify-content: center;
+            }
+            
+            .classes-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header {
+                padding: 40px 20px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fas fa-code"></i>
+                Web Programming Lab
+            </div>
+            <div class="nav-links">
+                <a href="landing.html"><i class="fas fa-home"></i> Home</a>
+                <a href="main_website/index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <a href="HTML_Documentation/index.html"><i class="fas fa-book"></i> Docs</a>
+                <a href="assignments/"><i class="fas fa-tasks"></i> Assignments</a>
+            </div>
+        </nav>
+
+        <!-- Header Section -->
+        <header class="header">
+            <div class="header-content">
+                <h1><i class="fas fa-laptop-code"></i> Web Programming Lab</h1>
+                <h2>Professional Documentation Hub</h2>
+                <p>Comprehensive learning journey through HTML5, CSS3, JavaScript, and modern web development practices. Complete documentation of all classes, assignments, and projects.</p>
+                
+                <div class="header-badges">
+                    <span class="badge"><i class="fab fa-html5"></i> HTML5</span>
+                    <span class="badge"><i class="fab fa-css3-alt"></i> CSS3</span>
+                    <span class="badge"><i class="fab fa-js-square"></i> JavaScript</span>
+                    <span class="badge"><i class="fas fa-user-graduate"></i> Majharul Islam (232002256)</span>
+                </div>
+                
+                <div class="header-actions">
+                    <a href="#classes" class="btn btn-primary">
+                        <i class="fas fa-graduation-cap"></i> View Classes
+                    </a>
+                    <a href="main_website/index.html" class="btn btn-secondary">
+                        <i class="fas fa-tachometer-alt"></i> Full Dashboard
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Quick Stats -->
+        <section class="quick-stats">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label"><i class="fas fa-graduation-cap"></i> Classes Completed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label"><i class="fas fa-file-code"></i> HTML Documents</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">300+</div>
+                    <div class="stat-label"><i class="fas fa-code"></i> Code Examples</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label"><i class="fas fa-check-circle"></i> Completion Rate</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label"><i class="fas fa-tasks"></i> Assignments</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label"><i class="fas fa-clipboard-check"></i> Class Tests</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Classes Section -->
+        <section id="classes" class="classes-section">
+            <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Class Documentation</h2>
+            <p class="section-subtitle">Comprehensive documentation of all completed classes with detailed examples and learning outcomes</p>
+            
+            <div class="classes-grid">
+                <!-- Class 04 - Featured -->
+                <div class="class-card featured">
+                    <div class="class-header">
+                        <div class="class-number">04</div>
+                        <h3 class="class-title">CSS Pseudo-classes & Advanced Styling</h3>
+                        <p class="class-date"><i class="fas fa-calendar"></i> October 21, 2025</p>
+                    </div>
+                    <div class="class-body">
+                        <p class="class-description">
+                            Advanced CSS techniques including pseudo-classes for interactive design, element centering methods, HSL color systems, and professional table styling with hover effects.
+                        </p>
+                        <ul class="topics-list">
+                            <li><i class="fas fa-check"></i> CSS Pseudo-classes (:hover, :active, :link)</li>
+                            <li><i class="fas fa-check"></i> Element Centering Techniques</li>
+                            <li><i class="fas fa-check"></i> HSL Color System Implementation</li>
+                            <li><i class="fas fa-check"></i> Professional Table Styling</li>
+                            <li><i class="fas fa-check"></i> Interactive User Interfaces</li>
+                        </ul>
+                        <div class="class-actions">
+                            <a href="classes/class_04/class_04_documentation.html" class="class-link primary">
+                                <i class="fas fa-book-open"></i> Documentation
+                            </a>
+                            <a href="classes/class_04/class_04.html" class="class-link secondary">
+                                <i class="fas fa-code"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Class 03 -->
+                <div class="class-card">
+                    <div class="class-header">
+                        <div class="class-number">03</div>
+                        <h3 class="class-title">HTML Forms & CSS Integration</h3>
+                        <p class="class-date"><i class="fas fa-calendar"></i> October 15, 2025</p>
+                    </div>
+                    <div class="class-body">
+                        <p class="class-description">
+                            Comprehensive form development with advanced input types, validation techniques, CSS styling, and responsive design patterns for modern web applications.
+                        </p>
+                        <ul class="topics-list">
+                            <li><i class="fas fa-check"></i> HTML5 Form Elements</li>
+                            <li><i class="fas fa-check"></i> Input Types & Validation</li>
+                            <li><i class="fas fa-check"></i> Form Styling with CSS</li>
+                            <li><i class="fas fa-check"></i> Responsive Form Design</li>
+                            <li><i class="fas fa-check"></i> User Experience Best Practices</li>
+                        </ul>
+                        <div class="class-actions">
+                            <a href="classes/class_03/class_03.html" class="class-link primary">
+                                <i class="fas fa-eye"></i> View Class
+                            </a>
+                            <a href="classes/class_03/form.html" class="class-link secondary">
+                                <i class="fas fa-edit"></i> Form Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Class 02 -->
+                <div class="class-card">
+                    <div class="class-header">
+                        <div class="class-number">02</div>
+                        <h3 class="class-title">Advanced HTML Elements</h3>
+                        <p class="class-date"><i class="fas fa-calendar"></i> October 10, 2025</p>
+                    </div>
+                    <div class="class-body">
+                        <p class="class-description">
+                            Deep exploration of semantic HTML5 elements, accessibility principles, multimedia integration, and modern markup techniques for professional web development.
+                        </p>
+                        <ul class="topics-list">
+                            <li><i class="fas fa-check"></i> Semantic HTML5 Elements</li>
+                            <li><i class="fas fa-check"></i> Accessibility Best Practices</li>
+                            <li><i class="fas fa-check"></i> Multimedia Integration</li>
+                            <li><i class="fas fa-check"></i> Document Structure</li>
+                            <li><i class="fas fa-check"></i> SEO Optimization</li>
+                        </ul>
+                        <div class="class-actions">
+                            <a href="classes/class_02/class_02.html" class="class-link primary">
+                                <i class="fas fa-eye"></i> View Class
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Class 01 -->
+                <div class="class-card">
+                    <div class="class-header">
+                        <div class="class-number">01</div>
+                        <h3 class="class-title">HTML Fundamentals & Tables</h3>
+                        <p class="class-date"><i class="fas fa-calendar"></i> October 7, 2025</p>
+                    </div>
+                    <div class="class-body">
+                        <p class="class-description">
+                            Foundation course covering HTML document structure, lists, tables, and basic styling. Introduction to web development concepts and best practices.
+                        </p>
+                        <ul class="topics-list">
+                            <li><i class="fas fa-check"></i> HTML Document Structure</li>
+                            <li><i class="fas fa-check"></i> Lists (Ordered, Unordered, Description)</li>
+                            <li><i class="fas fa-check"></i> Table Creation & Styling</li>
+                            <li><i class="fas fa-check"></i> Class Routine Implementation</li>
+                            <li><i class="fas fa-check"></i> Basic CSS Integration</li>
+                        </ul>
+                        <div class="class-actions">
+                            <a href="classes/class_01/class_01.html" class="class-link primary">
+                                <i class="fas fa-eye"></i> View Class
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation Section -->
+        <section class="navigation-section">
+            <h2 class="section-title"><i class="fas fa-compass"></i> Quick Navigation</h2>
+            <p class="section-subtitle">Access all resources and documentation from one central location</p>
+            
+            <div class="nav-grid">
+                <div class="nav-card">
+                    <div class="nav-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <h3 class="nav-title">Main Dashboard</h3>
+                    <p class="nav-description">Comprehensive project overview with detailed statistics and complete navigation system</p>
+                    <a href="main_website/index.html" class="nav-link">
+                        <i class="fas fa-external-link-alt"></i> Open Dashboard
+                    </a>
+                </div>
+
+                <div class="nav-card">
+                    <div class="nav-icon"><i class="fas fa-book"></i></div>
+                    <h3 class="nav-title">HTML Documentation</h3>
+                    <p class="nav-description">Complete HTML reference guide with interactive examples and best practices</p>
+                    <a href="HTML_Documentation/index.html" class="nav-link">
+                        <i class="fas fa-book-open"></i> View Docs
+                    </a>
+                </div>
+
+                <div class="nav-card">
+                    <div class="nav-icon"><i class="fas fa-tasks"></i></div>
+                    <h3 class="nav-title">Assignments</h3>
+                    <p class="nav-description">Practical assignments including login forms, validation, and responsive design</p>
+                    <a href="assignments/" class="nav-link">
+                        <i class="fas fa-clipboard-list"></i> View Tasks
+                    </a>
+                </div>
+
+                <div class="nav-card">
+                    <div class="nav-icon"><i class="fas fa-clipboard-check"></i></div>
+                    <h3 class="nav-title">Class Tests</h3>
+                    <p class="nav-description">Evaluation materials and test implementations with professional table designs</p>
+                    <a href="class_tests/" class="nav-link">
+                        <i class="fas fa-graduation-cap"></i> View Tests
+                    </a>
+                </div>
+
+                <div class="nav-card">
+                    <div class="nav-icon"><i class="fas fa-flask"></i></div>
+                    <h3 class="nav-title">Lab Reports</h3>
+                    <p class="nav-description">Detailed laboratory documentation and technical analysis reports</p>
+                    <a href="lab_reports/" class="nav-link">
+                        <i class="fas fa-file-alt"></i> View Reports
+                    </a>
+                </div>
+
+                <div class="nav-card">
+                    <div class="nav-icon"><i class="fab fa-github"></i></div>
+                    <h3 class="nav-title">Source Code</h3>
+                    <p class="nav-description">Complete project repository with version control and collaboration features</p>
+                    <a href="https://github.com/MrMajharul/web-programming-lab" class="nav-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="universal-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <i class="fas fa-laptop-code"></i>
+                Web Programming Laboratory
+            </div>
+            <div class="footer-info">
+                Green University of Bangladesh | Department of Computer Science & Engineering<br>
+                Student: Majharul Islam | ID: 232002256 | Complete Learning Portfolio
+            </div>
+            <div class="footer-links">
+                <a href="landing.html"><i class="fas fa-home"></i> Home</a>
+                <a href="main_website/index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <a href="classes/"><i class="fas fa-graduation-cap"></i> Classes</a>
+                <a href="assignments/"><i class="fas fa-tasks"></i> Assignments</a>
+                <a href="HTML_Documentation/"><i class="fas fa-book"></i> Documentation</a>
+                <a href="https://github.com/MrMajharul/web-programming-lab" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+            <div class="footer-copyright">
+                © 2025 Web Programming Lab - Professional Documentation System | Last Updated: October 21, 2025
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add loading animation for external links
+        document.querySelectorAll('a[href^="http"], a[href^="classes/"], a[href^="assignments/"]').forEach(link => {
+            link.addEventListener('click', function() {
+                const originalText = this.innerHTML;
+                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                }, 1000);
+            });
+        });
+
+        // Add intersection observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards for animation
+        document.querySelectorAll('.class-card, .nav-card, .stat-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Add ripple effect to buttons
+        document.querySelectorAll('.btn, .class-link, .nav-link').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.classList.add('ripple');
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+    </script>
+
+    <style>
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            transform: scale(0);
+            animation: ripple-animation 0.6s linear;
+            pointer-events: none;
+        }
+
+        @keyframes ripple-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        .btn, .class-link, .nav-link {
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
+</body>
+</html>

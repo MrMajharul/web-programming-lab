@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Programming Lab | Professional Learning Portfolio</title>
+    <link rel="stylesheet" href="landing.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Enhanced Professional Styling */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .meta-info {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .badge {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .badge:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .section p {
+            text-align: center;
+            color: #6c757d;
+            margin-bottom: 60px;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .card-header {
+            padding: 30px 25px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .letter-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .card p {
+            padding: 0 25px;
+            color: #6c757d;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .card-footer {
+            padding: 0 25px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .card-link {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .card-link:hover {
+            color: #2980b9;
+            transform: translateX(5px);
+        }
+
+        .tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #f8f9fa;
+            color: #495057;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid #e9ecef;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            padding: 15px 0;
+            border-bottom: 3px solid #3498db;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand h2 {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        .nav-links a.btn-primary {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 80px;
+        }
+
+        .footer p {
+            margin: 10px 0;
+            opacity: 0.8;
+        }
+
+        .footer a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer a:hover {
+            color: #74b9ff;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
+        .card:nth-child(4) { animation-delay: 0.4s; }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .meta-info {
+                justify-content: center;
+            }
+
+            .actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 60px 0;
+            }
+
+            .section {
+                padding: 50px 0;
+            }
+
+            .card-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="nav-brand">
+                <h2><i class="fas fa-code"></i> Web Programming Lab</h2>
+            </div>
+            <div class="nav-links">
+                <a href="#overview"><i class="fas fa-eye"></i> Overview</a>
+                <a href="#sections"><i class="fas fa-sitemap"></i> Sections</a>
+                <a href="main_website/index.html" class="btn-primary"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1><i class="fas fa-laptop-code"></i> Web Programming Laboratory</h1>
+            <p>A comprehensive, professional learning portfolio showcasing advanced web development skills, academic excellence, and practical implementation of modern technologies including HTML5, CSS3, JavaScript, and responsive design principles.</p>
+            
+            <div class="meta-info">
+                <span class="badge"><i class="fab fa-html5"></i> HTML5</span>
+                <span class="badge"><i class="fab fa-css3-alt"></i> CSS3</span>
+                <span class="badge"><i class="fab fa-js-square"></i> JavaScript</span>
+                <span class="badge"><i class="fas fa-mobile-alt"></i> Responsive</span>
+                <span class="badge"><i class="fas fa-user-graduate"></i> Majharul Islam (232002256)</span>
+            </div>
+            
+            <div class="actions">
+                <a href="main_website/index.html" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i> Enter Dashboard
+                </a>
+                <a href="#sections" class="btn btn-secondary">
+                    <i class="fas fa-compass"></i> Explore Content
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="overview" class="section">
+            <h2><i class="fas fa-star"></i> Featured Projects</h2>
+            <p>Professional-grade web applications and documentation demonstrating mastery of modern web technologies and best practices.</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="letter-icon"><i class="fas fa-tachometer-alt"></i></span>
+                        <h3>Professional Dashboard</h3>
+                    </div>
+                    <p>Comprehensive project management system with real-time statistics, interactive navigation, and responsive design for optimal user experience across all devices.</p>
+                    <div class="card-footer">
+                        <a href="main_website/index.html" class="card-link">
+                            <i class="fas fa-external-link-alt"></i> Open Dashboard
+                        </a>
+                        <div class="tags">
+                            <span class="tag">Dashboard</span>
+                            <span class="tag">Responsive</span>
+                            <span class="tag">Interactive</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <span class="letter-icon"><i class="fas fa-book"></i></span>
+                        <h3>HTML5 Documentation</h3>
+                    </div>
+                    <p>Complete HTML reference guide featuring interactive examples, semantic markup tutorials, accessibility guidelines, and modern web standards implementation.</p>
+                    <div class="card-footer">
+                        <a href="HTML_Documentation/index.html" class="card-link">
+                            <i class="fas fa-book-open"></i> View Documentation
+                        </a>
+                        <div class="tags">
+                            <span class="tag">Reference</span>
+                            <span class="tag">Semantic</span>
+                            <span class="tag">Accessible</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <span class="letter-icon"><i class="fas fa-clipboard-list"></i></span>
+                        <h3>Interactive Assignments</h3>
+                    </div>
+                    <p>Practical web development assignments including form validation, responsive layouts, user authentication systems, and modern CSS animations.</p>
+                    <div class="card-footer">
+                        <a href="assignments/" class="card-link">
+                            <i class="fas fa-tasks"></i> View Assignments
+                        </a>
+                        <div class="tags">
+                            <span class="tag">Forms</span>
+                            <span class="tag">Validation</span>
+                            <span class="tag">Animation</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <span class="letter-icon"><i class="fas fa-graduation-cap"></i></span>
+                        <h3>Academic Assessments</h3>
+                    </div>
+                    <p>Professional evaluation materials demonstrating advanced table design, responsive layouts, and implementation of complex academic scheduling systems.</p>
+                    <div class="card-footer">
+                        <a href="class_tests/" class="card-link">
+                            <i class="fas fa-certificate"></i> View Assessments
+                        </a>
+                        <div class="tags">
+                            <span class="tag">Academic</span>
+                            <span class="tag">Professional</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sections" class="section">
+            <h2><i class="fas fa-layer-group"></i> Course Materials</h2>
+            <p>Comprehensive learning modules covering fundamental to advanced web development concepts with practical implementations and real-world applications.</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="letter-icon">01</span>
+                        <h3>HTML Fundamentals</h3>
+                    </div>
+                    <p>Master HTML document structure, semantic elements, accessibility principles, and foundational web development concepts through hands-on practice and real-world examples.</p>
+                    <div class="card-footer">
+                        <a href="classes/class_01/" class="card-link">
+                            <i class="fas fa-play"></i> Start Learning
+                        </a>
+                        <div class="tags">
+                            <span class="tag">Foundation</span>
+                            <span class="tag">Semantic</span>
+                            <span class="tag">Structure</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <span class="letter-icon">02</span>
+                        <h3>Advanced Elements</h3>
+                    </div>
+                    <p>Deep dive into advanced HTML5 elements, multimedia integration, form controls, and modern markup techniques for creating professional web applications.</p>
+                    <div class="card-footer">
+                        <a href="classes/class_02/" class="card-link">
+                            <i class="fas fa-code"></i> Explore Advanced
+                        </a>
+                        <div class="tags">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">Multimedia</span>
+                            <span class="tag">Advanced</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <span class="letter-icon">03</span>
+                        <h3>Forms & CSS Integration</h3>
+                    </div>
+                    <p>Master form development with advanced validation, CSS styling techniques, responsive design patterns, and user experience optimization for modern web forms.</p>
+                    <div class="card-footer">
+                        <a href="classes/class_03/" class="card-link">
+                            <i class="fas fa-edit"></i> Build Forms
+                        </a>
+                        <div class="tags">
+                            <span class="tag">Forms</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">UX</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <span class="letter-icon">04</span>
+                        <h3>CSS Mastery & Interactions</h3>
+                    </div>
+                    <p>Advanced CSS techniques including pseudo-classes, animations, responsive design, and interactive user interfaces for creating engaging web experiences.</p>
+                    <div class="card-footer">
+                        <a href="classes/class_04/" class="card-link">
+                            <i class="fas fa-magic"></i> Master CSS
+                        </a>
+                        <div class="tags">
+                            <span class="tag">CSS3</span>
+                            <span class="tag">Interactive</span>
+                            <span class="tag">Animation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-tools"></i> Resources & Documentation</h2>
+            <p>Comprehensive resources, guides, and technical documentation to support your web development learning journey.</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="letter-icon"><i class="fas fa-file-alt"></i></span>
+                        <h3>Lab Reports</h3>
+                    </div>
+                    <p>Detailed technical documentation, research findings, and analytical reports demonstrating deep understanding of web development concepts and implementations.</p>
+                    <div class="card-footer">
+                        <a href="lab_reports/" class="card-link">
+                            <i class="fas fa-file-download"></i> Access Reports
+                        </a>
+                        <div class="tags">
+                            <span class="tag">Research</span>
+                            <span class="tag">Analysis</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <span class="letter-icon"><i class="fas fa-sitemap"></i></span>
+                        <h3>Project Architecture</h3>
+                    </div>
+                    <p>Comprehensive overview of project organization, file structure, development workflow, and architectural decisions for scalable web development.</p>
+                    <div class="card-footer">
+                        <a href="#" class="card-link">
+                            <i class="fas fa-eye"></i> View Architecture
+                        </a>
+                        <div class="tags">
+                            <span class="tag">Structure</span>
+                            <span class="tag">Workflow</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <span class="letter-icon"><i class="fab fa-github"></i></span>
+                        <h3>Source Code Repository</h3>
+                    </div>
+                    <p>Complete project source code with version control history, collaborative features, and comprehensive documentation for transparent development process.</p>
+                    <div class="card-footer">
+                        <a href="https://github.com/MrMajharul/web-programming-lab" class="card-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> GitHub Repository
+                        </a>
+                        <div class="tags">
+                            <span class="tag">Git</span>
+                            <span class="tag">Open Source</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <span class="letter-icon"><i class="fas fa-chart-line"></i></span>
+                        <h3>Learning Progress</h3>
+                    </div>
+                    <p>Track learning milestones, skill development progress, and achievement metrics throughout the comprehensive web development learning journey.</p>
+                    <div class="card-footer">
+                        <a href="index.html" class="card-link">
+                            <i class="fas fa-chart-bar"></i> View Progress
+                        </a>
+                        <div class="tags">
+                            <span class="tag">Metrics</span>
+                            <span class="tag">Progress</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p><strong><i class="fas fa-university"></i> Green University of Bangladesh | Department of Computer Science & Engineering</strong></p>
+        <p><i class="fas fa-user-graduate"></i> Student: <strong>Majharul Islam</strong> | <i class="fas fa-id-badge"></i> ID: <strong>232002256</strong></p>
+        <p><i class="fas fa-envelope"></i> Professional Web Development Portfolio | <i class="fas fa-calendar"></i> Academic Year 2025</p>
+        <p>
+            <a href="main_website/index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a> • 
+            <a href="#overview"><i class="fas fa-arrow-up"></i> Back to Top</a> • 
+            <a href="https://github.com/MrMajharul/web-programming-lab" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+        </p>
+        <p style="margin-top: 20px; opacity: 0.7;">
+            <i class="fas fa-copyright"></i> 2025 Web Programming Lab - Professional Learning Portfolio. All rights reserved.
+        </p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add loading animation for external links
+        document.querySelectorAll('a[href^="http"], a[href$=".html"]').forEach(link => {
+            link.addEventListener('click', function() {
+                const originalText = this.innerHTML;
+                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                }, 1000);
+            });
+        });
+
+        // Intersection Observer for card animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards for animation
+        document.querySelectorAll('.card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+            observer.observe(card);
+        });
+
+        // Enhanced hover effects
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Dynamic badge animation
+        document.querySelectorAll('.badge').forEach((badge, index) => {
+            badge.style.animationDelay = `${index * 0.1}s`;
+            badge.classList.add('animate-badge');
+        });
+    </script>
+
+    <style>
+        @keyframes animate-badge {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-badge {
+            animation: animate-badge 0.5s ease forwards;
+        }
+
+        /* Additional hover effects */
+        .letter-icon {
+            transition: all 0.3s ease;
+        }
+
+        .card:hover .letter-icon {
+            transform: rotate(5deg) scale(1.1);
+        }
+
+        .nav-links a {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .nav-links a:hover::before {
+            left: 100%;
+        }
+    </style>
+</body>
+</html>
