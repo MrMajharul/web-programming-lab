@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback Function</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <script>
+        function display(s){
+            document.getElementById("demo").innerHTML = s;
+
+        }
+        function calculator(n1, n2, Callback){
+            var sum = n1 + n2;
+            if(Callback){
+                Callback(sum);
+            }
+        }
+        calculator(5, 10, display);
+    </script>
+</body>
+</html>

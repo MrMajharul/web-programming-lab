@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax</title>
+</head>
+<body>
+    <div>
+        <button onclick="load()">Ajax</button>
+        <p id="demo"></p>
+    </div>
+    <script>
+        function load(){
+            var a = new XMLHttpRequest();
+            a.open("GET", "https://jsonplaceholder.typicode.com/posts/1");
+
+            a.send();
+            a.onload = function(){
+                document.getElementById("demo").innerHTML = a.responseText;
+            }
+        }
+    </script>
+</body>
+</html>

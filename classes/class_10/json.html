@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+</head>
+<body>
+    <h2>JSON Example</h2>
+    <p id="demo"></p>
+    <script>
+        // Create a JavaScript object
+        const person = {
+            name: "Majharul",
+            age: 22,
+            city: "Narayanganj"
+        };
+
+        // Convert the JavaScript object to a JSON string
+        const jsonString = JSON.stringify(person);
+
+        // Parse the JSON string back to an object
+        const obj = JSON.parse(jsonString);
+
+        // Display the object properties in the HTML element with id="demo"
+        document.getElementById("demo").innerHTML = 
+            "Name: " + obj.name + "<br>" +
+            "Age: " + obj.age + "<br>" +
+            "City: " + obj.city;
+    </script>
+</body>
+</html>
