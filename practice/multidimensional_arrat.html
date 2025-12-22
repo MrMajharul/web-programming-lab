@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multidimensional Array Practice</title>
+</head>
+<body>
+    <p id ="A"></p>
+    <script>
+        var arr = [
+        ["Name", "ID", "Dept."],
+        ["Rahim", "101", "CSE"],
+        ["Karim", "102", "EEE"],
+        ["Salam", "103", "BBA"]
+        ];
+        document.write("<table border='1'>");
+        for (var i=0; i<4; i++){
+            document.write("<tr>");
+            for (var j=0; j<3; j++){
+                document.write("<td>" + arr[i][j] + "</td>");
+            }
+            document.write("</tr>");
+        }
+        document.write("</table>");
+
+    </script>
+    
+</body>
+</html>

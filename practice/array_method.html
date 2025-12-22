@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array methods</title>
+</head>
+<body>
+    <script>
+        var arr = ["Apple", "Banana", "Mango"];
+        var length = arr.length;
+        document.write("Array length: " + length + "<br>");
+        document.write("<br>");
+        document.write("Sorrted array: " + arr.sort() + "<br>");
+        document.write("<br>");
+        document.write("Reversed array: " + arr.reverse() + "<br>");
+        document.write("<br>");
+        document.write("Original array: " + arr + "<br>");
+
+        // Using push() to add an element at the end
+        arr.push("Orange");
+        document.write("After push(): " + arr + "<br>");
+
+        // Using pop() to remove the last element
+        arr.pop();
+        document.write("After pop(): " + arr + "<br>");
+
+        // Using shift() to remove the first element
+        arr.shift();
+        document.write("After shift(): " + arr + "<br>");
+
+        // Using unshift() to add an element at the beginning
+        arr.unshift("Pineapple");
+        document.write("After unshift(): " + arr + "<br>");
+
+        // Using splice() to add/remove elements
+        arr.splice(1, 1, "Grapes"); // Remove 1 element at index 1 and add "Grapes"
+        document.write("After splice(): " + arr + "<br>");
+    </script>
+</body>
+</html>
