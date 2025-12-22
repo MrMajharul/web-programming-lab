@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MySQL Database Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .status {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .status.connected {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #218838;
+        }
+
+        .form-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .form-section.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .data-display {
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background: white;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        .action-btns {
+            display: flex;
+            gap: 5px;
+        }
+
+        .btn-sm {
+            padding: 5px 10px;
+            font-size: 12px;
+        }
+
+        .btn-danger {
+            background: #dc3545;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #c82333;
+        }
+
+        .btn-warning {
+            background: #ffc107;
+            color: #212529;
+        }
+
+        .btn-warning:hover {
+            background: #e0a800;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #667eea;
+            font-size: 18px;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🗄️ MySQL Database Demo</h1>
+        <p class="subtitle">Full CRUD Operations with Node.js & MySQL</p>
+
+        <div id="status" class="status">
+            Checking connection...
+        </div>
+
+        <div class="controls">
+            <button class="btn-primary" onclick="fetchUsers()">📊 Load All Users</button>
+            <button class="btn-success" onclick="toggleForm('add')">➕ Add New User</button>
+            <button class="btn-primary" onclick="testConnection()">🔄 Test Connection</button>
+        </div>
+
+        <!-- Add User Form -->
+        <div id="addForm" class="form-section">
+            <h3>Add New User</h3>
+            <div class="form-group">
+                <label for="addName">Name:</label>
+                <input type="text" id="addName" placeholder="Enter full name">
+            </div>
+            <div class="form-group">
+                <label for="addEmail">Email:</label>
+                <input type="email" id="addEmail" placeholder="Enter email address">
+            </div>
+            <button class="btn-success" onclick="addUser()">Save User</button>
+            <button class="btn-danger" onclick="toggleForm('add')">Cancel</button>
+        </div>
+
+        <!-- Edit User Form -->
+        <div id="editForm" class="form-section">
+            <h3>Edit User</h3>
+            <input type="hidden" id="editId">
+            <div class="form-group">
+                <label for="editName">Name:</label>
+                <input type="text" id="editName" placeholder="Enter full name">
+            </div>
+            <div class="form-group">
+                <label for="editEmail">Email:</label>
+                <input type="email" id="editEmail" placeholder="Enter email address">
+            </div>
+            <button class="btn-success" onclick="updateUser()">Update User</button>
+            <button class="btn-danger" onclick="toggleForm('edit')">Cancel</button>
+        </div>
+
+        <!-- Data Display -->
+        <div class="data-display">
+            <h3>Users Database</h3>
+            <div id="dataContainer"></div>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:3000/api';
+
+        // Test connection on load
+        window.addEventListener('DOMContentLoaded', () => {
+            testConnection();
+        });
+
+        async function testConnection() {
+            try {
+                const response = await fetch(`${API_URL}/test`);
+                const data = await response.json();
+                document.getElementById('status').className = 'status connected';
+                document.getElementById('status').textContent = '✅ Connected to server: ' + data.message;
+            } catch (error) {
+                document.getElementById('status').className = 'status error';
+                document.getElementById('status').textContent = '❌ Server not running. Start with: npm start';
+            }
+        }
+
+        function toggleForm(formType) {
+            const form = document.getElementById(formType + 'Form');
+            form.classList.toggle('active');
+            
+            if (formType === 'add' && !form.classList.contains('active')) {
+                document.getElementById('addName').value = '';
+                document.getElementById('addEmail').value = '';
+            }
+        }
+
+        async function fetchUsers() {
+            const container = document.getElementById('dataContainer');
+            container.innerHTML = '<div class="loading">Loading users...</div>';
+
+            try {
+                const response = await fetch(`${API_URL}/users`);
+                const users = await response.json();
+
+                if (users.length === 0) {
+                    container.innerHTML = '<div class="empty-state">No users found. Add some users!</div>';
+                    return;
+                }
+
+                let html = '<table><thead><tr><th>ID</th><th>Name</th><th>Email</th><th>Created</th><th>Actions</th></tr></thead><tbody>';
+                
+                users.forEach(user => {
+                    html += `
+                        <tr>
+                            <td>${user.id}</td>
+                            <td>${user.name}</td>
+                            <td>${user.email}</td>
+                            <td>${new Date(user.created_at).toLocaleDateString()}</td>
+                            <td class="action-btns">
+                                <button class="btn-warning btn-sm" onclick="editUser(${user.id}, '${user.name}', '${user.email}')">Edit</button>
+                                <button class="btn-danger btn-sm" onclick="deleteUser(${user.id})">Delete</button>
+                            </td>
+                        </tr>
+                    `;
+                });
+                
+                html += '</tbody></table>';
+                container.innerHTML = html;
+            } catch (error) {
+                container.innerHTML = '<div class="status error">Error loading users: ' + error.message + '</div>';
+            }
+        }
+
+        async function addUser() {
+            const name = document.getElementById('addName').value;
+            const email = document.getElementById('addEmail').value;
+
+            if (!name || !email) {
+                alert('Please fill in all fields');
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_URL}/users`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email })
+                });
+
+                const data = await response.json();
+                
+                if (response.ok) {
+                    alert('✅ User added successfully!');
+                    toggleForm('add');
+                    fetchUsers();
+                } else {
+                    alert('❌ Error: ' + data.error);
+                }
+            } catch (error) {
+                alert('❌ Error: ' + error.message);
+            }
+        }
+
+        function editUser(id, name, email) {
+            document.getElementById('editId').value = id;
+            document.getElementById('editName').value = name;
+            document.getElementById('editEmail').value = email;
+            document.getElementById('editForm').classList.add('active');
+        }
+
+        async function updateUser() {
+            const id = document.getElementById('editId').value;
+            const name = document.getElementById('editName').value;
+            const email = document.getElementById('editEmail').value;
+
+            if (!name || !email) {
+                alert('Please fill in all fields');
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_URL}/users/${id}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email })
+                });
+
+                const data = await response.json();
+                
+                if (response.ok) {
+                    alert('✅ User updated successfully!');
+                    toggleForm('edit');
+                    fetchUsers();
+                } else {
+                    alert('❌ Error: ' + data.error);
+                }
+            } catch (error) {
+                alert('❌ Error: ' + error.message);
+            }
+        }
+
+        async function deleteUser(id) {
+            if (!confirm('Are you sure you want to delete this user?')) {
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_URL}/users/${id}`, {
+                    method: 'DELETE'
+                });
+
+                const data = await response.json();
+                
+                if (response.ok) {
+                    alert('✅ User deleted successfully!');
+                    fetchUsers();
+                } else {
+                    alert('❌ Error: ' + data.error);
+                }
+            } catch (error) {
+                alert('❌ Error: ' + error.message);
+            }
+        }
+    </script>
+</body>
+</html>

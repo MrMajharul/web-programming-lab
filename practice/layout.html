@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Layout</title>
+    <style>
+    .item1 {grid-area:header;}
+    .item2 {grid-area:menu;}
+    .item3{grid-area: main;}
+    .item4 {grid-area:aside;}
+    .item5 {grid-area:footer;}
+
+
+    .grid-conteiner{
+        display: grid;
+        backgroung-color: cadetblue;
+        /*
+        grid-template-areas: 'header header header header header header' 'menu main main main main aside' 'footer footer footer footer footer footer';
+        */
+        grid-template-columns: auto auto auto auto auto auto;
+    }
+
+    .grid-conteiner > div{
+        border-contener: 3px solid blueviolet;
+        padding: 10px;
+        text-align: center;
+
+    }
+
+
+    </style>
+</head>
+    <body>
+       <div class="grid-container">
+        <div class="item1"> <h1>Header</h1></div>
+       <div class="item2"> <h1>Menu</h1></div>
+        <div class="item3">
+            <h1>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum ex molestias nesciunt beatae animi ratione et optio sapiente odit, porro consectetur sit delectus error dolorem voluptatibus nobis dolores quo labore.
+            Corrupti dignissimos ullam aliquid harum nesciunt voluptatem deserunt consequatur quibusdam dicta doloribus beatae cupiditate ab, veritatis nam provident! Voluptatem asperiores temporibus velit molestiae, quo a illum vel id adipisci nihil!
+            Asperiores harum unde ipsum ducimus iure veritatis eius quas? Consequatur sunt totam sequi, reprehenderit ipsum repudiandae recusandae eius molestias facilis dignissimos dolorem minus suscipit adipisci, placeat inventore animi laudantium molestiae.
+            Aut adipisci nulla recusandae quibusdam nam cum autem fugit illum cupiditate laborum qui earum veritatis dolorem, voluptatem, tempora nesciunt! Nesciunt consequuntur necessitatibus dicta impedit fugit qui placeat repellendus sunt hic.
+            Libero voluptatibus, voluptatem expedita, temporibus maiores in nemo nulla dolore eveniet sed perferendis modi distinctio! Vitae, hic dolorum ratione enim qui tenetur, adipisci quos ea porro laboriosam laborum pariatur voluptate.
+            Ab possimus, in dicta optio sed dolorem, quos eveniet cumque perferendis veritatis modi nesciunt, mollitia architecto porro. Eligendi temporibus molestiae a fugit dicta molestias, illo inventore distinctio delectus nostrum doloremque?
+            Facilis impedit itaque tempora temporibus harum! Nesciunt quo maiores assumenda quas aliquid, mollitia iure voluptas sapiente? Unde facere, perspiciatis, beatae repellendus at eum quis optio quia eligendi, totam aperiam veritatis!
+            Suscipit ducimus quod obcaecati doloribus iusto amet laboriosam possimus nulla iste voluptatem, aspernatur eos nesciunt animi adipisci numquam expedita, dolores earum. A earum nobis quaerat natus dolores sapiente ipsa culpa!
+            Ex eos aperiam ducimus porro debitis at ad fuga officiis nihil reiciendis ullam, beatae quas! Incidunt eius consequuntur placeat odio omnis nam, tempora nisi animi repudiandae illum! Ex, architecto quibusdam!
+            Dolores aut delectus fuga accusamus sint temporibus error et vel similique commodi ea praesentium mollitia sequi cum, illum dolore distinctio unde suscipit enim minima tempora. Ullam, exercitationem odio. Ipsum, aut.</h1>
+        </div>
+        <div class="item4"> <h1>Aside</h1></div>
+        <div class="item5"> <h1>Footer</h1></div>
+        </div>
+    </body>
+</html>
