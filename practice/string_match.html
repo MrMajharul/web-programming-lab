@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Count String Matches</title>
+</head>
+<body>
+<script>
+  let text = prompt("Enter the text:");
+  let pattern = prompt("Enter the word or pattern to count:");
+
+  if (text && pattern) {
+    // Create a regex with global flag to find all matches
+    let regex = new RegExp(pattern, "gi"); // 'gi' = global + case-insensitive
+    let matches = text.match(regex);
+
+    if (matches) {
+      alert(`Pattern "${pattern}" found ${matches.length} times.`);
+    } else {
+      alert(`Pattern "${pattern}" not found.`);
+    }
+  } else {
+       alert("Invalid input!");
+  }
+</script>
+</body>
+</html>

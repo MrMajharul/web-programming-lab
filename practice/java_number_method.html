@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Number method</title>
+</head>
+<body>
+    <script>
+        var num = 15.56789;
+        var a = "Name";
+        var b = true;
+        document.write("Number: " + num + "<br>");
+        document.write("toFixed() method: " + num.toFixed(2) + "<br>");
+        document.write("toPrecision() method: " + num.toPrecision(4) + "<br>");
+        document.write("toString() method: " + num.toString() + "<br>");
+        document.write("valueOf() method: " + num.valueOf() + "<br>");  
+        document.write("toExponential() method: " + num.toExponential(3) + "<br>");
+        document.write("toLocaleString() method: " + num.toLocaleString() + "<br>");
+        document.write("parseInt() method: " + parseInt(num) + "<br>");
+        document.write("parseFloat() method: " + parseFloat(num) + "<br>");
+        document.write("isNaN() method: " + isNaN(num) + "<br>");
+        document.write("isFinite() method: " + isFinite(num) + "<br>");
+        document.write("MAX_VALUE: " + Number.MAX_VALUE + "<br>");
+        document.write("MIN_VALUE: " + Number.MIN_VALUE + "<br>");
+        document.write("POSITIVE_INFINITY: " + Number.POSITIVE_INFINITY + "<br>");
+        document.write("NEGATIVE_INFINITY: " + Number.NEGATIVE_INFINITY + "<br>");
+        document.write("EPSILON: " + Number.EPSILON + "<br>");
+        document.write("MAX_SAFE_INTEGER: " + Number.MAX_SAFE_INTEGER + "<br>");
+        document.write("MIN_SAFE_INTEGER: " + Number.MIN_SAFE_INTEGER + "<br>");
+        document.write("NaN: " + Number.NaN + "<br>");
+        document.write("Convertnumber to string: " +(5+2.5.toString()) + "<br>");
+        document.write("Convert string to number: " +(5+parseFloat("2.5")) + "<br>");
+        document.write("Convert string to float number: " +parseFloat(num) + "<br>");   
+        document.write("Convert argument to number: "+ Number(a) + "<br>");
+    </script>
+</body>
+</html>

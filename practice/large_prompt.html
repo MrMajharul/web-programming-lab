@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Find Largest Number</title>
+</head>
+<body>
+<script>
+  // Ask user how many numbers they want to enter
+  let count = parseInt(prompt("How many numbers do you want to enter?"), 10);
+  if (isNaN(count) || count <= 0) {
+    alert("Invalid count!");
+  } else {
+    let largest = -Infinity;
+    for (let i = 0; i < count; i++) {
+      let num = parseFloat(prompt(`Enter number ${i + 1}:`));
+      if (!isNaN(num) && num > largest) {
+        largest = num;
+      }
+    }
+    alert("The largest number is: " + largest);
+  }
+</script>
+</body>
+</html>

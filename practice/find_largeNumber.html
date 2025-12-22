@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Find Largest Number</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 2rem; }
+    .card { max-width: 600px; padding: 1rem; border: 1px solid #ddd; border-radius: 10px; }
+    label { font-weight: 600; }
+    input, button, select { padding: 0.6rem; font-size: 1rem; }
+    button { cursor: pointer; }
+    .row { display: flex; gap: 0.75rem; margin-top: 0.8rem; flex-wrap: wrap; }
+    .result { margin-top: 1rem; padding: 0.8rem; border-radius: 8px; background: #f5f5f5; }
+    .error { color: #b00020; }
+    .muted { color: #666; font-size: 0.95rem; }
+    code { background: #eee; padding: 0.2rem 0.4rem; border-radius: 4px; }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h2>Find the Largest Number</h2>
+    <p class="muted">Enter numbers separated by commas, e.g. <code>12, 3.5, -7, 42</code></p>
+
+    <label for="numbersInput">Numbers</label>
+    <input id="numbersInput" type="text" placeholder="e.g., 12, 3.5, -7, 42" style="width:100%;" />
+
+    <div class="row">
+      <button id="findMaxBtn">Find Largest</button>
+      <button id="clearBtn" aria-label="Clear input">Clear</button>
+    </div>
+
+    <div id="maxResult" class="result" aria-live="polite"></div>
+  </div>
+
+  <script>
+    const numbersInput = document.getElementById('numbersInput');
+    const findMaxBtn = document.getElementById('findMaxBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const maxResult = document.getElementById('maxResult');
+
+    function parseNumbers(input) {
+      return input
+        .split(',')
+        .map(s => s.trim())
+        .filter(s => s.length > 0)
+        .map(s => Number(s))
+        .filter(n => Number.isFinite(n));
+    }
+
+    function findMax(arr) {
+      // Avoid Math.max(...arr) for very large arrays; use reduce
+      return arr.reduce((max, n) => (n > max ? n : max), -Infinity);
+    }
+
+    findMaxBtn.addEventListener('click', () => {
+      const numbers = parseNumbers(numbersInput.value);
+      const invalidCount = numbersInput.value
+        .split(',')
+        .map(s => s.trim())
+        .filter(s => s.length > 0)
+        .filter(s => !Number.isFinite(Number(s))).length;
+
+      if (numbers.length === 0) {
+        maxResult.innerHTML = `<span class="error">Please enter at least one valid number.</span>`;
+        return;
+      }
+
+      const largest = findMax(numbers);
+      maxResult.innerHTML = `
+        <strong>Largest number:</strong> ${largest}
+        <br />
+        <span class="muted">Valid count: ${numbers.length}${invalidCount ? `, ignored invalid: ${invalidCount}` : ''}</span>
+      `;
+    });
+
+    clearBtn.addEventListener('click', () => {
+      numbersInput.value = '';
+      maxResult.textContent = '';
+      numbersInput.focus();
+    });
+  </script>
+</body>
+</html>
